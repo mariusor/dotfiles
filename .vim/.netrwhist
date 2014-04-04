@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/home/habarnam/Documents/work/ticket#4050'
-let g:netrw_dirhist_2='/home/habarnam/workspace/avangate.git/3rdparty/socrate_sync/data/shopper_invoices'
-let g:netrw_dirhist_3='/home/habarnam/workspace/avangate.git/3rdparty/socrate_sync/data'
-let g:netrw_dirhist_4='/home/habarnam/workspace/avangate.git/3rdparty/socrate_sync'
-let g:netrw_dirhist_5='/home/habarnam/workspace/avangate.git/3rdparty/socrate_sync/archive'
-let g:netrw_dirhist_6='/home/habarnam/workspace/avangate.git/3rdparty/socrate_sync/archive/shopper_invoices'
-let g:netrw_dirhist_7='/home/habarnam/.config/gtk-kde4'
