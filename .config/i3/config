@@ -148,3 +148,7 @@ bindsym $mod+r mode "resize"
 bar {
         status_command i3status
 }
+# the volume keys need pulseaudio-ctl AUR package
+bindsym XF86AudioMute exec "/usr/bin/pulseaudio-ctl mute"
+bindsym XF86AudioRaiseVolume exec "/usr/bin/pulseaudio-ctl up"
+bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
