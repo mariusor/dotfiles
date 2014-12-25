@@ -1,11 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [ -f /usr/share/gentoo-bashrc/bashrc ]; then
-    # archlinux aur gentoo bash.rc file
-    source /usr/share/gentoo-bashrc/bashrc
-fi
-
 umask 002
 alias ls='ls --color=auto'
 
@@ -15,6 +10,9 @@ export EDITOR="/usr/bin/vim"
 export CVS_RSH=ssh
 PATH=$PATH:/opt/java/jre/bin/
 
+test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
+test -r "/usr/share/gentoo-bashrc/bashrc" && . "/usr/share/gentoo-bashrc/bashrc"
+
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
@@ -22,6 +20,5 @@ else
 fi
 
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
-alias phpunit="sudo -u http /usr/bin/phpunit"
 
 export GOPATH=~/go
