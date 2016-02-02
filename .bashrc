@@ -46,3 +46,5 @@ alias remind='notify-send "$2" | at now + $1 min &>/dev/null'
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 
 complete -C '/usr/bin/aws_completer' aws
+
+alias nvim="TERM=xterm-256color nvim"
