@@ -1,0 +1,1 @@
+/home/habarnam/workspace/dotfiles/.config/nvim
