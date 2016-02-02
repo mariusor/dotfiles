@@ -28,10 +28,20 @@ wireless wlp1s0 {
         format_down = "W: down"
 }
 
+wireless wlp2s0 {
+        format_up = "W: (%quality at %essid) %ip"
+        format_down = "W: down"
+}
+
+
 ethernet enp2s0 {
         # if you use %speed, i3status requires root privileges
         format_up = "E: %ip (%speed)"
         format_down = "E: down"
+}
+
+battery 0 {
+        format = "%status %percentage %remaining"
 }
 
 battery 1 {
