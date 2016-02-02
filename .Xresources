@@ -1,20 +1,19 @@
 Xcursor.theme: Vanilla-DMZ-AA
-Xcursor.size:  24
+Xcursor.size:  32
 
 ! Xft settings ---------------------------------------------------------------
 
-Xft.dpi:        100
+Xft.dpi:        191
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle:  hintslight
-Xft.lcdfilter: lcddefault
+Xft.lcdfilter:  lcddefault
 
 
-urxvt*faceName:terminus
-urxvt*faceSize:10
-xterm*faceName:terminus
-xterm*faceSize:10
+*faceName:terminus
+*faceSize:9
+*faceStyle:regular
 !*font:               xft:Terminus
 *dynamicColors:      true
 *utf8:               2
