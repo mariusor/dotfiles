@@ -3,7 +3,7 @@ Xcursor.size:  24
 
 ! Xft settings ---------------------------------------------------------------
 
-Xft.dpi:        100
+Xft.dpi:        191
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
@@ -12,8 +12,8 @@ Xft.lcdfilter: lcddefault
 Xft.autohint:   0
 
 
-*faceName:DejaVuSansMonoForPowerline
-*faceSize:9
+*faceName:DejaVuSansMono
+*faceSize:8
 *faceStyle:regular
 !*font:               xft:Terminus
 !*font: xft:DejaVu Sans Mono:pixelsize=8,xft:DejaVu Sans Mono\ for\ Powerline:pixelsize=8
