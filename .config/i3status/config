@@ -11,13 +11,14 @@ general {
         interval = 5
 }
 
-#order += "ipv6"
 order += "disk /"
 order += "disk /home"
 #order += "run_watch DHCP"
 #order += "run_watch VPN"
 order += "wireless wlp1s0"
 order += "ethernet enp2s0"
+order += "ipv6"
+order += "volume master"
 order += "battery 1"
 order += "load"
 order += "tztime local"
@@ -54,8 +55,21 @@ load {
 }
 
 disk "/" {
-        format = "/ %avail %total"
+        #format = "/ %avail %total"
+        format = "/ %percentage_used"
 }
 disk "/home" {
-        format = "/home %avail %total"
+        #format = "/home %avail %total"
+        format = "/home %percentage_used"
+}
+ipv6 {
+    format_up = "%ip"
+    format_down = "no IPv6"
+}
+volume master {
+    format = "♪ %volume"
+    format_muted = "♪ muted (%volume)"
+    device = "default"
+    mixer = "Master"
+    mixer_idx = 0
 }
