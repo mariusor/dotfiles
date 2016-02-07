@@ -7,7 +7,7 @@ alias ls='ls --color=auto'
 
 [[ -f /etc/profile ]] && . /etc/profile
 
-export EDITOR="/usr/bin/vim"
+export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
 PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/bin
 
