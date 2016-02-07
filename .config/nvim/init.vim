@@ -1,12 +1,17 @@
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-Plug 'tpope/vim-sensible'
-Plug 'godlygeek/tabular'
-Plug 'plasticboy/vim-markdown'
-Plug 'elzr/vim-json'
-
-Plug 'ChesleyTan/wordCount.vim'
+    Plug 'tpope/vim-sensible'
+    Plug 'godlygeek/tabular'
+    Plug 'plasticboy/vim-markdown'
+    Plug 'elzr/vim-json'
+    Plug 'tpope/vim-surround'
+    Plug 'wellle/targets.vim'
+    "Plug 'justinmk/vim-dirvish'
+    Plug 'airblade/vim-gitgutter'
+    Plug 'ChesleyTan/wordCount.vim'
+    "Plug 'unblevable/quick-scope'
+    Plug 'mbbill/undotree'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -15,7 +20,6 @@ colorscheme darkburn
 set nobackup
 set nowritebackup
 set noswapfile
-"syntax enable
 set ignorecase
 "set lcs=tab:>-,eol:$,nbsp:X
 set tabstop=4
@@ -30,13 +34,6 @@ nmap <silent> <F2> :set nonumber!<CR>
 set statusline+=''
 
 set incsearch
-if has("gui_running")
-  if has("gui_gtk2")
-	colorscheme darkburn
-	set guifont=Terminus\ 9
-	set guioptions-=r
-  endif
-endif
 set t_Co=256
 "map <c-w><c-f> :FirstExplorerWindow<cr>
 "map <c-w><c-b> :BottomExplorerWindow<cr>
