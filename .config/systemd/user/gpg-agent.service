@@ -1,0 +1,7 @@
+[Service]
+Type=forking
+ExecStart=/usr/bin/gpg-agent --daemon --enable-ssh-support --homedir %h/.gnupg
+
+[Install]
+WantedBy=multi-user.target
+
