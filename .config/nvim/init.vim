@@ -7,11 +7,13 @@ call plug#begin('~/.vim/plugged')
     Plug 'elzr/vim-json'
     Plug 'tpope/vim-surround'
     Plug 'wellle/targets.vim'
-    "Plug 'justinmk/vim-dirvish'
+    Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
     Plug 'ChesleyTan/wordCount.vim'
-    "Plug 'unblevable/quick-scope'
+    Plug 'unblevable/quick-scope'
     Plug 'mbbill/undotree'
+    Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-unimpaired'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -42,6 +44,8 @@ set t_Co=256
 filetype plugin indent on
 filetype plugin on
 
+
+set spell spelllang=en_gb
 " status
 set statusline=
 set statusline+=%7*\[%n]                                  "buffernr
