@@ -11,15 +11,18 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter: lcddefault
 
 
-urxvt*faceName:terminus
-urxvt*faceSize:10
-xterm*faceName:terminus
-xterm*faceSize:10
+*faceName:DejaVuSansMono
+*faceSize:9
+*faceStyle:regular
 !*font:               xft:Terminus
 *dynamicColors:      true
 *utf8:               2
 *eightBitInput:      true
 !*saveLines:          512
+XTerm*metaSendsEscape: true
+XTerm*termName: xterm-256color
+XTerm*locale: true
+XTerm*utf8:    2
 
 ! tangoesque scheme
 *background: #111111
