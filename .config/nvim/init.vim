@@ -1,5 +1,5 @@
 " vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
     Plug 'tpope/vim-sensible'
     Plug 'godlygeek/tabular'
@@ -14,6 +14,8 @@ call plug#begin('~/.vim/plugged')
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-unimpaired'
+    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -33,7 +35,7 @@ set fileencoding=utf-8
 
 nmap <silent> <F2> :set nonumber!<CR>
 
-set statusline+=''
+"set statusline+=''
 
 set incsearch
 set t_Co=256
@@ -44,18 +46,21 @@ set t_Co=256
 filetype plugin indent on
 filetype plugin on
 
+" airline
+"set laststatus=2
+let g:airline_powerline_fonts = 1
 
 set spell spelllang=en_gb
 " status
-set statusline=
-set statusline+=%7*\[%n]                                  "buffernr
-set statusline+=%1*\ %<%t\                                "File+path
-set statusline+=%2*\ %y\                                  "FileType
-set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
-set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
-set statusline+=%9*\ col:%03c\                            "Colnr
-set statusline+=%9*\ words:%04{wordCount#WordCount()}\     "Word count
-set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
-
+"set statusline=
+"set statusline+=%7*\[%n]                                  "buffernr
+"set statusline+=%1*\ %<%t\                                "File+path
+"set statusline+=%2*\ %y\                                  "FileType
+"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
+"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
+"set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
+"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
+"set statusline+=%9*\ col:%03c\                            "Colnr
+"set statusline+=%9*\ words:%04{wordCount#WordCount()}\     "Word count
+"set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
+"
