@@ -7,11 +7,11 @@ alias ls='ls --color=auto'
 
 [[ -f /etc/profile ]] && . /etc/profile
 
-#export TERMINAL="/usr/bin/uxterm"
+export TERMINAL="/usr/bin/konsole --hide-tabbar"
 export TERM="xterm-256color"
 export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
-PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/bin
+export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/bin
 
 test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
 test -r "/usr/share/gentoo-bashrc/bashrc" && . "/usr/share/gentoo-bashrc/bashrc"
@@ -29,15 +29,15 @@ alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 #fi
 
 # Set SSH to use gpg-agent
-#unset SSH_AGENT_PID
-#if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
-#    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
-#fi
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    export SSH_AUTH_SOCK="${HOME}/.gnupg/S.gpg-agent.ssh"
+fi
 
 
-#GPG_TTY=$(tty); export GPG_TTY
-#SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
-#unset SSH_ASKPASS
+GPG_TTY=$(tty); export GPG_TTY
+SSH_AUTH_SOCK=~/.gnupg/S.gpg-agent.ssh; export SSH_AUTH_SOCK;
+unset SSH_ASKPASS
 
 # Refresh gpg-agent tty in case user switches into an X session
 #gpg-connect-agent updatestartuptty /bye >/dev/null
