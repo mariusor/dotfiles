@@ -9,7 +9,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'wellle/targets.vim'
     Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
-    Plug 'ChesleyTan/wordCount.vim'
     Plug 'unblevable/quick-scope'
     Plug 'mbbill/undotree'
     Plug 'tpope/vim-eunuch'
