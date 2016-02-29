@@ -175,7 +175,7 @@ new_window 1pixel
 
 exec --no-startup-id nitrogen --restore
 
-bindsym $mod+Shift+right workspace next_on_output
-bindsym $mod+Shift+left workspace prev_on_output
+bindsym $mod+Shift+Right workspace next_on_output
+bindsym $mod+Shift+Left workspace prev_on_output
 
 for_window [class="vimb"] focus child, layout tabbed, focus
