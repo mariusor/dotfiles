@@ -7,7 +7,7 @@ alias ls='ls --color=auto'
 
 [[ -f /etc/profile ]] && . /etc/profile
 
-export TERMINAL="/usr/bin/konsole --hide-tabbar"
+export TERMINAL="/usr/bin/termite"
 export TERM="xterm-256color"
 export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
