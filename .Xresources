@@ -3,13 +3,13 @@ Xcursor.size:  32
 
 ! Xft settings ---------------------------------------------------------------
 
-Xft.dpi:        191
+Xft.dpi:        180
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
-Xft.autohint:   0
+Xft.autohint:   1
 
 
 *faceName:DejaVuSansMono
