@@ -24,12 +24,6 @@ export EDITOR="/usr/bin/nvim"
 #export SHELL="/usr/bin/fish"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
-<<<<<<< 3fea7b6db9a403927f72e665ffdb62df09bae2fb
-=======
-
-test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
-test -r "/usr/share/gentoo-bashrc/bashrc" && . "/usr/share/gentoo-bashrc/bashrc"
->>>>>>> Changed the local bin path to one in .local
 
 test -r "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh"
 
