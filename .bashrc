@@ -11,7 +11,7 @@ export TERMINAL="/usr/bin/termite"
 export TERM="xterm-256color"
 export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
-export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/bin
+export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
 
 test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
 test -r "/usr/share/gentoo-bashrc/bashrc" && . "/usr/share/gentoo-bashrc/bashrc"
