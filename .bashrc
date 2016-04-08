@@ -14,7 +14,6 @@ export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
 
 test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
-test -r "/usr/share/gentoo-bashrc/bashrc" && . "/usr/share/gentoo-bashrc/bashrc"
 
 if [[ ${EUID} == 0 ]] ; then
     PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
@@ -43,7 +42,6 @@ unset SSH_ASKPASS
 #gpg-connect-agent updatestartuptty /bye >/dev/null
 
 export GOPATH=~/go
-alias remind='notify-send "$2" | at now + $1 min &>/dev/null'
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 
