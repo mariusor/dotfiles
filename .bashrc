@@ -13,13 +13,7 @@ export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
 
-test -r "/usr/share/git/completion/git-prompt.sh"  && . "/usr/share/git/completion/git-prompt.sh"
-
-if [[ ${EUID} == 0 ]] ; then
-    PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
-else
-    PS1='\n[\t] $(es=$?; if [ $es -ne 0 ]; then echo $es" "; fi)\[\e[1;32m\]\u\[\e[0;39m\]@\[\e[1;36m\]\h\[\e[0;39m\]:\[\e[1;33m\]\w\[\e[0;39m\]\[\e[1;35m\]$(__git_ps1 " (%s)")\[\e[0;39m\] \[\e[0;39m\]\n$ '
-fi
+test -r "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh"
 
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 # Start the gpg-agent if not already running
