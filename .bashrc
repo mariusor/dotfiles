@@ -23,7 +23,7 @@ fi
 export EDITOR="/usr/bin/nvim"
 #export SHELL="/usr/bin/fish"
 export CVS_RSH=ssh
-export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
+export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin:~/.gem/ruby/2.3.0/bin:~/opt/dynamic-colors/bin/
 
 test -r "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh"
 
@@ -47,7 +47,7 @@ unset SSH_ASKPASS
 # Refresh gpg-agent tty in case user switches into an X session
 #gpg-connect-agent updatestartuptty /bye >/dev/null
 
-export GOPATH=~/.local/share/go
+export GOPATH=~/.local/opt/go
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 complete -C '/usr/bin/aws_completer' aws
