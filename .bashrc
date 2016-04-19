@@ -46,7 +46,7 @@ unset SSH_ASKPASS
 # Refresh gpg-agent tty in case user switches into an X session
 gpg-connect-agent updatestartuptty /bye >/dev/null
 
-export GOPATH=~/.local/share/go
+export GOPATH=~/.local/opt/go
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 complete -C '/usr/bin/aws_completer' aws
