@@ -7,14 +7,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'elzr/vim-json'
     Plug 'tpope/vim-surround'
     Plug 'wellle/targets.vim'
-    Plug 'justinmk/vim-dirvish'
+"    Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
     Plug 'unblevable/quick-scope'
     Plug 'mbbill/undotree'
-    Plug 'tpope/vim-eunuch'
+"    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+"    Plug 'tpope/vim-fugitive'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -37,7 +38,7 @@ nmap <silent> <F2> :set nonumber!<CR>
 "set statusline+=''
 
 set incsearch
-set t_Co=256
+"set t_Co=256
 "map <c-w><c-f> :FirstExplorerWindow<cr>
 "map <c-w><c-b> :BottomExplorerWindow<cr>
 "map <c-w><c-t> :WMToggle<cr> 
