@@ -1,14 +1,19 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-export LC_ALL="en_US.UTF-8"
+export LC_ALL="en_US.UTF8"
+export LANG="en_US"
 umask 002
 alias ls='ls --color=auto'
 
 [[ -f /etc/profile ]] && . /etc/profile
 
 export TERMINAL="/usr/bin/termite"
-export TERM="xterm-256color"
+if [ -n "$TMUX" ]; then
+    export TERM="screen-256color"
+else
+    export TERM="xterm-256color"
+fi
 export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin
@@ -35,7 +40,7 @@ unset SSH_ASKPASS
 # Refresh gpg-agent tty in case user switches into an X session
 #gpg-connect-agent updatestartuptty /bye >/dev/null
 
-export GOPATH=~/go
+export GOPATH=~/.local/share/go
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 
