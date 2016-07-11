@@ -174,6 +174,7 @@ bindsym $mod+x [urgent=latest] focus
 new_window 1pixel
 
 exec --no-startup-id nitrogen --restore
+exec --no-startup-id compton -b
 
 bindsym $mod+Shift+Right workspace next_on_output
 bindsym $mod+Shift+Left workspace prev_on_output
