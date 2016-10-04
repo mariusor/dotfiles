@@ -7,7 +7,7 @@ set $mod Mod3
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:DejaVu Sans Mono 12
+font pango:Terminus 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -140,7 +140,7 @@ bindsym XF86AudioMute exec "/usr/bin/pulseaudio-ctl mute"
 bindsym XF86AudioRaiseVolume exec "/usr/bin/pulseaudio-ctl up"
 bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
 
-set $Locker swaylock -c 222222 && sleep 1
+set $Locker swaylock -c 222222 
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -165,7 +165,7 @@ for_window [class="vimb"] focus child, layout tabbed, focus
 
 gaps inner 5
 
-output eDP-1 res 1920x1080 bg ~/Pictures/wallpapers/micleusanu-fog.jpg fill
+output "*" res 1920x1080 bg ~/Pictures/wallpapers/micleusanu-blur.jpg fill
 
 input 2:14:ETPS/2_Elantech_Touchpad {
     tap enabled 
@@ -174,5 +174,6 @@ input 2:14:ETPS/2_Elantech_Touchpad {
     scroll_method two_finger
 }
 
-exec "/usr/bin/xrdb -merge ~/.Xresources"
+exec xrdb -merge ~/.Xresources
 
+exec $Locker
