@@ -1,4 +1,4 @@
-"hg7257
+"7296
 
 loadplugins '\.(js|penta)$'
 group user
@@ -47,7 +47,7 @@ highlight URL text-decoration: none; color: #9ECE9E; background: inherit; backgr
 highlight WarningMsg color:#ffffff; background-color:#333333 !important; font-weight:bold;
 highlight WarningMsg>* color:#ffffff; background-color:#333333 !important; font-weight:bold;
 set cdpath=''
-set complete=search,bookmark
+set complete=native:unifiedcomplete
 set defsearch=duckduckgo
 set guioptions=CscM
 set maxitems=12
