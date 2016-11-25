@@ -1,5 +1,8 @@
 set $mod Mod4
 
+exec xrdb -merge ~/.Xresources
+exec xrdb -merge ~/.Xresources-$(uname -n)
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -153,5 +156,4 @@ for_window [class="vimb"] focus child, layout tabbed, focus
 gaps inner 2
 
 include "$(uname -n).config"
-exec xrdb -merge ~/.config/sway/Xresources
 
