@@ -1,9 +1,9 @@
 Xcursor.theme: Vanilla-DMZ-AA
-Xcursor.size:  24
+! Xcursor.size:  24
 
 ! Xft settings ---------------------------------------------------------------
 
-Xft.dpi:        100
+!Xft.dpi:        100
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.hinting:    true
