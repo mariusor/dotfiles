@@ -12,10 +12,10 @@ Xft.lcdfilter: lcddefault
 Xft.autohint:   0
 
 
-*faceName:DejaVuSansMonoForPowerline
+!*faceName:DejaVuSansMonoForPowerline
+*faceName:Terminus
 *faceSize:9
 *faceStyle:regular
-!*font:               xft:Terminus
 !*font: xft:DejaVu Sans Mono:pixelsize=8,xft:DejaVu Sans Mono\ for\ Powerline:pixelsize=8
 *dynamicColors:      true
 *utf8:               2
