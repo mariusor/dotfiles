@@ -25,7 +25,7 @@ export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:/opt/java/jre/bin:~/.local/bin:~/.gem/ruby/2.3.0/bin
 
-test -r "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh"
+test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
 
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 # Start the gpg-agent if not already running - this should be disabled if systemd user service is used
@@ -44,7 +44,7 @@ GPG_TTY=$(tty); export GPG_TTY
 unset SSH_ASKPASS
 
 # Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+#gpg-connect-agent updatestartuptty /bye >/dev/null
 
 export GOPATH=~/.local/share/go
 
