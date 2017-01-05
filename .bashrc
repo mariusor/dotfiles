@@ -33,7 +33,9 @@ GPG_TTY=$(tty); export GPG_TTY
 unset SSH_ASKPASS
 
 # Refresh gpg-agent tty in case user switches into an X session
-gpg-connect-agent updatestartuptty /bye >/dev/null
+if [ "$EUID" -ne 0 ]; then
+    gpg-connect-agent updatestartuptty /bye >/dev/null
+fi
 
 export GOPATH=~/.local/share/go
 #export GOROOT=~/.local/share/go
