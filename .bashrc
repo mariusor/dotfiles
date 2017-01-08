@@ -43,4 +43,6 @@ export GOPATH=~/.local/share/go
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 complete -C '/usr/bin/aws_completer' aws
 
-eval "$(rbenv init -)"
+if [ which rbenv >/dev/null 2>&1 ]; then
+    eval "$(rbenv init -)"
+fi
