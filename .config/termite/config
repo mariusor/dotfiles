@@ -1,5 +1,5 @@
 [options]
-font = Terminus 9
+font = xos4 Terminus 11
 [colors]
 background = #111111
 foreground = #babdb6
