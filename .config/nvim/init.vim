@@ -15,7 +15,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-"    Plug 'tpope/vim-fugitive'
+    Plug 'tpope/vim-fugitive'
+    Plug 'cfobel/vim-ragel'
+    Plug 'fatih/vim-go'
 " Add plugins to &runtimepath
 call plug#end()
 
