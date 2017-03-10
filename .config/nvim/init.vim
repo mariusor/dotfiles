@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
     Plug 'cfobel/vim-ragel'
     Plug 'fatih/vim-go'
+    Plug 'ntpeters/vim-better-whitespace'
 " Add plugins to &runtimepath
 call plug#end()
 
