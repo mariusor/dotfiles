@@ -2,6 +2,7 @@ set $mod Mod4
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
+#exec source ~/.xinitrc
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -70,28 +71,28 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace  1:一
+bindsym $mod+2 workspace  2:二
+bindsym $mod+3 workspace  3:三
+bindsym $mod+4 workspace  4:四
+bindsym $mod+5 workspace  5:五
+bindsym $mod+6 workspace  6:六
+bindsym $mod+7 workspace  7:七
+bindsym $mod+8 workspace  8:八
+bindsym $mod+9 workspace  9:九
+bindsym $mod+0 workspace 10:十
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace  1:一
+bindsym $mod+Shift+2 move container to workspace  2:二
+bindsym $mod+Shift+3 move container to workspace  3:三
+bindsym $mod+Shift+4 move container to workspace  4:四
+bindsym $mod+Shift+5 move container to workspace  5:五
+bindsym $mod+Shift+6 move container to workspace  6:六
+bindsym $mod+Shift+7 move container to workspace  7:七
+bindsym $mod+Shift+8 move container to workspace  8:八
+bindsym $mod+Shift+9 move container to workspace  9:九
+bindsym $mod+Shift+0 move container to workspace 10:十
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -135,7 +136,8 @@ exec "$Locker"
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id swaymsg exit, mode "default"
+    bindsym e exec --no-startup-id loginctl terminate-session $(loginctl show-user habarnam --property Display --value), mode "default"
+    #bindsym e exec --no-startup-id swaymsg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
@@ -155,5 +157,33 @@ for_window [class="vimb"] focus child, layout tabbed, focus
 
 gaps inner 2
 
-include "$(uname -n).config"
+include "conf.d/$(uname -n).config"
 
+# Status bar uses custom script
+set bg  #323232
+set bgu #323232B0
+set fg  #ffffff
+set fgu #aaaaaa
+
+#                       border  background  text    indicator   child
+client.unfocused        $bgu    $bgu        $fgu      $bgu        $bgu
+client.focused_inactive $bgu    $bgu        $fgu      $bgu        $bgu
+client.focused          $bgu    $bgu        $fg       $bgu        $bgu
+
+bar {
+    tray_output primary
+    font pango:xos4 Terminus 10
+#    pango_markup disabled
+    strip_workspace_numbers yes
+    status_command i3status -c ~/.config/i3status/$(uname -n).config
+    colors {
+        statusline $fg
+        background $bgu
+        focused_background $bgu
+        focused_workspace $bgu $btu $fg
+        active_workspace $bgu $bgu $fg
+        inactive_workspace $bgu $bgu $fgu
+    }
+}
+
+exec startup sway
