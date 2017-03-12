@@ -21,7 +21,7 @@ exec --no-startup-id xrdb -merge ~/.Xresources-$(uname -n)
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 # font pango:DejaVu Sans Mono 10
-font pango:xos4 Terminus 10
+font pango:xos4 Terminus 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -199,8 +199,7 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 # finds out, if available)
 bar {
     tray_output primary
-    font pango:xos4 Terminus 10
-#    pango_markup disabled
+    font pango:xos4 Terminus 8
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
     colors {
@@ -215,4 +214,4 @@ bar {
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton -b
-#exec startup i3
+exec startup i3
