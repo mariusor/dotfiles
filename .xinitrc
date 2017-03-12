@@ -13,8 +13,4 @@ fi
 
 xrdb ~/.Xresources
 xrdb -merge ~/.Xresources-$(uname -n)
-# exec gnome-session
-# exec startkde
-# exec startxfce4
-# ...or the Window Manager of your choice
 # exec i3
