@@ -1,0 +1,3 @@
+for_window [class="chromium"] border none
+for_window [class="firefox"] border none
+for_window [class="vimb"] focus child, layout tabbed, focus
