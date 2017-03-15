@@ -1,18 +1,18 @@
+# sway config file 
+#
+
+set $mod Mod4
+exec xrdb -merge ~/.Xresources
+exec xrdb -merge ~/.Xresources-$(uname -n)
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
-#font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 font pango:xos4 Terminus 10
-
-set $mod Mod4
-
-exec xrdb -merge ~/.Xresources
-exec xrdb -merge ~/.Xresources-$(uname -n)
-#exec source ~/.xinitrc
-
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -66,8 +66,9 @@ bindsym $mod+f fullscreen
 bindsym $mod+comma layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
-#bindsym $mod+apostrophe layout auto_left
-#bindsym $mod+semicolon layout auto next
+bindsym $mod+apostrophe layout auto_left
+bindsym $mod+semicolon layout auto next
+bindsym $mod+backslash layout toggle split # ANSI layout
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -110,7 +111,7 @@ bindsym $mod+b border toggle
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
-#bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -163,14 +164,15 @@ bindsym $mod+Print mode "$mode_system"
 
 bindsym $mod+x [urgent=latest] focus
 
+new_window 1pixel
+
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
-
-for_window [class="vimb"] focus child, layout tabbed, focus
 
 gaps inner 2
 
 include "conf.d/$(uname -n).config"
+include "conf.d/rules"
 
 # Status bar uses custom script
 set bg  #323232
@@ -183,6 +185,8 @@ client.unfocused        $bg    $bgu        $fgu      $bgu        $bgu
 client.focused_inactive $bgu    $bgu        $fgu      $bgu        $bgu
 client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
 bar {
     tray_output primary
     font pango:xos4 Terminus 10
