@@ -72,8 +72,9 @@ bindsym $mod+comma layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
 #bindsym $mod+apostrophe layout auto_left
-#bindsym $mod+semicolon layout auto next
-bindsym $mod+backslash layout toggle split # ANSI layout
+#bindsym $mod+semicolon layout auto next # ANSI layout
+# ANSI layout
+bindsym $mod+backslash layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -151,7 +152,6 @@ bindsym XF86AudioRaiseVolume exec "/usr/bin/pulseaudio-ctl up"
 bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
 
 set $Locker i3lock -c 222222 && sleep 1
-exec "$Locker"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
