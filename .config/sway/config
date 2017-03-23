@@ -148,12 +148,18 @@ bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
 bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
 
+bindsym XF86AudioPlay exec "mpris-ctl pp"
+bindsym XF86AudioStop exec "mpris-ctl stop"
+bindsym XF86AudioNext exec "mpris-ctl next"
+bindsym XF86AudioPrev exec "mpris-ctl prev"
+
+
 set $Locker swaylock -c 222222 
 exec "$Locker"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id $Locker, mode "default"
+    bindsym l exec --no-startup-id mpris-ctl pause && $Locker, mode "default"
     bindsym e exec --no-startup-id loginctl terminate-session $(loginctl show-user habarnam --property Display --value), mode "default"
     #bindsym e exec --no-startup-id swaymsg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
