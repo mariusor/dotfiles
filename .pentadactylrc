@@ -36,7 +36,7 @@ highlight NonText color: #5b605e; background: transparent !important; font-weigh
 highlight Normal color:#dcdccc !important; background-color:#3F3F3F !important; font-size:9pt;
 highlight Number color: #8cd0d3;
 highlight Question color:#ffffff !important; background-color:inherit !important; font-weight:bold;
-highlight REPL font-family: "Lucida Console","Bitstream Vera Sans Mono",Monaco,Consolas,"Courier New",serif; white-space: pre; line-height: 1.4em; margin: 1em 0; padding: 0.5em 0 0.3em 0;
+highlight REPL font-family: monospace; white-space: pre; line-height: 1.4em; margin: 1em 0; padding: 0.5em 0 0.3em 0;
 highlight REPL-E white-space: pre-wrap;
 highlight REPL-P white-space: pre-wrap; margin-bottom: 1em; font-size: 92%; margin: 0.2em 0; border-bottom: 1px dashed #999;
 highlight StatusLineNormal color: #ccdc90; background: black   !important; background-color: #3F3F3F !important;
