@@ -53,6 +53,7 @@ filetype plugin on
 " airline
 "set laststatus=2
 let g:airline_powerline_fonts = 1
+set clipboard=unnamed
 
 set spell spelllang=en_gb
 " status
