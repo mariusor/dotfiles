@@ -115,6 +115,14 @@ bindsym $mod+Shift+8 move container to workspace  8:八
 bindsym $mod+Shift+9 move container to workspace  9:九
 bindsym $mod+Shift+0 move container to workspace 10:十
 
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+# Show the pidgin scratchpad window, if any.
+bindsym $mod+p [class="Pidgin"] scratchpad show
+bindsym $mod+o [class="Slack"] scratchpad show
+bindsym $mod+i [class="skypeforlinux"] scratchpad show
 
 # cycle through border styles
 bindsym $mod+b border toggle
