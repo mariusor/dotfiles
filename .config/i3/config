@@ -185,6 +185,7 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 bindsym $mod+Print mode "$mode_system"
+bindsym $mod+equal mode "$mode_system"
 
 bindsym $mod+x [urgent=latest] focus
 
@@ -225,4 +226,5 @@ bar {
 
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton -b
+exec --no-startup-id dunst
 exec startup i3
