@@ -14,7 +14,8 @@ export LC_NUMERIC="ro_RO.UTF-8"
 export LC_MEASUREMENT="ro_RO.UTF-8"
 export LC_TIME="ro_RO.UTF-8"
 
-export TERMINAL="/usr/bin/termite"
+#export TERMINAL="/usr/bin/termite"
+export TERMINAL="/usr/bin/tilix"
 if [ -n "$TMUX" ]; then
     export TERM="screen-256color"
 else
