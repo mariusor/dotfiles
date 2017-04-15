@@ -154,8 +154,7 @@ bindsym XF86AudioNext exec "mpris-ctl next"
 bindsym XF86AudioPrev exec "mpris-ctl prev"
 
 
-set $Locker swaylock -c 222222 
-exec "$Locker"
+set $Locker swaylock -c 222222
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -175,7 +174,7 @@ bindsym $mod+equal mode "$mode_system"
 
 bindsym $mod+x [urgent=latest] focus
 
-new_window 1pixel
+new_window pixel
 
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
@@ -188,18 +187,19 @@ include "conf.d/rules"
 # Status bar uses custom script
 set bg  #323232
 set bgu #323232B0
+set btu #323232B0
 set fg  #ffffff
 set fgu #aaaaaa
 
 #                       border  background  text    indicator   child
-client.unfocused        $bg    $bgu        $fgu      $bgu        $bgu
+client.unfocused        $bg     $bgu        $fgu      $bgu        $bgu
 client.focused_inactive $bgu    $bgu        $fgu      $bgu        $bgu
 client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    tray_output primary
+    #tray_output primary
     font pango:xos4 Terminus 10
 #    pango_markup disabled
     strip_workspace_numbers yes
@@ -214,4 +214,4 @@ bar {
     }
 }
 
-exec startup sway
+#exec startup sway
