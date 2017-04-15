@@ -162,10 +162,13 @@ bindsym XF86AudioMute exec "/usr/bin/pulseaudio-ctl mute"
 bindsym XF86AudioRaiseVolume exec "/usr/bin/pulseaudio-ctl up"
 bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
 
-bindsym XF86AudioPlay exec mpris-ctl pp
-bindsym XF86AudioStop exec mpris-ctl stop
-bindsym XF86AudioNext exec mpris-ctl next
-bindsym XF86AudioPrev exec mpris-ctl prev
+set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
+    "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
+bindsym XF86AudioPlay exec mpris-ctl pp && $mpris_notify
+bindsym XF86AudioStop exec mpris-ctl stop && $mpris_notify
+bindsym XF86AudioNext exec mpris-ctl next && $mpris_notify
+bindsym XF86AudioPrev exec mpris-ctl prev && $mpris_notify
+bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
@@ -179,7 +182,7 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"  
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
