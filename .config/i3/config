@@ -75,7 +75,7 @@ bindsym $mod+comma layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
 #bindsym $mod+apostrophe layout auto_left
-#bindsym $mod+semicolon layout auto next # ANSI layout
+#bindsym $mod+semicolon layout auto next
 # ANSI layout
 bindsym $mod+backslash layout toggle split
 
@@ -123,6 +123,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+p [class="Pidgin"] scratchpad show
 bindsym $mod+o [class="Slack"] scratchpad show
 bindsym $mod+i [class="skypeforlinux"] scratchpad show
+bindsym $mod+z [class="Zeal"] scratchpad show
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -164,14 +165,15 @@ bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
 
 set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
-bindsym XF86AudioPlay exec mpris-ctl pp && $mpris_notify
-bindsym XF86AudioStop exec mpris-ctl stop && $mpris_notify
-bindsym XF86AudioNext exec mpris-ctl next && $mpris_notify
-bindsym XF86AudioPrev exec mpris-ctl prev && $mpris_notify
+bindsym XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym XF86AudioNext exec mpris-ctl next && sleep 1 && $mpris_notify
+bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+#bindsym XF86LaunchB exec "~/.local/bin/toggle"
 
 set $Locker i3lock -c 222222 && sleep 1
 
@@ -230,4 +232,6 @@ bar {
 exec --no-startup-id nitrogen --restore
 exec --no-startup-id compton -b
 exec --no-startup-id dunst
+exec --no-startup-id zeal
+
 exec startup i3

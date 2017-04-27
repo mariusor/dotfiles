@@ -72,7 +72,7 @@ bindsym $mod+slash layout toggle split
 #bindsym $mod+apostrophe layout auto_left
 #bindsym $mod+semicolon layout auto next
 # ANSI layout
-bindsym $mod+backslash layout toggle split 
+bindsym $mod+backslash layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -109,6 +109,16 @@ bindsym $mod+Shift+7 move container to workspace  7:七
 bindsym $mod+Shift+8 move container to workspace  8:八
 bindsym $mod+Shift+9 move container to workspace  9:九
 bindsym $mod+Shift+0 move container to workspace 10:十
+
+# Make the currently focused window a scratchpad
+bindsym $mod+Shift+minus move scratchpad
+# Show the first scratchpad window
+bindsym $mod+minus scratchpad show
+# Show the pidgin scratchpad window, if any.
+bindsym $mod+p [class="Pidgin"] scratchpad show
+bindsym $mod+o [class="Slack"] scratchpad show
+bindsym $mod+i [class="skypeforlinux"] scratchpad show
+bindsym $mod+z [class="Zeal"] scratchpad show
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -148,13 +158,19 @@ bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
 bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
 bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
 
-bindsym XF86AudioPlay exec "mpris-ctl pp"
-bindsym XF86AudioStop exec "mpris-ctl stop"
-bindsym XF86AudioNext exec "mpris-ctl next"
-bindsym XF86AudioPrev exec "mpris-ctl prev"
+set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
+    "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
+bindsym XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym XF86AudioNext exec mpris-ctl next && sleep 1 && $mpris_notify
+bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
+bindsym $mod + XF86AudioPlay exec $mpris_notify
 
+bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+#bindsym XF86LaunchB exec "~/.local/bin/toggle"
 
-set $Locker swaylock -c 222222
+set $Locker swaylock -c 222222 && sleep 1
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
