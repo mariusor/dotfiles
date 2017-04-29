@@ -26,10 +26,7 @@
 		},
 		"tmux": {
 			"colorscheme": "default",
-			"theme": "default",
-			"time": {
-				"before": " "
-			}
+			"theme": "default"
 		},
 		"vim": {
 			"colorscheme": "default",
