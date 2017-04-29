@@ -124,6 +124,7 @@ bindsym $mod+p [class="Pidgin"] scratchpad show
 bindsym $mod+o [class="Slack"] scratchpad show
 bindsym $mod+i [class="skypeforlinux"] scratchpad show
 bindsym $mod+z [class="Zeal"] scratchpad show
+bindsym $mod+m [class="Thunderbird"] scratchpad show
 
 # cycle through border styles
 bindsym $mod+b border toggle
