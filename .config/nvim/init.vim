@@ -1,6 +1,5 @@
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
-
     Plug 'tpope/vim-sensible'
     Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
@@ -41,31 +40,28 @@ nmap <silent> <F2> :set nonumber!<CR>
 
 "set statusline+=''
 
+nmap <M-b> <Plug>LLBreakSwitch
+vmap <F2> <Plug>LLStdInSelected
+nnoremap <F4> :LLstdin<CR>
+nnoremap <F5> :LLmode debug<CR>
+nnoremap <F17> :LLmode code<CR>
+nnoremap <F8> :LL continue<CR>
+nnoremap <F20> :LL process interrupt<CR>
+nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
+vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
+
 set incsearch
-"set t_Co=256
+set t_Co=256
 "map <c-w><c-f> :FirstExplorerWindow<cr>
 "map <c-w><c-b> :BottomExplorerWindow<cr>
-"map <c-w><c-t> :WMToggle<cr> 
+"map <c-w><c-t> :WMToggle<cr>
 
 filetype plugin indent on
 filetype plugin on
 
 " airline
-"set laststatus=2
+set laststatus=2
 let g:airline_powerline_fonts = 1
 set clipboard=unnamed
 
 set spell spelllang=en_gb
-" status
-"set statusline=
-"set statusline+=%7*\[%n]                                  "buffernr
-"set statusline+=%1*\ %<%t\                                "File+path
-"set statusline+=%2*\ %y\                                  "FileType
-"set statusline+=%3*\ %{''.(&fenc!=''?&fenc:&enc).''}      "Encoding
-"set statusline+=%3*\ %{(&bomb?\",BOM\":\"\")}\            "Encoding2
-"set statusline+=%4*\ %{&ff}\                              "FileFormat (dos/unix..) 
-"set statusline+=%8*\ %=\ row:%l/%L\ (%03p%%)\             "Rownumber/total (%)
-"set statusline+=%9*\ col:%03c\                            "Colnr
-"set statusline+=%9*\ words:%04{wordCount#WordCount()}\     "Word count
-"set statusline+=%0*\ \ %m%r%w\ %P\ \                      "Modified? Readonly? Top/bot.
-"
