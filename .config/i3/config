@@ -126,6 +126,29 @@ bindsym $mod+i [class="skypeforlinux"] scratchpad show
 bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+m [class="Thunderbird"] scratchpad show
 
+for_window [class="Thunderbird" instance="Mail"] move scratchpad
+for_window [class="Pidgin" instance="Pidgin"] move scratchpad
+for_window [class="Slack" instance="slack"] move scratchpad
+for_window [class="skypeforlinux" instance="skypeforlinux"] move scratchpad
+for_window [class="Zeal" instance="zeal"] move scratchpad
+for_window [class="mpv"] floating disabled
+
+assign [class="Chromium"] 1:一
+assign [class="Firefox"] 4:四
+assign [class="streamlink-twitch-gui"] 9:九
+assign [class="mpv"] 9:九
+
+workspace  "1:一" output DP2
+workspace  "2:二" output DP2
+workspace  "3:三" output DP2
+workspace  "4:四" output DP1
+workspace  "5:五" output DP1
+workspace  "6:六" output DP1
+#workspace  "7:七" output eDP1
+#workspace  "8:八" output eDP1
+workspace  "9:九" output eDP1
+workspace "10:十" output eDP1
+
 # cycle through border styles
 bindsym $mod+b border toggle
 # reload the configuration file
