@@ -18,6 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'cfobel/vim-ragel'
     Plug 'fatih/vim-go'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'Shougo/deoplete.nvim'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -50,6 +51,7 @@ nnoremap <F20> :LL process interrupt<CR>
 nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
 vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
 
+set cinoptions+=(1s
 set incsearch
 set t_Co=256
 "map <c-w><c-f> :FirstExplorerWindow<cr>
@@ -63,5 +65,7 @@ filetype plugin on
 set laststatus=2
 let g:airline_powerline_fonts = 1
 set clipboard=unnamed
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
 
 set spell spelllang=en_gb
