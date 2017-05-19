@@ -1,4 +1,4 @@
-"7300
+"7307
 
 loadplugins '\.(js|penta)$'
 group user
@@ -49,7 +49,7 @@ highlight WarningMsg>* color:#ffffff; background-color:#333333 !important; font-
 set cdpath=''
 set complete=native:unifiedcomplete
 set defsearch=duckduckgo
-set guioptions=CscM
+set guioptions=CcMs
 set maxitems=12
 
 " vim: set ft=pentadactyl:
