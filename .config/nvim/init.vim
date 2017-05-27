@@ -1,7 +1,7 @@
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-sensible'
-    Plug 'godlygeek/tabular'
+"    Plug 'godlygeek/tabular'
     Plug 'plasticboy/vim-markdown'
     Plug 'elzr/vim-json'
     Plug 'tpope/vim-surround'
@@ -9,7 +9,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
     Plug 'unblevable/quick-scope'
-    Plug 'mbbill/undotree'
+"    Plug 'mbbill/undotree'
 "    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
