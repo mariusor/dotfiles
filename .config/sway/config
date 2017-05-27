@@ -13,11 +13,13 @@ exec xrdb -merge ~/.Xresources-$(uname -n)
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
 font pango:xos4 Terminus 10
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id tilix
+#bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -225,4 +227,4 @@ bar {
     }
 }
 
-#exec startup sway
+exec --no-startup-id dunst
