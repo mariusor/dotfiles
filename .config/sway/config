@@ -196,11 +196,11 @@ include "conf.d/$(uname -n).config"
 include "conf.d/rules"
 
 # Status bar uses custom script
-set bg  #323232
-set bgu #323232B0
-set btu #323232B0
-set fg  #ffffff
-set fgu #aaaaaa
+set $bg  #323232
+set $bgu #323232B0
+set $btu #323232B0
+set $fg  #ffffff
+set $fgu #aaaaaa
 
 #                       border  background  text    indicator   child
 client.unfocused        $bg     $bgu        $fgu      $bgu        $bgu
