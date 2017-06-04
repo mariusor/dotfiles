@@ -29,8 +29,10 @@ nmap <M-b> <Plug>LLBreakSwitch
 vmap <F2> <Plug>LLStdInSelected
 nnoremap <F4> :LLstdin<CR>
 nnoremap <F5> :LLmode debug<CR>
+nnoremap <S-F5> :LLmode code<CR>
 nnoremap <F17> :LLmode code<CR>
 nnoremap <F8> :LL continue<CR>
+nnoremap <S-F8> :LL process interrupt<CR>
 nnoremap <F20> :LL process interrupt<CR>
 nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
 vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
@@ -42,6 +44,12 @@ let g:deoplete#enable_at_startup = 1
 let g:airline_powerline_fonts = 1
 
 " Regular settings
+syntax on
+colorscheme darkburn
+scriptencoding utf-8
+filetype plugin indent on
+filetype plugin on
+nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr>
 set fileencoding=utf-8
 set encoding=utf-8
 set nobackup
@@ -63,17 +71,8 @@ set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
 
-hi Todo ctermfg=white
 
-syntax on
-colorscheme darkburn
-scriptencoding utf-8
-filetype plugin indent on
-filetype plugin on
-nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>
-"map <c-w><c-f> :FirstExplorerWindow<cr>
-"map <c-w><c-b> :BottomExplorerWindow<cr>
-"map <c-w><c-t> :WMToggle<cr>
+hi Todo ctermfg=white
 
 " Enable cursor shape switching on mode change
 if has('nvim')
