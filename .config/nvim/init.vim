@@ -20,6 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
     Plug 'critiqjo/lldb.nvim'
+    Plug 'w0rp/ale'
+    Plug 'wincent/ferret'
 " Add plugins to &runtimepath
 call plug#end()
 "
@@ -42,6 +44,9 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 let g:deoplete#enable_at_startup = 1
 " airline
 let g:airline_powerline_fonts = 1
+" w0rp/ale
+let g:ale_sign_error = 'ee'
+let g:ale_sign_warning = 'ww'
 
 " Regular settings
 syntax on
