@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
     Plug 'dbgx/lldb.nvim'
-    Plug 'w0rp/ale'
+"    Plug 'w0rp/ale'
     Plug 'wincent/ferret'
     Plug 'joereynolds/gtags-scope'
 " Add plugins to &runtimepath
