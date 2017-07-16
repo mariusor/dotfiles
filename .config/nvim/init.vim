@@ -14,17 +14,19 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
+"    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-fugitive'
-"    Plug 'cfobel/vim-ragel'
+    Plug 'jneen/ragel.vim'
 "    Plug 'fatih/vim-go'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
-    Plug 'critiqjo/lldb.nvim'
+    Plug 'dbgx/lldb.nvim'
     Plug 'w0rp/ale'
     Plug 'wincent/ferret'
+    Plug 'joereynolds/gtags-scope'
 " Add plugins to &runtimepath
 call plug#end()
-"
+
 " Plugin settings
 " critiqjo/lldb.nvim
 nmap <M-b> <Plug>LLBreakSwitch
@@ -44,9 +46,16 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 let g:deoplete#enable_at_startup = 1
 " airline
 let g:airline_powerline_fonts = 1
+set updatetime=750
+set lazyredraw
 " w0rp/ale
+" let g:ale_open_list = 1
 let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
+let g:ale_lint_on_text_changed = 'never'
+
+" http://joereynoldsaudio.com/programming/articles/navigating-in-vim
+"set cscopetag "search both cscopes db and the tags file
 
 " Regular settings
 syntax on
@@ -75,7 +84,6 @@ set spell spelllang=en_gb
 set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
-
 
 hi Todo ctermfg=white
 
