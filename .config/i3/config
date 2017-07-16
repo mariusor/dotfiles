@@ -211,7 +211,10 @@ bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-#bindsym XF86LaunchB exec "~/.local/bin/toggle"
+bindsym --release XF86LaunchA exec "~/.local/bin/3way.sh"
+bindsym --release Shift+XF86LaunchA exec "~/.local/bin/1way.sh"
+bindsym --release XF86LaunchB exec "~/.local/bin/3way.sh"
+bindsym --release Shift+XF86LaunchB exec "~/.local/bin/1way.sh"
 
 set $Locker i3lock -c 222222 && sleep 1
 
