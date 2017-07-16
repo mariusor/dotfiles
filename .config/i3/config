@@ -66,6 +66,7 @@ bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
+bindsym Control+Shift+v exec clipmenu -i -fn Terminus:size=9
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -254,6 +255,7 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 # finds out, if available)
 bar {
     tray_output primary
+    #tray_output none
     font pango:xos4 Terminus 8
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
@@ -272,5 +274,7 @@ exec --no-startup-id compton -b
 exec --no-startup-id dunst
 exec --no-startup-id zeal
 exec --no-startup-id pidgin
+exec --no-startup-id xbanish
+exec --no-startup-id clipmenud
 
 exec startup i3
