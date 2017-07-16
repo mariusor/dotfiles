@@ -75,8 +75,6 @@ bindsym $mod+f fullscreen
 bindsym $mod+comma layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
-#bindsym $mod+apostrophe layout auto_left
-#bindsym $mod+semicolon layout auto next
 # ANSI layout
 bindsym $mod+backslash layout toggle split
 
@@ -135,7 +133,8 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
 bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
 bindsym $mod+o [class="Slack"] scratchpad show
-bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
+#bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
+bindsym $mod+i [instance="rambox" class="Rambox"] scratchpad show
 bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+m [class="Thunderbird"] scratchpad show
 
@@ -144,6 +143,7 @@ for_window [class="Pidgin" instance="Pidgin"] move scratchpad
 for_window [class="Pidgin" instance="Pidgin" title="Buddy List"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
+for_window [instance="rambox" class="Rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 
