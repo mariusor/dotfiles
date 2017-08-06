@@ -21,9 +21,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
     Plug 'dbgx/lldb.nvim'
-"    Plug 'w0rp/ale'
+    Plug 'w0rp/ale'
+"    Plug 'neomake/neomake'
     Plug 'wincent/ferret'
-    Plug 'joereynolds/gtags-scope'
+"    Plug 'joereynolds/gtags-scope'
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'lyuts/vim-rtags'
+"   Plug 'LuXuryPro/deoplete-rtags'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -41,7 +45,7 @@ nnoremap <F20> :LL process interrupt<CR>
 nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
 vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
 " ntpeters/vim-better-whitespace
-autocmd BufEnter * EnableStripWhitespaceOnSave
+autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 " airline
@@ -53,9 +57,14 @@ set lazyredraw
 let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
 let g:ale_lint_on_text_changed = 'never'
+let g:ale_enabled = 0
+"let g:ale_linters = {'c': 'clangtidy'}
+"let g:ale_c_clang_options = '-std=c11 -Wpedantic -D_GNU_SOURCE -Wall -Wextra'
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 "set cscopetag "search both cscopes db and the tags file
+" lyuts/vim--rtags
+set completefunc=RtagsCompleteFunc
 
 " Regular settings
 syntax on
@@ -64,6 +73,7 @@ scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
 nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr>
+set cursorline
 set fileencoding=utf-8
 set encoding=utf-8
 set nobackup
@@ -78,12 +88,19 @@ set relativenumber
 set cinoptions+=(1s
 set incsearch
 set t_Co=256
-set clipboard=unnamed
+"set clipboard=unnamed
 set laststatus=2
 set spell spelllang=en_gb
 set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
+
+let mapleader = ","
+" copy/paste stuff
+map <Leader>c "+y
+map <Leader>v "+gP
+map <Leader>x "+yx
+map Ctrl+[ <Leader>rj
 
 hi Todo ctermfg=white
 
