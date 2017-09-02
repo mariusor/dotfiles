@@ -1,7 +1,7 @@
 # sway config file
 #
 
-set $mod Mod4
+set $mod Mod1
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
 
@@ -158,8 +158,25 @@ mode "resize" {
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-
 bindsym $mod+r mode "resize"
+
+# move window (you can also use the mouse for that)
+mode "move" {
+        # These bindings trigger as soon as you enter the move mode
+        bindsym h move left 10 px
+        bindsym j move down 10 px
+        bindsym k move up 10 px
+        bindsym l move right 10 px
+        # same bindings, but for the arrow keys
+        bindsym Left move left 10 px
+        bindsym Down move down 10 px
+        bindsym Up   move up 10 px
+        bindsym Righ move right 10 pxt
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
 bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
