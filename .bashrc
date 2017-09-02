@@ -26,7 +26,15 @@ export EDITOR="/usr/bin/nvim"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:~/.local/bin
 
-test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
+#test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
+function _update_ps1() {
+    PS1="$(/usr/bin/powerline-go -cwd-max-depth 2 -colorize-hostname -modules 'venv,user,host,ssh,cwd,perms,git,jobs,exit,root' -error $?)"
+}
+
+if [ "$TERM" != "linux" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
+
 
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 
