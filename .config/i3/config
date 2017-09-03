@@ -183,12 +183,20 @@ mode "resize" {
         bindsym j resize grow height 10 px or 10 ppt
         bindsym k resize shrink height 10 px or 10 ppt
         bindsym l resize grow width 10 px or 10 ppt
+        bindsym Shift+h move left 10 px
+        bindsym Shift+j move down 10 px
+        bindsym Shift+k move up 10 px
+        bindsym Shift+l move right 10 px
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Left  resize shrink width 10 px or 10 ppt
+        bindsym Down  resize grow height 10 px or 10 ppt
+        bindsym Up    resize shrink height 10 px or 10 ppt
         bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Shift+Left  move left 10 px
+        bindsym Shift+Down  move down 10 px
+        bindsym Shift+Up    move up 10 px
+        bindsym Shift+Right move right 10 px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -204,10 +212,10 @@ mode "move" {
         bindsym k move up 10 px
         bindsym l move right 10 px
         # same bindings, but for the arrow keys
-        bindsym Left move left 10 px
-        bindsym Down move down 10 px
-        bindsym Up   move up 10 px
-        bindsym Righ move right 10 pxt
+        bindsym Left  move left 10 px
+        bindsym Down  move down 10 px
+        bindsym Up    move up 10 px
+        bindsym Right move right 10 px
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
