@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 " Plugin settings
-" critiqjo/lldb.nvim
+" dbgx/lldb.nvim
 nmap <M-b> <Plug>LLBreakSwitch
 vmap <F2> <Plug>LLStdInSelected
 nnoremap <F4> :LLstdin<CR>
@@ -54,12 +54,14 @@ set updatetime=750
 set lazyredraw
 " w0rp/ale
 " let g:ale_open_list = 1
+let g:ale_enabled = 1
 let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_enabled = 0
-"let g:ale_linters = {'c': 'clangtidy'}
-"let g:ale_c_clang_options = '-std=c11 -Wpedantic -D_GNU_SOURCE -Wall -Wextra'
+let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy']}
+let g:ale_c_clangtidy_options = '-header-filter=.* -p ./compile_commands.json'
+let g:ale_cpp_clangtidy_options = '-header-filter=.* -p ./compile_commands.json'
+let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 "set cscopetag "search both cscopes db and the tags file
