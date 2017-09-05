@@ -102,6 +102,10 @@ map <Leader>v "+gP
 map <Leader>x "+yx
 map Ctrl+[ <Leader>rj
 
+noremap <Leader>o :on<cr>
+noremap <Leader>\| :vs<cr>
+noremap <Leader>- :sp<cr>
+
 hi Todo ctermfg=white
 
 " Enable cursor shape switching on mode change
