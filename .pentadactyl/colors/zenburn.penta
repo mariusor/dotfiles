@@ -5,14 +5,14 @@ hi Cmd                                          background-color:#3F3F3F;
 hi -a StatusLineNormal                          color:#ccdc90; background-color:#3F3F3F !important;
 
 "Used with ]f and [f
-hi FrameIndicator					  -a background-color: #222222; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
+hi -a FrameIndicator                               background-color: #222222; opacity: 0.5; z-index: 999; position: fixed; top: 0; bottom: 0; left: 0; right: 0;
 
 "Hint section
-hi Hint								  font-family: Sans; font-size: 0.7em !important; font-weight: bold !important; color: #ffffff !important; background-color: rgba(0, 0, 0, 0.6) !important; border: solid 1px #000000 !important; position: absolute !important;
-hi Hint::after						  content: attr(number);
-hi HintActive						  background: #4682b4 !important; color: #ffffff !important;
-hi HintElem							  background-color: inherit !important;
-hi HintImage						  opacity: .5 !important;
+hi Hint                                         font-family: Sans; font-size: 0.7em !important; font-weight: bold !important; color: #ffffff !important; background-color: rgba(0, 0, 0, 0.6) !important; border: solid 1px #000000 !important; position: absolute !important;
+hi Hint::after                                  content: attr(number);
+hi HintActive                                   background: #4682b4 !important; color: #ffffff !important;
+hi HintElem                                     background-color: inherit !important;
+hi HintImage                                    opacity: .5 !important;
 
 hi -a String                                    color:#cc9393;
 hi -a Boolean                                   color:#dca3a3;
@@ -40,7 +40,7 @@ hi -l Question CmdQuestion
 hi -a Tag                                       color:#e89393; font-weight:bold;
 hi -a CmdLine                                   font-weight:normal; padding:0 3px;
 hi -a NonText                                   color:#404040; font-weight:bold;
-hi Normal                                       color:#dcdccc !important; background-color:#3F3F3F !important; font-size:9pt;
+hi Normal                                       color:#dcdccc !important; background-color:#3F3F3F !important;
 hi -l Normal CmdNormal
 hi -l Normal StatusNormal
 hi -l Normal Indicator                          width:4px;
