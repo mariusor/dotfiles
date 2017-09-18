@@ -67,7 +67,8 @@ bindsym $mod+g split h
 # split in vertical orientation
 bindsym $mod+v split v
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=9
-bindsym $mod+Shift+grave exec passmenu --type
+bindsym $mod+x exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+x exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
