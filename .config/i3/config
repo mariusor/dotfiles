@@ -33,6 +33,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+grave exec --no-startup-id j4-dmenu-desktop
+bindsym $mod+less exec --no-startup-id j4-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -67,8 +68,8 @@ bindsym $mod+g split h
 # split in vertical orientation
 bindsym $mod+v split v
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=9
-bindsym $mod+x exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+Shift+x exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+bindsym $mod+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
@@ -134,9 +135,9 @@ bindsym $mod+minus scratchpad show
 # Show the pidgin scratchpad window, if any.
 bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
 bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
-bindsym $mod+o [class="Slack"] scratchpad show
-#bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
-bindsym $mod+i [instance="rambox" class="Rambox"] scratchpad show
+#bindsym $mod+o [class="Slack"] scratchpad show
+bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
+bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+e [class="Thunderbird"] scratchpad show
 
@@ -154,12 +155,18 @@ assign [class="Firefox"] $w4
 assign [class="streamlink-twitch-gui"] $w9
 assign [class="mpv"] $w9
 
-workspace  $w1 output DP2
-workspace  $w2 output DP2
-workspace  $w3 output DP2
-workspace  $w4 output DP1
-workspace  $w5 output DP1
-workspace  $w6 output DP1
+#workspace  $w1 output DP2
+#workspace  $w2 output DP2
+#workspace  $w3 output DP2
+#workspace  $w4 output DP1
+#workspace  $w5 output DP1
+#workspace  $w6 output DP1
+workspace  $w1 output HDMI1
+workspace  $w2 output HDMI1
+workspace  $w3 output HDMI1
+workspace  $w4 output HDMI1
+workspace  $w5 output HDMI1
+workspace  $w6 output eDP1
 workspace  $w7 output eDP1
 workspace  $w8 output eDP1
 workspace  $w9 output eDP1
@@ -230,9 +237,9 @@ bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym --release XF86LaunchA exec "~/.local/bin/3way.sh"
+bindsym --release XF86LaunchA exec "~/.local/bin/2way.sh"
 bindsym --release Shift+XF86LaunchA exec "~/.local/bin/1way.sh"
-bindsym --release XF86LaunchB exec "~/.local/bin/3way.sh"
+bindsym --release XF86LaunchB exec "~/.local/bin/2way.sh"
 bindsym --release Shift+XF86LaunchB exec "~/.local/bin/1way.sh"
 
 set $Locker i3lock -c 222222 && sleep 1
@@ -297,6 +304,5 @@ exec --no-startup-id dunst
 exec --no-startup-id zeal
 exec --no-startup-id pidgin
 exec --no-startup-id xbanish
-exec --no-startup-id clipmenud
 
 exec startup i3
