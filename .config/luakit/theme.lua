@@ -56,7 +56,7 @@ theme.dbar_error_fg   = "#F00"
 
 -- Input bar specific
 theme.ibar_fg           = "#FFF"
-theme.ibar_bg           = "rgba(0,0,0,0)"
+theme.ibar_bg           = "#777"
 
 -- Tab label
 theme.tab_fg            = "#999"
