@@ -28,6 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'machakann/vim-highlightedyank'
     Plug 'lyuts/vim-rtags'
 "   Plug 'LuXuryPro/deoplete-rtags'
+    Plug 'igankevich/mesonic'
 " Add plugins to &runtimepath
 call plug#end()
 
