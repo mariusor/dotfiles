@@ -98,16 +98,21 @@ set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
 
-let mapleader = ","
+let mapleader = " "
 " copy/paste stuff
 map <Leader>c "+y
 map <Leader>v "+gP
 map <Leader>x "+yx
 map Ctrl+[ <Leader>rj
 
+nnoremap <C-j> <C-w><C-j>
+nnoremap <C-k> <C-w><C-k>
+nnoremap <C-l> <C-w><C-l>
+nnoremap <C-h> <C-w><C-h>
+
 noremap <Leader>o :on<cr>
-noremap <Leader>\| :vs<cr>
-noremap <Leader>- :sp<cr>
+noremap <Leader>\| :vs<cr> :wincmd l <cr>
+noremap <Leader>- :sp<cr> :wincmd l <cr>
 
 hi Todo ctermfg=white
 
