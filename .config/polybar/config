@@ -20,6 +20,8 @@ info = #7aa3db
 info-alt = #7aa3db
 notice = #f3f99d
 notice-alt = #f3f99d
+warning = #ffb52a
+warning-alt = #e60053
 alert = #bd2c40
 alert-alt = #bd2c40
 
@@ -114,14 +116,14 @@ type = internal/fs
 interval = 25
 
 mount-0 = /home
-label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
+label-mounted = "%{F#5b5b5b}%{F-} %percentage_used:2%%"
 
 [module/filesystem-slash]
 type = internal/fs
 interval = 25
 
 mount-0 = /
-label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
+label-mounted = "%{F#5b5b5b}%{F-} %percentage_used:2%%"
 
 ;label-unmounted = %mountpoint%: not mounted
 ;label-unmounted-foreground = ${colors.foreground-alt}
@@ -175,18 +177,18 @@ label-empty-padding = 1
 type = internal/cpu
 interval = 3
 format = <label>
-;format-prefix = 
-; format-prefix-foreground = ${colors.foreground-alt}
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 ;format-overline = #f90000
-label = CPU: %percentage%%
+label = " %percentage:2%%"
 
 [module/memory]
 type = internal/memory
 interval = 3
 format = <label>
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
-;format-overline = #4bffdc
-label = RAM: %gb_used%/%gb_total%
+label = %gb_used:3%/%gb_total:3%
 
 [module/wlan]
 type = internal/network
@@ -200,25 +202,33 @@ format-connected-prefix-foreground = ${colors.foreground-alt}
 ; format-connected-overline = 
 ;format-disconnected-overline = ${self.format-connected-overline}
 
-label-connected = "%{A1:connman-gtk &:}%essid%%{A}"
-label-disconnected = "%{A1:connman-gtk &:}%{A}"
+label-connected = "%essid% (%local_ip%)"
+;label-connected = "%essid% (%local_ip%) %downspeed:9%/%upspeed:9%"
+label-disconnected = "  down"
 label-disconnected-foreground = #5b
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = .
+ramp-signal-1 = .
+ramp-signal-2 = :
+ramp-signal-3 = :
+ramp-signal-4 = ⡆
 ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0-foreground = ${colors.foreground}
+ramp-signal-1-foreground = ${colors.info}
+ramp-signal-2-foreground = ${colors.notice}
+ramp-signal-3-foreground = ${colors.warning}
+ramp-signal-4-foreground = ${colors.alert}
 
 [module/tun]
 type = internal/network
 interface = tun0
 interval = 3.0
 
-format-connected-prefix = " "
 format-connected-foreground-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
+
+label-disconnected = %ifname%
+label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
@@ -247,19 +257,21 @@ label = %date% %time%
 
 [module/volume]
 type = internal/volume
-format-volume = <ramp-volume><label-volume>
+format-volume = <ramp-volume> <label-volume>
 ; Available tokens: %percentage% (default)
-label-muted = ♪ muted
+format-muted-prefix = ""
+label-muted = " muted"
 format-muted-foreground = ${colors.foreground-alt}
 
 ; Only applies if <ramp-volume> is used
-ramp-volume-0 = ♪
-ramp-volume-1 = ♪
-ramp-volume-2 = ♪
-ramp-volume-1-foreground = ${colors.primary}
-ramp-volume-2-foreground = ${colors.alert}
+ramp-volume-0 = ""
+ramp-volume-1 = ""
+ramp-volume-2 = ""
+ramp-volume-0-foreground = ${colors.foreground-alt}
+ramp-volume-1-foreground = ${colors.warning}
+ramp-volume-2-foreground = ${colors.alert-alt}
 
-label-volume-1-foreground = ${colors.primary}
+label-volume-1-foreground = ${colors.foreground-alt}
 
 [module/battery]
 type = internal/battery
@@ -290,35 +302,38 @@ ramp-capacity-1-foreground = ${colors.alert}
 ramp-capacity-2 = 
 ramp-capacity-3 = 
 ramp-capacity-4 = 
-ramp-capacity-foreground = ${colors.info-alt}
+ramp-capacity-foreground = ${colors.primary-alt}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
 animation-charging-3 = 
 animation-charging-4 = 
-animation-charging-foreground = ${colors.notice-alt}
+animation-charging-foreground = ${colors.info-alt}
 animation-charging-framerate = 750
 
 [module/temperature]
 type = internal/temperature
 thermal-zone = 0
-warn-temperature = 60
+warn-temperature = 85
 
 format = <ramp> <label>
-;format-overline = #f50a4d
 format-warn = <ramp> <label-warn>
-;format-warn-overline = ${self.format-overline}
-
 
 label = %temperature%
 label-warn = %temperature%
-label-warn-foreground = ${colors.secondary}
+label-warn-foreground = ${colors.alert}
 
 ramp-0 = 
 ramp-1 = 
-ramp-2 = 
-ramp-foreground = ${colors.foreground-alt}
+ramp-2 = 
+ramp-3 = 
+ramp-4 = 
+ramp-0-foreground = ${colors.foreground-alt}
+ramp-1-foreground = ${colors.foreground-alt}
+ramp-2-foreground = ${colors.warning}
+ramp-3-foreground = ${colors.warning}
+ramp-4-foreground = ${colors.alert}
 
 [module/pkg]
 type = custom/script
