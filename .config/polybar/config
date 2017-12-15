@@ -50,16 +50,36 @@ screenchange-reload = true
 
 enable-ipc = true
 
+[bar/top]
+monitor = ${env:MONITOR}
+monitor-strict = true
+top = true
+width = 100%
+height = 14
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+spacing = 0
+padding-left = 0
+padding-right = 0
+module-margin-left = 1
+module-margin-right = 1
+
+modules-left = i3 xwindow
+modules-right = date
+
+font-0 = xos4 Terminus:pixelsize=12;1
+font-1 = FontAwesome:pixelsize=10;2
+font-2 = unifont:size=10;2
+;font-3 = siji:pixelsize=12;2
+
 [bar/main]
 monitor = ${env:MONITOR}
 monitor-strict = false
-;dpi = 96
 bottom = true
 width = 100%
 height = 20
-;offset-x = 0
-;offset-y = 0
-;separator = " "
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -135,9 +155,10 @@ format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = false
 strip-wsnumbers = true
-pin-workspaces = false
+pin-workspaces = true
 
 label-mode = %mode%
+label-mode-foreground = ${colors.alert-alt}
 
 label-state-padding = 1
 
