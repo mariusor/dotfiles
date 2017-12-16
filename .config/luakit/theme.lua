@@ -55,12 +55,14 @@ theme.dbar_bg         = "#000"
 theme.dbar_error_fg   = "#F00"
 
 -- Input bar specific
-theme.ibar_fg           = "#FFF"
-theme.ibar_bg           = "#777"
+--theme.ibar_fg           = "#FFF"
+--theme.ibar_bg           = "#777"
+theme.ibar_fg           = "#000"
+theme.ibar_bg           = "rgba(0,0,0,0)"
 
 -- Tab label
-theme.tab_fg            = "#999"
-theme.tab_bg            = "#000"
+theme.tab_fg            = "#888"
+theme.tab_bg            = "#222"
 theme.tab_hover_bg      = "#292929"
 theme.tab_ntheme        = "#ddd"
 theme.selected_fg       = "#fff"
