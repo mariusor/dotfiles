@@ -60,8 +60,8 @@ let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy']}
-let g:ale_c_clangtidy_options = '-header-filter=.* -p ./compile_commands.json'
-let g:ale_cpp_clangtidy_options = '-header-filter=.* -p ./compile_commands.json'
+let g:ale_c_clangtidy_options = '-header-filter=.* -p=./compile_commands.json'
+let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./compile_commands.json'
 let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
