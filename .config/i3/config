@@ -149,7 +149,7 @@ for_window [instance=".*skype.*"] move scratchpad
 for_window [instance="rambox" class="Rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
-for_window [instance="pinentry" class="Pinentry"] floating enable
+for_window [class="Pinentry" instance="pinentry"] floating enabled
 
 assign [class="Chromium"] $w1
 assign [class="Firefox"] $w4
