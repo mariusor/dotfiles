@@ -127,6 +127,15 @@ bindsym $mod+Shift+0 move container to workspace $w10
 bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
+# Show the pidgin scratchpad window, if any.
+#bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
+#bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
+bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+bindsym $mod+o [class="Slack"] scratchpad show
+bindsym $mod+i [class="skypeforlinux"] scratchpad show
+
+#for_window[class="Firefox"] border none
 
 # cycle through border styles
 bindsym $mod+b border toggle
