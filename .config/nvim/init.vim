@@ -116,6 +116,7 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 
 hi Todo ctermfg=white
 
+autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
 if has('nvim')
   set guicursor=i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150
