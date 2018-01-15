@@ -1,5 +1,8 @@
 set editor=`echo \$EDITOR`
 
+set send_charset = utf-8
+set signature = ~/.local/share/neomutt/sig.rkt.txt
+
 source "gpg -dq $HOME/.local/share/neomutt/.pass.gpg |"
 
 set imap_user = marius.orcsik@rocket-internet.de
@@ -8,8 +11,6 @@ set imap_pass = $my_rocket_imap_pass
 set folder=imaps://marius.orcsik%40rocket-internet.de@imap.gmail.com/
 
 set spoolfile = +INBOX
-set postponed = +Drafts
-set record = +Sent
 set imap_check_subscribed
 
 set sort = threads
@@ -22,6 +23,15 @@ bind index + collapse-all
 set header_cache = ~/.cache/neomutt
 # Specify where to save and/or look for postponed messages.
 set postponed = +[Gmail]/Drafts
+#set record = "+[Gmail]/Sent Mail"
+unset record
+
+set realname = 'Marius Orcsik'
+set from = marius.orcsik@rocket-internet.de
+set use_from = yes
+
+set smtp_url=smtps://marius.orcsik%40rocket-internet.de:$my_rocket_imap_pass@smtp.gmail.com
+set ssl_force_tls = yes
 
 # Allow Mutt to open a new IMAP connection automatically.
 unset imap_passive
@@ -30,7 +40,7 @@ unset imap_passive
 set imap_keepalive = 300
 
 # # How often to check for new mail (time in seconds).
-set mail_check = 120
+set mail_check = 60
 
 set pgp_auto_decode = yes
 set pgp_use_gpg_agent = yes
@@ -48,3 +58,4 @@ bind pager g top
 bind pager G bottom
 bind attach,index g first-entry
 bind attach,index G last-entry
+
