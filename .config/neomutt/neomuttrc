@@ -1,38 +1,37 @@
+# passwords
+source "gpg -dq ~/.local/share/neomutt/.credentials.gpg |"
+
+## Personal
+folder-hook $folder 'source ~/.config/neomutt/personalrc'
+source "~/.config/neomutt/personalrc"
+
+## Work
+folder-hook $folder 'source ~/.config/neomutt/workrc'
+source "~/.config/neomutt/workrc"
+
 set editor=`echo \$EDITOR`
 
 set send_charset = utf-8
-set signature = ~/.local/share/neomutt/sig.rkt.txt
+#set sidebar_visible = yes
 
-source "gpg -dq $HOME/.local/share/neomutt/.pass.gpg |"
-
-set imap_user = marius.orcsik@rocket-internet.de
-set imap_pass = $my_rocket_imap_pass
-
-set folder=imaps://marius.orcsik%40rocket-internet.de@imap.gmail.com/
-
-set spoolfile = +INBOX
+#set mbox_type=Maildir
 set imap_check_subscribed
+
+## Shortcuts
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/personalrc<enter><change-folder>!<enter>'
+macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/workrc<enter><change-folder>!<enter>'
+
+unset collapse_unread
 
 set sort = threads
 set sort_aux = reverse-last-date-received
 set strict_threads = yes
-unset collapse_unread
-bind index - collapse-thread
-bind index + collapse-all
+
+set date_format="%y-%m-%d %T"
+set index_format="%2C | %Z [%d] %-30.30F (%-4.4c) %s"
 
 set header_cache = ~/.cache/neomutt
-# Specify where to save and/or look for postponed messages.
-set postponed = +[Gmail]/Drafts
-#set record = "+[Gmail]/Sent Mail"
-unset record
-
-set realname = 'Marius Orcsik'
-set from = marius.orcsik@rocket-internet.de
-set use_from = yes
-
-set smtp_url=smtps://marius.orcsik%40rocket-internet.de:$my_rocket_imap_pass@smtp.gmail.com
-set ssl_force_tls = yes
-
+#
 # Allow Mutt to open a new IMAP connection automatically.
 unset imap_passive
 
@@ -49,6 +48,10 @@ set crypt_verify_sig = yes
 set crypt_replysign = yes
 set crypt_replyencrypt = yes
 set crypt_replysignencrypted = yes
+
+bind index ^ imap-fetch-mail
+bind index - collapse-thread
+bind index + collapse-all
 
 bind pager j next-line
 bind pager k previous-line

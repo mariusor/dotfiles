@@ -1,0 +1,25 @@
+set folder=imaps://$my_personal_user@imap.gmail.com
+source /usr/share/doc/neomutt/colorschemes/neonwolf-256.neomuttrc
+
+set signature = ~/.local/share/neomutt/sig.personal.txt
+
+set imap_user = $my_personal_user
+set imap_pass = $my_personal_pass
+
+set spoolfile = +INBOX
+
+# Specify where to save and/or look for postponed messages.
+set postponed = +[Gmail]/Drafts
+#set record = "+[Gmail]/Sent Mail"
+unset record
+
+set realname = 'Marius Orcsik'
+set from = $my_personal_address
+set use_from = yes
+
+set smtp_url=smtps://$my_personal_user:$my_personal_pass@smtp.gmail.com
+set ssl_force_tls = yes
+
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=$my_personal_user imap_pass=$my_personal_pass"
