@@ -25,7 +25,7 @@ export EDITOR="nvim"
 export BROWSER="chromium"
 #export SHELL="/usr/bin/fish"
 export CVS_RSH=ssh
-export PATH=$PATH:/usr/local/aws/bin:~/.local/bin
+export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin 
 
 #test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
 function _update_ps1() {
