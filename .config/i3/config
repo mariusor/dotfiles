@@ -32,8 +32,9 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+grave exec --no-startup-id j4-dmenu-desktop
-bindsym $mod+less exec --no-startup-id j4-dmenu-desktop
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
+bindsym $mod+grave exec --no-startup-id $run
+bindsym $mod+less exec --no-startup-id $run
 
 # change focus
 bindsym $mod+h focus left
