@@ -33,7 +33,7 @@ bindsym $mod+Shift+q kill
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
-set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL"
+set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
 bindsym $mod+grave exec --no-startup-id $run
 bindsym $mod+less exec --no-startup-id $run
 
@@ -81,7 +81,7 @@ bindsym $mod+comma layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
 # ANSI layout
-bindsym $mod+backslash layout toggle split
+#bindsym $mod+backslash layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -230,24 +230,27 @@ mode "move" {
 bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
-bindsym XF86AudioMute exec "/usr/bin/pulseaudio-ctl mute"
-bindsym XF86AudioRaiseVolume exec "/usr/bin/pulseaudio-ctl up"
-bindsym XF86AudioLowerVolume exec "/usr/bin/pulseaudio-ctl down"
+bindsym XF86AudioMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl up"
+bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down"
+
+bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
 
 set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
-bindsym XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
-bindsym XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
-bindsym XF86AudioNext exec mpris-ctl next && sleep 1 && $mpris_notify
-bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
-bindsym $mod + XF86AudioPlay exec $mpris_notify
+bindsym XF86AudioPlay exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym $mod+backslash exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym XF86AudioStop exec --no-startup-id mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym XF86AudioNext exec --no-startup-id mpris-ctl next && sleep 1 && $mpris_notify
+bindsym $mod+bracketright exec --no-startup-id mpris-ctl next && sleep 1 && $mpris_notify
+bindsym XF86AudioPrev exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_notify
+bindsym $mod+bracketleft exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_notify
+bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
 bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym --release XF86LaunchA exec "~/.local/bin/2way.sh"
-bindsym --release Shift+XF86LaunchA exec "~/.local/bin/1way.sh"
-bindsym --release XF86LaunchB exec "~/.local/bin/2way.sh"
-bindsym --release Shift+XF86LaunchB exec "~/.local/bin/1way.sh"
+bindsym --release XF86Display exec "~/.local/bin/2way-deliveryhero.sh"
+bindsym --release Shift+XF86Display exec "~/.local/bin/1way.sh"
 
 set $Locker i3lock -c 222222 && sleep 1
 
@@ -313,5 +316,5 @@ exec --no-startup-id dunst
 exec --no-startup-id pidgin
 exec --no-startup-id xbanish
 
-exec startup i3
+exec --no-startup-id startup i3
 exec --no-startup-id ~/.config/i3/autostart.sh
