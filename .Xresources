@@ -16,8 +16,7 @@ Xft.autohint:   0
 *faceName:xos4 Terminus
 *faceSize:10
 *faceStyle:regular
-!*font: xft:DejaVu Sans Mono:pixelsize=8,xft:DejaVu Sans Mono\ for\ Powerline:pixelsize=8
-!*font: xft:Terminus:pixelsize=10
+!*font: xft:xos4 Terminus:pixelsize=10
 *dynamicColors:      true
 *utf8:               2
 *eightBitInput:      true
