@@ -37,14 +37,24 @@ config.set('tabs.indicator.padding', { 'bottom': 2, 'left': 0, 'right': 4, 'top'
 config.set('tabs.indicator.width', 5)
 config.set('tabs.padding', { 'bottom': 4, 'left': 5, 'right': 5, 'top': 3})
 config.set('tabs.title.format', '{host}{title_sep}{title} [{index}]')
-config.set('tabs.title.format_pinned', '{host} [{index}]')
+config.set('tabs.title.format_pinned', ' {host}')
 config.set('tabs.width', '20%')
+config.set('url.searchengines', {
+    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'g': 'https://www.google.de/search?q={}',
+    'ws': 'https://en.wikipedia.org/wiki/{}',
+    'wk': 'https://en.wiktionary.org/wiki/{}',
+    'tfd': 'http://tfd.com/{}',
+    'cc': 'https://www.dict.cc/?s={}'
+})
+config.set('tabs.background', True)
 config.bind('t', 'set-cmd-text -s :open -t ')
 config.bind('T', 'set-cmd-text -s :open -t {url}')
 config.bind('O', 'set-cmd-text -s :open {url}')
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
 config.bind(',v', 'spawn mpv {url}')
+config.bind(';,v', 'hint links fill :spawn mpv {hint-url}')
 config.bind('<Ctrl-o>', 'back')
 config.bind('<Ctrl-i>', 'forward')
 config.unbind('H')
