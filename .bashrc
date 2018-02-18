@@ -30,7 +30,9 @@ export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin
 #test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
 function _update_ps1() {
     #PS1="$(/usr/bin/powerline-go -cwd-max-depth 2 -colorize-hostname -modules 'venv,user,host,ssh,cwd,perms,git,jobs,ssh,exit,root' -priority 'root,cwd,user,host,ssh,git-branch,git-status,jobs,exit' -error $?)"
-    PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
+    if [[ -f /usr/bin/powerline-go ]]; then
+        PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
+    fi
 }
 
 if [ "$TERM" != "linux" ]; then
