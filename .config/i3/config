@@ -187,24 +187,10 @@ bindsym $mod+Shift+r restart
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt 
-        #; move right 5px
-        bindsym j resize grow height 10 px or 10 ppt 
-        #; move up 5 px
-        bindsym k resize shrink height 10 px or 10 ppt 
-        #; move down 5 px
-        bindsym l resize grow width 10 px or 10 ppt 
-        #; move left 5 px
-
-        # same bindings, but for the arrow keys
-        #bindsym Left  resize shrink width 10 px or 10 ppt ; move right 5px
-        #bindsym Down  resize grow height 10 px or 10 ppt ; move up 5 px
-        #bindsym Up    resize shrink height 10 px or 10 ppt ; move down 5 px
-        #bindsym Right resize grow width 10 px or 10 ppt; move left 5 px
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -219,11 +205,7 @@ mode "move" {
         bindsym j move down 10 px
         bindsym k move up 10 px
         bindsym l move right 10 px
-        # same bindings, but for the arrow keys
-        bindsym Left  move left 10 px
-        bindsym Down  move down 10 px
-        bindsym Up    move up 10 px
-        bindsym Right move right 10 px
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
