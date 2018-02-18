@@ -37,6 +37,10 @@ set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -fo
 bindsym $mod+grave exec --no-startup-id $run
 bindsym $mod+less exec --no-startup-id $run
 
+bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9
+bindsym $mod+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -69,9 +73,6 @@ bindsym $mod+g split h
 
 # split in vertical orientation
 bindsym $mod+v split v
-bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=9
-bindsym $mod+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+Shift+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen
