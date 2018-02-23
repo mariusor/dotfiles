@@ -1,5 +1,5 @@
 [global]
-font = xos4 Terminus 11
+font = "xos4 Terminus 11"
 
 # Allow a small subset of html markup:
 #   <b>bold</b>
@@ -25,7 +25,7 @@ plain_text = no
 format = "<b>%s</b>\n%b"
 
 # Sort messages by urgency.
-sort = no
+sort = yes
 
 # Show how many messages are currently hidden (because of geometry).
 indicate_hidden = yes
@@ -56,7 +56,6 @@ ignore_newline = no
 stack_duplicates = yes
 hide_duplicates_count = yes
 
-
 # The geometry of the window:
 #   [{width}]x{height}[+/-{x}+/-{y}]
 # The geometry of the message window.
@@ -79,7 +78,7 @@ shrink = no
 # The transparency of the window.  Range: [0; 100].
 # This option will only work if a compositing windowmanager is
 # present (e.g. xcompmgr, compiz, etc.).
-transparency = 5
+transparency = 15
 
 # Don't remove messages, if the user is idle (no mouse or keyboard input)
 # for longer than idle_threshold seconds.
@@ -100,7 +99,7 @@ monitor = 2
 #
 # If this option is set to mouse or keyboard, the monitor option
 # will be ignored.
-follow = none
+follow = keyboard
 
 # Should a notification popped up from history be sticky or timeout
 # as if it would normally do.
@@ -149,10 +148,10 @@ browser = /usr/bin/firefox -new-tab
 
 # Align icons left/right/off
 icon_position = left
-max_icon_size = 80
+max_icon_size = 48
 
 # Paths to default icons.
-icon_path = /usr/share/icons/Paper/16x16/mimetypes/:/usr/share/icons/Paper/48x48/status/:/usr/share/icons/Paper/16x16/devices/:/usr/share/icons/Paper/48x48/notifications/:/usr/share/icons/Paper/48x48/emblems/
+icon_path = /usr/share/icons/Adwaita/16x16/mimetypes/:/usr/share/icons/Adwaita/48x48/status/:/usr/share/icons/Adwaita/16x16/devices/:/usr/share/icons/Adwaita/48x48/notifications/:/usr/share/icons/Adwaita/48x48/emblems/
 
 frame_width = 3
 frame_color = "#8EC07C"
