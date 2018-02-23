@@ -217,7 +217,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down
 
 bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
 
-set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
+set $mpris_notify notify-send -i "$(mpris-ctl info %art_url)" "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
 bindsym XF86AudioPlay exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
 bindsym $mod+backslash exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
