@@ -42,8 +42,8 @@ config.set('tabs.width', '20%')
 config.set('url.searchengines', {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'g': 'https://www.google.de/search?q={}',
-    'ws': 'https://en.wikipedia.org/wiki/{}',
-    'wk': 'https://en.wiktionary.org/wiki/{}',
+    'ws': 'https://en.wikipedia.org/w/index.php?search={}',
+    'wk': 'https://en.wiktionary.org/w/index.php?search={}',
     'tfd': 'http://tfd.com/{}',
     'cc': 'https://www.dict.cc/?s={}'
 })
