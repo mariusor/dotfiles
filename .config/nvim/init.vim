@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'jneen/ragel.vim'
-"    Plug 'fatih/vim-go'
+    Plug 'fatih/vim-go'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
     Plug 'dbgx/lldb.nvim'
@@ -26,8 +26,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'wincent/ferret'
 "    Plug 'joereynolds/gtags-scope'
     Plug 'machakann/vim-highlightedyank'
-    Plug 'lyuts/vim-rtags'
-"   Plug 'LuXuryPro/deoplete-rtags'
+"    Plug 'lyuts/vim-rtags'
+   Plug 'LuXuryPro/deoplete-rtags'
     Plug 'igankevich/mesonic'
 " Add plugins to &runtimepath
 call plug#end()
@@ -60,13 +60,13 @@ let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy']}
-let g:ale_c_clangtidy_options = '-header-filter=.* -p=./compile_commands.json'
-let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./compile_commands.json'
+let g:ale_c_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
+let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
 let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 "set cscopetag "search both cscopes db and the tags file
-" lyuts/vim--rtags
+" lyuts/vim-rtags
 set completefunc=RtagsCompleteFunc
 
 " Regular settings
@@ -82,7 +82,7 @@ set encoding=utf-8
 set nobackup
 set nowritebackup
 set noswapfile
-set ignorecase
+"set ignorecase
 set tabstop=4
 set shiftwidth=4
 set expandtab
