@@ -27,7 +27,6 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'joereynolds/gtags-scope'
     Plug 'machakann/vim-highlightedyank'
 "    Plug 'lyuts/vim-rtags'
-   Plug 'LuXuryPro/deoplete-rtags'
     Plug 'igankevich/mesonic'
 " Add plugins to &runtimepath
 call plug#end()
@@ -65,9 +64,9 @@ let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands
 let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
-"set cscopetag "search both cscopes db and the tags file
+set cscopetag "search both cscopes db and the tags file
 " lyuts/vim-rtags
-set completefunc=RtagsCompleteFunc
+"set completefunc=RtagsCompleteFunc
 
 " Regular settings
 syntax on
