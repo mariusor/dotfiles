@@ -22,7 +22,7 @@ else
     export TERM="xterm-256color"
 fi
 export EDITOR="nvim"
-export BROWSER="chromium"
+export BROWSER="qutebrowser"
 #export SHELL="/usr/bin/fish"
 export CVS_RSH=ssh
 export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin 
