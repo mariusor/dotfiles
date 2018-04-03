@@ -228,12 +228,16 @@ bindsym XF86AudioPrev exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_n
 bindsym $mod+bracketleft exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym --release XF86Display exec "~/.local/bin/2way-deliveryhero.sh"
-bindsym --release Shift+XF86Display exec "~/.local/bin/1way.sh"
+
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
+#bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
+#bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86Display exec "~/.local/bin/2way-deliveryhero.sh"
+bindsym Shift+XF86Display exec "~/.local/bin/1way.sh"
 
 set $Locker i3lock -c 222222 && sleep 1
+#set $Locker slock
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
@@ -249,6 +253,7 @@ mode "$mode_system" {
 }
 bindsym $mod+Print mode "$mode_system"
 bindsym $mod+equal mode "$mode_system"
+bindsym Shift+Print exec scrot 'Screenshot_%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/'
 
 bindsym $mod+x [urgent=latest] focus
 
