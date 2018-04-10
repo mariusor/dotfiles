@@ -10,9 +10,11 @@ export LANG="en_US"
 export LANGUAGE="en_US.UTF-8"
 export LC_LANG="en_US.UTF-8"
 export LC_MONETARY="de_DE.UTF-8"
-export LC_NUMERIC="ro_RO.UTF-8"
-export LC_MEASUREMENT="ro_RO.UTF-8"
-export LC_TIME="ro_RO.UTF-8"
+export LC_NUMERIC="de_DE.UTF-8"
+export LC_MEASUREMENT="de_DE.UTF-8"
+export LC_TIME="de_DE.UTF-8"
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 #export TERMINAL="/usr/bin/termite"
 export TERMINAL="/usr/bin/tilix"
@@ -25,7 +27,7 @@ export EDITOR="nvim"
 export BROWSER="qutebrowser"
 #export SHELL="/usr/bin/fish"
 export CVS_RSH=ssh
-export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin 
+export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin
 
 #test -r "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh" && . "/usr/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh"
 function _update_ps1() {
