@@ -1,7 +1,8 @@
 # sway config file
 #
 
-set $mod Mod1
+#set $mod Mod1
+set $mod Mod4
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
 
@@ -29,7 +30,13 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+grave exec --no-startup-id j4-dmenu-desktop
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
+bindsym $mod+grave exec --no-startup-id $run
+bindsym $mod+less exec --no-startup-id $run
+
+bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9
+bindsym $mod+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
@@ -196,27 +203,29 @@ mode "move" {
 bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
-bindsym XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
-bindsym XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
-bindsym XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
+bindsym XF86AudioMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl up"
+bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down"
+
+bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
 
 set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
-bindsym XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
-bindsym XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
-bindsym XF86AudioNext exec mpris-ctl next && sleep 1 && $mpris_notify
-bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
-bindsym $mod + XF86AudioPlay exec $mpris_notify
+bindsym XF86AudioPlay exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym XF86AudioStop exec --no-startup-id mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym XF86AudioNext exec --no-startup-id mpris-ctl next && sleep 1 && $mpris_notify
+bindsym XF86AudioPrev exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_notify
+bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
-bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
-bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
+bindsym XF86MonBrightnessUp exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5
 #bindsym XF86LaunchB exec "~/.local/bin/toggle"
 
-set $Locker swaylock -c 222222 && sleep 1
+set $Locker "swaylock -c 222222 && sleep 1"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "mpris-ctl pause ; $Locker", mode "default"
+    bindsym l exec --no-startup-id "mpris-ctl pause ; ${Locker}", mode "default"
     bindsym e exec --no-startup-id loginctl terminate-session $(loginctl show-user habarnam --property Display --value), mode "default"
     #bindsym e exec --no-startup-id swaymsg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
@@ -272,4 +281,3 @@ bar {
     }
 }
 
-exec --no-startup-id dunst
