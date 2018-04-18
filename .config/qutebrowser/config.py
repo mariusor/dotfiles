@@ -45,7 +45,8 @@ config.set('url.searchengines', {
     'ws': 'https://en.wikipedia.org/w/index.php?search={}',
     'wk': 'https://en.wiktionary.org/w/index.php?search={}',
     'tfd': 'http://tfd.com/{}',
-    'cc': 'https://www.dict.cc/?s={}'
+    'cc': 'https://www.dict.cc/?s={}',
+    'im': 'https://www.imdb.com/find?q={}&s=all'
 })
 config.set('tabs.background', True)
 config.bind('t', 'set-cmd-text -s :open -t ')
@@ -54,7 +55,7 @@ config.bind('O', 'set-cmd-text -s :open {url}')
 config.bind('gt', 'tab-next')
 config.bind('gT', 'tab-prev')
 config.bind(',v', 'spawn mpv {url}')
-config.bind(';,v', 'hint links fill :spawn mpv {hint-url}')
+config.bind(';v', 'hint links fill :spawn mpv {hint-url}')
 config.bind('<Ctrl-o>', 'back')
 config.bind('<Ctrl-i>', 'forward')
 config.unbind('H')
