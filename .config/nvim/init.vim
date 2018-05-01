@@ -5,7 +5,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
     Plug 'tpope/vim-surround'
-    Plug 'wellle/targets.vim'
+"    Plug 'wellle/targets.vim'
 "    Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
     Plug 'unblevable/quick-scope'
@@ -20,11 +20,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
-    Plug 'dbgx/lldb.nvim'
+"    Plug 'dbgx/lldb.nvim'
     Plug 'w0rp/ale'
 "    Plug 'neomake/neomake'
     Plug 'wincent/ferret'
-"    Plug 'joereynolds/gtags-scope'
+    Plug 'joereynolds/gtags-scope'
     Plug 'machakann/vim-highlightedyank'
 "    Plug 'lyuts/vim-rtags'
     Plug 'igankevich/mesonic'
@@ -114,7 +114,7 @@ noremap <Leader>\| :vs<cr> :wincmd l <cr>
 noremap <Leader>- :sp<cr> :wincmd l <cr>
 
 hi Todo ctermfg=white
-
+autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
 autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
 if has('nvim')
