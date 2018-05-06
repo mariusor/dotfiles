@@ -64,7 +64,7 @@ let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands
 let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
-set cscopetag "search both cscopes db and the tags file
+"set cscopetag "search both cscopes db and the tags file
 " lyuts/vim-rtags
 "set completefunc=RtagsCompleteFunc
 
