@@ -13,23 +13,23 @@ exec xrdb -merge ~/.Xresources-$(uname -n)
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:xos4 Terminus 10
+font pango:xos4 Terminus 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec --no-startup-id tilix
-#bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec --no-startup-id rofi-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
+#set $run "rofi -combi-modi drun,run -show combi -modi combi" # --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
 bindsym $mod+grave exec --no-startup-id $run
 bindsym $mod+less exec --no-startup-id $run
@@ -144,39 +144,23 @@ bindsym $mod+i [class="skypeforlinux"] scratchpad show
 
 #for_window[class="Firefox"] border none
 
+default_border pixel
+
 # cycle through border styles
 bindsym $mod+b border toggle
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart sway inplace (preserves your layout/session, can be used to upgrade sway)
-bindsym $mod+Shift+r restart
+#bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
-        bindsym Shift+h move left 10 px
-        bindsym Shift+j move down 10 px
-        bindsym Shift+k move up 10 px
-        bindsym Shift+l move right 10 px
-
-        # same bindings, but for the arrow keys
-        bindsym Left  resize shrink width 10 px or 10 ppt
-        bindsym Down  resize grow height 10 px or 10 ppt
-        bindsym Up    resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
-        bindsym Shift+Left  move left 10 px
-        bindsym Shift+Down  move down 10 px
-        bindsym Shift+Up    move up 10 px
-        bindsym Shift+Right move right 10 px
+        bindsym h resize shrink width 10px
+        bindsym j resize grow height 10px
+        bindsym k resize shrink height 10px
+        bindsym l resize grow width 10px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -187,15 +171,11 @@ bindsym $mod+r mode "resize"
 # move window (you can also use the mouse for that)
 mode "move" {
         # These bindings trigger as soon as you enter the move mode
-        bindsym h move left 10 px
-        bindsym j move down 10 px
-        bindsym k move up 10 px
-        bindsym l move right 10 px
-        # same bindings, but for the arrow keys
-        bindsym Left  move left 10 px
-        bindsym Down  move down 10 px
-        bindsym Up    move up 10 px
-        bindsym Right move right 10 px
+        bindsym h move left 10px
+        bindsym j move down 10px
+        bindsym k move up 10px
+        bindsym l move right 10px
+        #
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -203,11 +183,11 @@ mode "move" {
 bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
-bindsym XF86AudioMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute"
-bindsym XF86AudioRaiseVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl up"
-bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down"
+bindsym XF86AudioMute exec --no-startup-id "pulseaudio-ctl mute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pulseaudio-ctl up"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pulseaudio-ctl down"
 
-bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
+bindsym XF86AudioMicMute exec --no-startup-id "pulseaudio-ctl mute-input"
 
 set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
@@ -221,13 +201,14 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 #bindsym XF86LaunchB exec "~/.local/bin/toggle"
 
-set $Locker "swaylock -c 222222 && sleep 1"
+debuglog on
+set $Locker "swaylock" # -f -c 222222"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec --no-startup-id "mpris-ctl pause ; ${Locker}", mode "default"
-    bindsym e exec --no-startup-id loginctl terminate-session $(loginctl show-user habarnam --property Display --value), mode "default"
-    #bindsym e exec --no-startup-id swaymsg exit, mode "default"
+
+    bindsym l exec $Locker, mode "default"
+    bindsym e exec --no-startup-id swaymsg exit, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
     bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
@@ -241,12 +222,10 @@ bindsym $mod+equal mode "$mode_system"
 
 bindsym $mod+x [urgent=latest] focus
 
-new_window pixel
-
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
-gaps inner 2
+#gaps inner 2
 
 include "conf.d/$(uname -n).config"
 include "conf.d/rules"
@@ -267,8 +246,8 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 # finds out, if available)
 bar {
     tray_output primary
-    font pango:xos4 Terminus 10
-#    pango_markup disabled
+    font pango:xos4 Terminus 8
+    pango_markup disabled
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
     colors {
