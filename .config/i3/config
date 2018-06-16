@@ -34,23 +34,19 @@ bindsym $mod+Shift+q kill
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
 set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
 bindsym $mod+grave exec --no-startup-id $run
-bindsym $mod+less exec --no-startup-id $run
+#bindsym $mod+less exec --no-startup-id $run
 
 bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9
 bindsym $mod+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
 bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
+#bindsym $mod+h workspace prev_on_output
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
+#bindsym $mod+l workspace next_on_output
 bindsym $mod+l focus right
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -78,6 +74,7 @@ bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+comma layout stacking
+bindsym $mod+less layout stacking
 bindsym $mod+period layout tabbed
 bindsym $mod+slash layout toggle split
 # ANSI layout
@@ -260,9 +257,6 @@ bindsym $mod+x [urgent=latest] focus
 
 new_window 1pixel
 
-bindsym $mod+Shift+Right workspace next_on_output
-bindsym $mod+Shift+Left workspace prev_on_output
-
 #gaps inner 2
 
 # Status bar uses custom script
@@ -270,7 +264,7 @@ set $bg  #323232
 set $bgu #323232B0
 set $btu #323232B0
 set $fg  #ffffff
-set $fgu #aaaaaa
+set $fgu #888888
 
 #                       border  background  text    indicator   child
 client.unfocused        $bg     $bgu        $fgu      $bgu        $bgu
@@ -282,7 +276,6 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 # finds out, if available)
 bar {
     tray_output primary
-    #tray_output none
     font pango:xos4 Terminus 8
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
