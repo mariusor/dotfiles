@@ -16,6 +16,9 @@ export LC_TIME="de_DE.UTF-8"
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
+export GOPATH=~/.local/share/go
+#export GOROOT=~/.local/share/go
+
 #export TERMINAL="/usr/bin/termite"
 export TERMINAL="/usr/bin/tilix"
 if [ -n "$TMUX" ]; then
@@ -41,6 +44,8 @@ if [ "$TERM" != "linux" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
+test -x $(which madonctl) && source <(madonctl completion bash)
+
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 
 GPG_TTY=$(tty); export GPG_TTY
@@ -50,9 +55,6 @@ unset SSH_ASKPASS
 if [ "$EUID" -ne 0 ]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
-
-export GOPATH=~/.local/share/go
-#export GOROOT=~/.local/share/go
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
 complete -C '/usr/bin/aws_completer' aws
