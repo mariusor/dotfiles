@@ -139,6 +139,7 @@ bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+e [class="Thunderbird"] scratchpad show
+bindsym $mod+u [class="Vpnui" instance="vpnui"] scratchpad show
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
 for_window [class="Pidgin" instance="Pidgin"] move scratchpad
@@ -149,6 +150,8 @@ for_window [instance="rambox" class="Rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 for_window [class="Pinentry" instance="pinentry"] floating enabled
+for_window [class="Vpnui" instance="vpnui"]  move scratchpad
+for_window [class="Vpnui" instance="vpnui"] floating enabled
 
 assign [class="Chromium"] $w1
 assign [class="Firefox"] $w4
@@ -161,16 +164,16 @@ assign [class="mpv"] $w9
 #workspace  $w4 output DP1
 #workspace  $w5 output DP1
 #workspace  $w6 output DP1
-workspace  $w1 output HDMI1
-workspace  $w2 output HDMI1
-workspace  $w3 output HDMI1
-workspace  $w4 output HDMI1
-workspace  $w5 output HDMI1
-workspace  $w6 output eDP1
-workspace  $w7 output eDP1
-workspace  $w8 output eDP1
-workspace  $w9 output eDP1
-workspace $w10 output eDP1
+workspace  $w1 output HDMI-1
+workspace  $w2 output HDMI-1
+workspace  $w3 output HDMI-1
+workspace  $w4 output HDMI-1
+workspace  $w5 output HDMI-1
+workspace  $w6 output eDP-1
+workspace  $w7 output eDP-1
+workspace  $w8 output eDP-1
+workspace  $w9 output eDP-1
+workspace $w10 output eDP-1
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -231,8 +234,10 @@ bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
 #bindsym XF86MonBrightnessDown exec "xbacklight -dec 10"
 #bindsym XF86MonBrightnessUp exec "xbacklight -inc 5"
-bindsym XF86Display exec "~/.local/bin/2way-deliveryhero.sh"
-bindsym Shift+XF86Display exec "~/.local/bin/1way.sh"
+bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
+bindsym Shift+XF86Display exec "~/.local/bin/screen-toggle.sh"
+bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
+bindsym Shift+XF86Tools exec "~/.local/bin/screen-toggle.sh"
 
 set $Locker i3lock -c 222222 && sleep 1
 #set $Locker slock
