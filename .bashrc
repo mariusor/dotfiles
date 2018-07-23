@@ -45,6 +45,7 @@ if [ "$TERM" != "linux" ]; then
 fi
 
 test -x $(which madonctl) && source <(madonctl completion bash)
+test -x $(which gopass) && source <(gopass completion bash)
 
 alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 
