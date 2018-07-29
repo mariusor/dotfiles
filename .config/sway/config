@@ -16,7 +16,7 @@ exec xrdb -merge ~/.Xresources-$(uname -n)
 font pango:xos4 Terminus 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+#floating_modifier normal
 
 # start a terminal
 #bindsym $mod+Return exec --no-startup-id rofi-sensible-terminal
@@ -135,12 +135,12 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 # Show the pidgin scratchpad window, if any.
-#bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
-#bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
-bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
-bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
-bindsym $mod+o [class="Slack"] scratchpad show
-bindsym $mod+i [class="skypeforlinux"] scratchpad show
+bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
+#bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
+bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+#bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+#bindsym $mod+o [class="Slack"] scratchpad show
+#bindsym $mod+i [class="skypeforlinux"] scratchpad show
 
 #for_window[class="Firefox"] border none
 
@@ -202,7 +202,8 @@ bindsym XF86MonBrightnessDown exec light -U 5
 #bindsym XF86LaunchB exec "~/.local/bin/toggle"
 
 debuglog on
-set $Locker "swaylock" # -f -c 222222"
+
+set $Locker "/usr/bin/swaylock"
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
