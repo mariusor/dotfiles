@@ -29,7 +29,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-#set $run "rofi -combi-modi drun,run -show combi -modi combi" # --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
+#set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
 bindsym $mod+grave exec --no-startup-id $run
 bindsym $mod+less exec --no-startup-id $run
@@ -44,12 +44,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Left focus left
-#bindsym $mod+Down focus down
-#bindsym $mod+Up focus up
-#bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
@@ -57,7 +51,9 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 bindsym $mod+Shift+period move workspace to output right
+bindsym $mod+Shift+apostrophe move workspace to output up
 bindsym $mod+Shift+comma move workspace to output left
+bindsym $mod+Shift+semicolon move workspace to output down
 
 # alternatively, you can use the cursor keys:
 #bindsym $mod+Shift+Left move left
@@ -142,9 +138,8 @@ bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratc
 #bindsym $mod+o [class="Slack"] scratchpad show
 #bindsym $mod+i [class="skypeforlinux"] scratchpad show
 
-#for_window[class="Firefox"] border none
 
-default_border pixel
+default_border none #pixel
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -175,7 +170,7 @@ mode "move" {
         bindsym j move down 10px
         bindsym k move up 10px
         bindsym l move right 10px
-        #
+
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
@@ -183,11 +178,11 @@ mode "move" {
 bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
-bindsym XF86AudioMute exec --no-startup-id "pulseaudio-ctl mute"
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pulseaudio-ctl up"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pulseaudio-ctl down"
+bindsym XF86AudioMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute"
+bindsym XF86AudioRaiseVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl up"
+bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down"
 
-bindsym XF86AudioMicMute exec --no-startup-id "pulseaudio-ctl mute-input"
+bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
 
 set $mpris_notify notify-send "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
@@ -199,7 +194,8 @@ bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
-#bindsym XF86LaunchB exec "~/.local/bin/toggle"
+bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
+bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
 
 debuglog on
 
@@ -248,7 +244,7 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 bar {
     tray_output primary
     font pango:xos4 Terminus 8
-    pango_markup disabled
+    #pango_markup disabled
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
     colors {
