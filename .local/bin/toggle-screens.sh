@@ -11,5 +11,5 @@ else
     source ${DIR}/${MON_COUNT}way.sh
     notify-send "Layout generic ${MON_COUNT} displays"
 fi
+sleep 1 &
 nitrogen --restore
-
