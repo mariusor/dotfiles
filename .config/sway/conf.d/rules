@@ -1,4 +1,5 @@
 for_window [class="chromium"] border none
 for_window [class="firefox"] border none
 for_window [class="vimb"] focus child, layout tabbed, focus
-for_window [class="pinentry-.*"] floating enable
+for_window [class="Pinentry-.*"] floating enable, border pixel
+#for_window [class="Pinentry-.*"] border pixel
