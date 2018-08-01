@@ -1,0 +1,7 @@
+$include /etc/inputrc
+
+set completion-ignore-case off
+set completion-prefix-display-length 2
+set visible-stats on
+Control-j: menu-complete
+Control-k: menu-complete-backward
