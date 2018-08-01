@@ -1,2 +1,4 @@
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+setxkbmap -option caps:swapescape
+
