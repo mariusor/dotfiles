@@ -5,6 +5,8 @@
 set $mod Mod4
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
+exec source ~/.xprofile
+exec --no-startup-id /usr/bin/mako --output eDP-1 --default-timeout 800
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -19,17 +21,14 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-#bindsym $mod+Return exec --no-startup-id rofi-sensible-terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec --no-startup-id rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
-#set $run export BEMENU_BACKEND=wayland && j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="bemenu -p '> ' -f --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'xos4 Terminus'"
-set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=8'"
+#set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="${TERMINAL}" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
 bindsym $mod+grave exec --no-startup-id $run
-bindsym $mod+less exec --no-startup-id $run
 bindsym $mod+Tab exec --no-startup-id $run
 
 bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=8
@@ -136,8 +135,8 @@ bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratc
 #bindsym $mod+o [class="Slack"] scratchpad show
 #bindsym $mod+i [class="skypeforlinux"] scratchpad show
 
-
 default_border none #pixel
+#for_window [floating] default_border pixel
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -255,4 +254,3 @@ bar {
     }
 }
 
-exec "/usr/bin/mako --output eDP-1"
