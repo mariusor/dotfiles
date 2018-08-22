@@ -5,8 +5,7 @@
 set $mod Mod4
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
-exec source ~/.xprofile
-exec --no-startup-id /usr/bin/mako --output eDP-1 --default-timeout 800
+exec_always --no-startup-id pkill mako; /usr/bin/mako --output eDP-1 --default-timeout 1400
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -27,7 +26,7 @@ bindsym $mod+Return exec --no-startup-id rofi-sensible-terminal
 bindsym $mod+Shift+q kill
 
 #set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
-set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="${TERMINAL}" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=tilix --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
 bindsym $mod+grave exec --no-startup-id $run
 bindsym $mod+Tab exec --no-startup-id $run
 
@@ -175,38 +174,37 @@ mode "move" {
 bindsym $mod+m mode "move"
 
 # the volume keys need pulseaudio-ctl AUR package
-bindsym XF86AudioMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute"
-bindsym XF86AudioRaiseVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl up"
-bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down"
+bindsym XF86AudioMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute
+bindsym XF86AudioRaiseVolume exec --no-startup-id /usr/bin/pulseaudio-ctl up
+bindsym XF86AudioLowerVolume exec --no-startup-id /usr/bin/pulseaudio-ctl down
 
-bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
+bindsym XF86AudioMicMute exec --no-startup-id /usr/bin/pulseaudio-ctl mute-input
 
 set $mpris_notify notify-send -i "$(mpris-ctl info %art_url)" "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
-bindsym XF86AudioPlay exec --no-startup-id "mpris-ctl pp" && "sleep 1" && "$mpris_notify"
-bindsym XF86AudioStop exec --no-startup-id "mpris-ctl stop" && "sleep 1" && "$mpris_notify"
-bindsym XF86AudioNext exec --no-startup-id "mpris-ctl next" && "sleep 1" && "$mpris_notify"
-bindsym XF86AudioPrev exec --no-startup-id "mpris-ctl prev" && "sleep 1" && "$mpris_notify"
-bindsym $mod + XF86AudioPlay exec  --no-startup-id "$mpris_notify"
+bindsym XF86AudioPlay exec --no-startup-id mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym XF86AudioStop exec --no-startup-id mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym XF86AudioNext exec --no-startup-id mpris-ctl next && sleep 1 && $mpris_notify
+bindsym XF86AudioPrev exec --no-startup-id mpris-ctl prev && sleep 1 && $mpris_notify
+bindsym $mod + XF86AudioPlay exec --no-startup-id $mpris_notify
 
 bindsym XF86MonBrightnessUp exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5
-bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
-bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
+#bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
+#bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
 
 #debuglog on
 
-set $Locker "/usr/bin/swaylock --indicator-radius=80 -c 222222"
+set $Locker /usr/bin/swaylock --indicator-radius=80 -c 222222
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-
-    bindsym l exec "$Locker", mode "default"
+    bindsym l exec --no-startup-id $Locker, mode "default"
     bindsym e exec --no-startup-id swaymsg exit, mode "default"
-    bindsym s exec --no-startup-id "$Locker" && "systemctl suspend", mode "default"
-    bindsym h exec --no-startup-id "$Locker" && "systemctl hibernate", mode "default"
+    bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
+    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id "systemctl poweroff -i", mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -241,7 +239,7 @@ client.focused          $bgu    $bgu        $fg       $bgu        $bgu
 bar {
     #tray_output primary
     font pango:xos4 Terminus 8
-    #pango_markup disabled
+    pango_markup disabled
     strip_workspace_numbers yes
     status_command i3status -c ~/.config/i3status/$(uname -n).config
     colors {
