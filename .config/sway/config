@@ -25,14 +25,16 @@ bindsym $mod+Return exec rofi-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
-set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=tilix --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
+set $dmenu "bemenu -p '> ' --nf #d7d7d5 --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'xos4 Terminus 10'"
+#set $dmenu dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'
+set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
+#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=tilix --dmenu=$dmenu
 bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
-bindsym $mod+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+Shift+s exec gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+bindsym $mod+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
