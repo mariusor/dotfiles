@@ -222,7 +222,6 @@ bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
-gaps edge_gaps off
 gaps inner 1
 gaps outer 0
 smart_gaps on
