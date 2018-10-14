@@ -26,16 +26,18 @@ bindsym $mod+Return exec tilix
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term="$TERMINAL" --dmenu="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus'"
-set $run "rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
+#set $dmenu "bemenu -p '> ' --nf #d7d7d5 --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'xos4 Terminus 10'"
+set $dmenu dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'
+set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'xos4 Terminus 10' -show-icons"
+#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=tilix --dmenu=$dmenu
 bindsym $mod+grave exec --no-startup-id $run
-#bindsym $mod+less exec --no-startup-id $run
+#bindsym $mod+less exec --no-startup-id "$run"
 bindsym $mod+Tab exec --no-startup-id $run
 
 bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9
-#bindsym $mod+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+s exec --no-startup-id rofi-pass --root $XDG_DATA_HOME/password-store
-#bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+#bindsym $mod+s exec --no-startup-id rofi-pass --root $XDG_DATA_HOME/password-store
+bindsym $mod+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 #bindsym $mod+h workspace prev_on_output
@@ -228,8 +230,12 @@ bindsym XF86AudioPrev exec --no-startup-id mpris-ctl prev && sleep 1 && "$mpris_
 bindsym $mod+bracketleft exec --no-startup-id mpris-ctl prev && sleep 1 && "$mpris_notify"
 bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
-bindsym XF86MonBrightnessUp exec light -A 5
-bindsym XF86MonBrightnessDown exec light -U 5
+
+set $Light light
+#set $Light pkexec brillo -equ 1500
+
+bindsym XF86MonBrightnessUp exec $Light -A 5
+bindsym XF86MonBrightnessDown exec $Light -U 5
 bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
 bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
 
