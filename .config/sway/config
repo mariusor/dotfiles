@@ -35,6 +35,7 @@ bindsym $mod+Tab exec $run
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
 bindsym $mod+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
 bindsym $mod+Shift+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
@@ -184,9 +185,12 @@ bindsym XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 
 set $mpris_notify notify-send -i "$(mpris-ctl info %art_url)" "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
+bindsym $mod+backslash exec mpris-ctl pp && sleep 1 && $mpris_notify
 bindsym XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
 bindsym XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
+bindsym $mod+bracketright exec mpris-ctl next && sleep 1 && $mpris_notify
 bindsym XF86AudioNext exec mpris-ctl next && sleep 1 && $mpris_notify
+bindsym $mod+bracketleft exec mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym $mod + XF86AudioPlay exec $mpris_notify
 
