@@ -133,8 +133,8 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 # Show the pidgin scratchpad window, if any.
-bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" title="Buddy List"] scratchpad show
-bindsym $mod+p [class="Pidgin" instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show
+bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
 #bindsym $mod+o [class="Slack"] scratchpad show
 bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
@@ -143,7 +143,7 @@ bindsym $mod+e [class="Thunderbird"] scratchpad show
 bindsym $mod+u [class="Vpnui" instance="vpnui"] scratchpad show
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
-for_window [class="Pidgin" instance="Pidgin"] move scratchpad
+for_window [class="Pidgin" instance="Pidgin" window_role="buddy_list|conversation"] move scratchpad
 for_window [class="Pidgin" instance="Pidgin" title="Buddy List"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
