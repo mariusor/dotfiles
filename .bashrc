@@ -4,6 +4,16 @@
 umask 002
 alias ls='ls --color=auto'
 
+# bash stuff
+HISTFILESIZE=1000000
+HISTSIZE=1000000
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT='%F %T '
+PROMPT_COMMAND='history -a'
+
+shopt -s cmdhist
+shopt -s histappend
+
 [[ -f /etc/profile ]] && . /etc/profile
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
