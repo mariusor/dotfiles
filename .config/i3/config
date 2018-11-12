@@ -149,7 +149,7 @@ for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
 for_window [instance="rambox" class="Rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
-for_window [class="mpv"] floating disabled
+#for_window [class="mpv"] floating disabled
 for_window [class="Pinentry" instance="pinentry"] floating enabled
 for_window [class="Vpnui" instance="vpnui"]  move scratchpad
 for_window [class="Vpnui" instance="vpnui"] floating enabled
@@ -231,8 +231,8 @@ bindsym $mod+bracketleft exec --no-startup-id mpris-ctl prev && sleep 1 && "$mpr
 bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 
 
-set $Light light
-#set $Light pkexec brillo -equ 1500
+#set $Light light
+set $Light brillo -equ 800
 
 bindsym XF86MonBrightnessUp exec $Light -A 5
 bindsym XF86MonBrightnessDown exec $Light -U 5
