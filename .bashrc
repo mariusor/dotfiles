@@ -3,6 +3,7 @@
 
 umask 002
 alias ls='ls --color=auto'
+alias yy='yes | yay'
 
 # bash stuff
 HISTFILESIZE=1000000
