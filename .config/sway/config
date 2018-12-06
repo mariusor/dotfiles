@@ -20,24 +20,27 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec rofi-sensible-terminal
+bindsym $mod+Return exec tilix #rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $dmenu "bemenu -p '> ' --nf #d7d7d5 --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'xos4 Terminus 10'"
-#set $dmenu dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'
-set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
+set $dmenu bemenu
+set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 10'"
+#set $dmenu "dmenu -p '> ' -f -nf d7d7d5 -nb 232729 -sb 585858 -sf bcbcbc -i -fn 'xos4 Terminus:size=10'"
+#set $dmenu "dmenu"
+#set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
+#set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu="bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 10'"
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
-#bindsym $mod+grave exec j4-dmenu-desktop --dmenu=dmenu
+#bindsym $mod+grave exec j4-dmenu-desktop --dmenu=$dmenu
 bindsym $mod+grave exec $run
-bindsym $mod+Tab --release exec $run
+bindsym $mod+Tab exec $run
 
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
 bindsym $mod+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+Shift+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
-bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+bindsym $mod+Shift+s exec gopass ls --flat | bemenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
@@ -136,12 +139,12 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
 #bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
 bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
-bindsym $mod+o [class="Slack"] scratchpad show
+#bindsym $mod+o [class="Slack"] scratchpad show
 bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
-for_window [class="Pidgin" window_type="normal"] move scratchpad
+#for_window [class="Pidgin" window_type="normal"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
