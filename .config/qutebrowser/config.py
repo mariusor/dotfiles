@@ -63,3 +63,4 @@ config.unbind('J')
 config.unbind('K')
 config.unbind('L')
 
+config.bind('<z><l>', 'spawn --userscript password_fill')
