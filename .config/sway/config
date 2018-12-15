@@ -25,9 +25,8 @@ bindsym $mod+Return exec tilix #rofi-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $dmenu bemenu
-set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 10'"
-#set $dmenu "dmenu -p '> ' -f -nf d7d7d5 -nb 232729 -sb 585858 -sf bcbcbc -i -fn 'xos4 Terminus:size=10'"
+#set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 9'"
+set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
 #set $dmenu "dmenu"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
@@ -39,8 +38,8 @@ bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
 bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
-bindsym $mod+s exec gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
-bindsym $mod+Shift+s exec gopass ls --flat | bemenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
+bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
@@ -81,7 +80,7 @@ bindsym $mod+slash layout toggle split
 #bindsym $mod+apostrophe layout auto_left
 #bindsym $mod+semicolon layout auto next
 # ANSI layout
-bindsym $mod+backslash layout toggle split
+#bindsym $mod+backslash layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -137,8 +136,8 @@ bindsym $mod+minus scratchpad show
 # Show the pidgin scratchpad window, if any.
 #bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show
 bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
-#bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
-bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
+bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
+#bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
 #bindsym $mod+o [class="Slack"] scratchpad show
 bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
