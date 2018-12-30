@@ -25,9 +25,8 @@ bindsym $mod+Return exec tilix #rofi-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 9'"
-set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
-#set $dmenu "dmenu"
+set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 9'"
+#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu="bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 10'"
