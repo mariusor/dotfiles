@@ -25,18 +25,16 @@ bindsym $mod+Return exec tilix #rofi-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $dmenu "bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 9'"
-#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
+set $dmenu "bemenu -p '> ' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'xos4 Terminus 12' -i"
+#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
-#set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu="bemenu -p '> ' --nf d7d7d5 --nb 232729 --sb 585858 --sf bcbcbc -i --fn 'xos4 Terminus 10'"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
-#bindsym $mod+grave exec j4-dmenu-desktop --dmenu=$dmenu
 bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
-bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
+bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=12
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -c
 bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
