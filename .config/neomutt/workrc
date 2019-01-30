@@ -20,6 +20,7 @@ set use_from = yes
 set smtp_url=smtps://$my_work_user:$my_work_pass@smtp.gmail.com
 set ssl_force_tls = yes
 
+alias pawel Pawel Szczepaniak <pawel.szczepaniak@rocket-internet.de>
 
 ## Hook -- IMPORTANT!
 account-hook $folder "set imap_user=$my_work_user imap_pass=$my_work_pass"
