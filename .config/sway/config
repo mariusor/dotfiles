@@ -3,6 +3,8 @@
 
 #set $mod Mod1
 set $mod Mod4
+set $TERMINAL tilix
+
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
 exec_always pkill mako && /usr/bin/mako --output eDP-1 --default-timeout 1400
@@ -25,11 +27,11 @@ bindsym $mod+Return exec tilix #rofi-sensible-terminal
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $dmenu "bemenu -p '> ' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'xos4 Terminus 12' -i"
-#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
+#set $dmenu "bemenu -p '> ' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'xos4 Terminus 12' -i"
+set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
-#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
-set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
+#set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
 bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
@@ -217,7 +219,7 @@ set $Locker /usr/bin/swaylock --indicator-radius=80 -c 222222
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec mpris-ctl pause, exec $Locker, mode "default"
+    bindsym l exec mpris-ctl pause, exec "$Locker", mode "default"
     bindsym e exec mpris-ctl stop, exec swaymsg exit, mode "default"
     bindsym s exec mpris-ctl pause, exec $Locker, exec systemctl suspend, mode "default"
     bindsym h exec mpris-ctl pause, $Locker, exec systemctl hibernate, mode "default"
