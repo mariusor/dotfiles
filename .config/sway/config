@@ -237,14 +237,16 @@ bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
-gaps inner 1
-gaps outer 0
-smart_gaps on
-hide_edge_borders smart_no_gaps
+gaps inner 2
+gaps outer -2
+smart_gaps off
+smart_borders no_gaps
+hide_edge_borders --i3 smart_no_gaps
 #raise_floating no
 focus_follows_mouse no
 focus_wrapping force
-workspace_auto_back_and_forth yes
+#workspace_auto_back_and_forth yes
+mouse_warping none
 
 include "conf.d/$(uname -n).config"
 include "conf.d/rules"
