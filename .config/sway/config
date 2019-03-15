@@ -138,13 +138,15 @@ bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
 bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
 #bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
 #bindsym $mod+o [class="Slack"] scratchpad show
-bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
+bindsym $mod+i [instance=".*skype.*|station" title="Skype.*|Station"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
-#for_window [class="Pidgin" window_type="normal"] move scratchpad
+for_window [class="Pidgin" window_type="normal"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
+for_window [instance="station"] move scratchpad
+for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 
