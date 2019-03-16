@@ -3,11 +3,10 @@
 
 #set $mod Mod1
 set $mod Mod4
-set $TERMINAL tilix
+set $TERMINAL termite
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
-exec_always pkill mako && /usr/bin/mako --output eDP-1 --default-timeout 1400
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -22,7 +21,7 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec tilix #rofi-sensible-terminal
+bindsym $mod+Return exec rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
