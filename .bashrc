@@ -30,8 +30,8 @@ export QT_AUTO_SCREEN_SCALE_FACTOR=0
 export GOPATH=~/.local/share/go
 #export GOROOT=~/.local/share/go
 
-#export TERMINAL="/usr/bin/termite"
-export TERMINAL="/usr/bin/tilix"
+export TERMINAL="/usr/bin/termite"
+#export TERMINAL="/usr/bin/tilix"
 if [ -n "$TMUX" ]; then
     export TERM="screen-256color"
 else
