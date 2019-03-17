@@ -1,5 +1,5 @@
-layer=overla
+layer=overlay
 max-visible=5
 output=""
-default-timeout=3500
+default-timeout=4500
 group-by=urgency,app-name
