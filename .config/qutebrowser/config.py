@@ -1,3 +1,8 @@
+# pylint: disable=C0111
+from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
+from qutebrowser.config.config import ConfigContainer  # noqa: F401
+config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
+c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 config.set('colors.tabs.bar.bg', '#111111')
 config.set('colors.tabs.even.bg', '#666666')
 config.set('colors.tabs.even.fg', 'white')
@@ -10,10 +15,10 @@ config.set('colors.tabs.selected.odd.fg', '#ffffff')
 config.set('colors.webpage.bg', '#cccccc')
 config.set('completion.use_best_match', False)
 config.set('content.default_encoding', 'utf-8')
-config.set('content.windowed_fullscreen', True)
+config.set('content.windowed_fullscreen', False)
 config.set('downloads.location.directory', '~/Downloads')
 config.set('downloads.location.prompt', True)
-config.set('editor.command', [ 'nvim-qt', '{file}', '+{line}' ])
+config.set('editor.command', ['nvim-qt', '{file}', '+{line}'])
 config.set('fonts.completion.category', 'bold 12pt monospace')
 config.set('fonts.completion.entry', '12pt monospace')
 config.set('fonts.debug_console', '12pt monospace')
@@ -33,9 +38,14 @@ config.set('fonts.web.size.minimum', 12)
 config.set('hints.mode', 'number')
 config.set('input.insert_mode.auto_leave', True)
 config.set('input.insert_mode.auto_load', True)
-config.set('tabs.indicator.padding', { 'bottom': 2, 'left': 0, 'right': 4, 'top': 2})
+config.set('tabs.indicator.padding', {
+    'bottom': 2,
+    'left': 0,
+    'right': 4,
+    'top': 2
+})
 config.set('tabs.indicator.width', 5)
-config.set('tabs.padding', { 'bottom': 4, 'left': 5, 'right': 5, 'top': 3})
+config.set('tabs.padding', {'bottom': 4, 'left': 5, 'right': 5, 'top': 3})
 config.set('tabs.title.format', '{host}{title_sep}{title} [{index}]')
 config.set('tabs.title.format_pinned', ' {host}')
 config.set('tabs.width', '20%')
@@ -67,3 +77,4 @@ config.unbind('L')
 config.bind('<y><y>', 'yank selection')
 config.bind('<z><l>', 'spawn --userscript password_fill')
 config.set('window.hide_decoration', True)
+config.source('nord-qutebrowser.py')
