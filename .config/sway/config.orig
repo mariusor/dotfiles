@@ -3,10 +3,11 @@
 
 #set $mod Mod1
 set $mod Mod4
-set $TERMINAL termite
+set $TERMINAL tilix
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
+exec_always pkill mako && /usr/bin/mako --output eDP-1 --default-timeout 1400
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -21,24 +22,29 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec rofi-sensible-terminal
+bindsym $mod+Return exec tilix #rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
+<<<<<<< Updated upstream
 #set $dmenu "bemenu -p '> ' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'xos4 Terminus 12' -i"
 set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
-set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
-#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
+=======
+#set $dmenu "bemenu -p ':: ' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'xos4 Terminus 12'"
+set $dmenu "dmenu -p ':: ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=10'"
+>>>>>>> Stashed changes
+#set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'xos4 Terminus 10' -show-icons"
+set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=$TERMINAL --dmenu=$dmenu
 #set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
+#bindsym $mod+grave exec j4-dmenu-desktop --dmenu=$dmenu
 bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
-bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
-#bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -c
-#bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
-bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
+bindsym $mod+Shift+v exec clipmenu -i -fn Terminus:size=8
+bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -c
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
 
 # change focus
 bindsym $mod+h focus left
@@ -138,23 +144,21 @@ bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show
 #bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show
 bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
 #bindsym $mod+o [class="Slack"] scratchpad show
-bindsym $mod+i [instance=".*skype.*|station" title="Skype.*|Station"] scratchpad show
+bindsym $mod+i [instance=".*skype.*" title="Skype.*"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 
 for_window [class="sun.*"] floating enabled
 for_window [floating] border 3
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
-for_window [class="Pidgin" window_type="normal"] move scratchpad
+#for_window [class="Pidgin" window_type="normal"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
-for_window [instance="station"] move scratchpad
-for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 
-#default_border none #pixel
-#for_window [floating] default_border pixel
+default_border none #pixel
+for_window [floating] default_border pixel
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -243,16 +247,14 @@ bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
-gaps inner 2
-gaps outer -2
-smart_gaps off
-smart_borders no_gaps
-hide_edge_borders --i3 smart_no_gaps
+gaps inner 1
+gaps outer 0
+smart_gaps on
+hide_edge_borders smart_no_gaps
 #raise_floating no
 focus_follows_mouse no
 focus_wrapping force
-#workspace_auto_back_and_forth yes
-mouse_warping none
+workspace_auto_back_and_forth yes
 
 include "conf.d/$(uname -n).config"
 include "conf.d/rules"
