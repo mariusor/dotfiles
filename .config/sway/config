@@ -21,7 +21,7 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec rofi-sensible-terminal
+bindsym $mod+Return exec tilix #rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -220,8 +220,6 @@ bindsym XF86MonBrightnessDown exec $Light -U 5
 
 #debuglog on
 
-set $Locker /usr/bin/swaylock --indicator-radius=80 -c 222222
-
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec mpris-ctl pause, exec "$Locker", mode "default"
@@ -243,8 +241,11 @@ bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
+#bindsym $mod+Shift+c wl-copy
+#bindsym $mod+Shift+v wl-paste
+
 gaps inner 2
-gaps outer -2
+gaps outer -1
 smart_gaps off
 smart_borders no_gaps
 hide_edge_borders --i3 smart_no_gaps
@@ -287,4 +288,11 @@ bar {
         inactive_workspace $bgu $bgu $fgu
     }
 }
+#bindsym $mod+BackSpace --release /usr/bin/makoctl dismiss
+#bindsym $mod+Shift+BackSpace --release /usr/bin/makoctl dismiss -a
+bindsym $mod+y --release /usr/bin/makoctl dismiss
+bindsym $mod+Shift+y --release /usr/bin/makoctl dismiss -a
+
+#set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
+#exec_always $swayidle
 
