@@ -142,7 +142,6 @@ bindsym $mod+i [instance=".*skype.*|station" title="Skype.*|Station"] scratchpad
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 
 for_window [class="sun.*"] floating enabled
-for_window [floating] border 3
 
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
 for_window [class="Pidgin" window_type="normal"] move scratchpad
@@ -153,15 +152,14 @@ for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 
-#default_border none #pixel
+default_border pixel
+for_window [floating] border 3
 #for_window [floating] default_border pixel
 
 # cycle through border styles
 bindsym $mod+b border toggle
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart sway inplace (preserves your layout/session, can be used to upgrade sway)
-#bindsym $mod+Shift+r restart
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
