@@ -21,7 +21,7 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec tilix #rofi-sensible-terminal
+bindsym $mod+Return exec rofi-sensible-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -152,9 +152,8 @@ for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 for_window [class="mpv"] floating disabled
 
-default_border pixel
-for_window [floating] border 3
-#for_window [floating] default_border pixel
+default_border none
+for_window [floating] default_border pixel
 
 # cycle through border styles
 bindsym $mod+b border toggle
@@ -258,8 +257,8 @@ include "conf.d/rules"
 
 # Status bar uses custom script
 set $bg  #323232
-set $bgu #323232B0
-set $btu #323232B0
+set $bgu #323232d0
+set $btu #323232d0
 set $fg  #ffffff
 set $fgu #aaaaaa
 
