@@ -12,9 +12,9 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'mbbill/undotree'
 "    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-unimpaired'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-"    Plug 'itchyny/lightline.vim'
+"    Plug 'vim-airline/vim-airline'
+"    Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'jneen/ragel.vim'
     Plug 'fatih/vim-go'
@@ -50,7 +50,8 @@ autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 " airline
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
+"let g:airline#extensions#ale#enabled = 1
 set updatetime=750
 set lazyredraw
 " w0rp/ale
@@ -62,7 +63,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy']}
 let g:ale_c_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
 let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
-let g:airline#extensions#ale#enabled = 1
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 "set cscopetag "search both cscopes db and the tags file
