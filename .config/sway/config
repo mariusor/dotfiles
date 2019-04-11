@@ -141,22 +141,12 @@ bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show
 bindsym $mod+i [instance=".*skype.*|station" title="Skype.*|Station"] scratchpad show
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 
-for_window [class="sun.*"] floating enabled
-
-for_window [class="Thunderbird" instance="Mail"] move scratchpad
-for_window [class="Pidgin" window_type="normal"] move scratchpad
-for_window [class="Slack" instance="slack"] move scratchpad
-for_window [instance=".*skype.*"] move scratchpad
-for_window [instance="station"] move scratchpad
-for_window [instance="rambox"] move scratchpad
-for_window [class="Zeal" instance="zeal"] move scratchpad
-for_window [class="mpv"] floating disabled
 
 default_border pixel 2
-#default_floating_border normal 2
-for_window [tiling] default_border pixel 3
+default_floating_border normal 2
+#for_window [tiling] default_border pixel 3
 for_window [tiling] border pixel 3
-for_window [floating] default_border normal 2
+#for_window [floating] default_border normal 2
 for_window [floating] border normal 2
 
 # cycle through border styles
