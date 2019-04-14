@@ -7,8 +7,8 @@ for_window [instance="station"] move scratchpad
 for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
 
-for_window [class="chromium"] border none
-for_window [class="firefox"] border none
+for_window [class="Chromium"] border none
+for_window [class="Firefox.*"] border none
 for_window [class="vimb"] focus child, layout tabbed, focus
 for_window [class="qutebrowser"] border none
 for_window [class="mpv"] floating disabled
