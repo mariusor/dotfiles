@@ -12,9 +12,9 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'mbbill/undotree'
 "    Plug 'tpope/vim-eunuch'
     Plug 'tpope/vim-unimpaired'
-"    Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline'
 "    Plug 'vim-airline/vim-airline-themes'
-    Plug 'itchyny/lightline.vim'
+"    Plug 'itchyny/lightline.vim'
     Plug 'tpope/vim-fugitive'
     Plug 'jneen/ragel.vim'
     Plug 'fatih/vim-go'
@@ -29,6 +29,12 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'lyuts/vim-rtags'
     Plug 'igankevich/mesonic'
     Plug 'vimwiki/vimwiki'
+" Colorschemes
+    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
+    Plug 'jnurmine/Zenburn'
+    Plug 'andreasvc/vim-256noir'
+    Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'dikiaap/minimalist'
 " Add plugins to &runtimepath
 call plug#end()
 
@@ -50,8 +56,11 @@ autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 " airline
-"let g:airline_powerline_fonts = 1
-"let g:airline#extensions#ale#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_theme='minimalist'
+
 set updatetime=750
 set lazyredraw
 " w0rp/ale
@@ -68,10 +77,9 @@ let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands
 "set cscopetag "search both cscopes db and the tags file
 " lyuts/vim-rtags
 "set completefunc=RtagsCompleteFunc
-
 " Regular settings
 syntax on
-colorscheme darkburn
+colorscheme minimalist
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
