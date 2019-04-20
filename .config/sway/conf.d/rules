@@ -13,4 +13,11 @@ for_window [class="vimb"] focus child, layout tabbed, focus
 for_window [class="qutebrowser"] border none
 for_window [class="mpv"] floating disabled
 for_window [class="Pinentry-.*"] floating enable
-for_window [class="sun.*"] floating enabled
+for_window [instance="sun.*"] border none
+
+assign [class="Chromium"] $w1
+assign [class="Firefox"] $w4
+assign [class="qutebrowser"] $w4
+assign [app_id="qutebrowser"] $w4
+assign [class="mpv"] $w9
+

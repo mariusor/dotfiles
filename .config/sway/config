@@ -145,14 +145,14 @@ bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show
 default_border pixel 2
 default_floating_border normal 2
 #for_window [tiling] default_border pixel 3
-for_window [tiling] border pixel 3
+for_window [tiling] border pixel 2
 #for_window [floating] default_border normal 2
 for_window [floating] border normal 2
 
 # cycle through border styles
 bindsym $mod+b border toggle
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r reload
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -233,7 +233,7 @@ bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
 #bindsym $mod+Shift+c wl-copy
-#bindsym $mod+Shift+v wl-paste
+bindsym $mod+Shift+v wl-paste
 
 gaps inner 2
 gaps outer -1
@@ -249,6 +249,7 @@ focus_wrapping force
 mouse_warping none
 
 include "conf.d/$(uname -n).config"
+include "conf.d/$(uname -n)-$(nmcli -g=NAME connection show  --active --order +t | head -n1).config"
 include "conf.d/rules"
 
 # Status bar uses custom script
