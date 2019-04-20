@@ -37,8 +37,8 @@ bindsym $mod+Tab exec $run
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
-#bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
-bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | ydotool type --file -
+#bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
 
 # change focus
 bindsym $mod+h focus left
