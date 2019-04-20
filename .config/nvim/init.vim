@@ -65,13 +65,16 @@ set updatetime=750
 set lazyredraw
 " w0rp/ale
 " let g:ale_open_list = 1
-let g:ale_enabled = 1
+let g:ale_enabled = 0
 let g:ale_sign_error = 'ee'
 let g:ale_sign_warning = 'ww'
 let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy']}
+let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy'], 'go': ['gofmt', 'golint', 'govet', 'goimports']}
 let g:ale_c_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
 let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
+let g:ale_warn_about_trailing_whitespace = 0
+let g:ale_warn_about_trailing_blank_lines = 0
+let g:ale_completion_enabled = 0
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 "set cscopetag "search both cscopes db and the tags file
@@ -79,7 +82,7 @@ let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-colorscheme minimalist
+colorscheme dracula
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
@@ -98,14 +101,12 @@ set number
 set relativenumber
 set cinoptions+=(1s
 set incsearch
-set t_Co=256
 "set clipboard=unnamed
 set laststatus=2
-set spell spelllang=en_gb
+"set spell spelllang=en_gb
 set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
-
 let mapleader = " "
 " copy/paste stuff
 map <Leader>c "+y
@@ -122,10 +123,19 @@ noremap <Leader>o :on<cr>
 noremap <Leader>\| :vs<cr> :wincmd l <cr>
 noremap <Leader>- :sp<cr> :wincmd l <cr>
 
+nnoremap bt :bn<CR>
+nnoremap bT :bp<CR>
+nnoremap bd :bd<CR>
+
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
 autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
 if has('nvim')
   set guicursor=i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150
+endif
+if exists('+termguicolors')
+    set termguicolors
+else
+    set t_Co=256
 endif
