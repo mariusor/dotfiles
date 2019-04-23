@@ -82,7 +82,7 @@ let g:ale_completion_enabled = 0
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-colorscheme dracula
+colorscheme darkburn
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
