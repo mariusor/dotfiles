@@ -1,11 +1,11 @@
 #!/bin/bash
 
 MON_COUNT="$(xrandr | grep -c ' connected')"
-WIFI="$(iwgetid -r)"
+WIFI="$(nmcli -g=NAME connection show --active | head -n1)"
 DIR="$XDG_DATA_HOME/screenlayout"
 
 if [[ -f "${DIR}/${MON_COUNT}way-${WIFI}.sh" ]]; then
-    source ${DIR}/${MON_COUNT}way-${WIFI}.sh 
+    source ${DIR}/${MON_COUNT}way-${WIFI}.sh
     notify-send "Layout ${WIFI} ${MON_COUNT} displays"
 else
     source ${DIR}/${MON_COUNT}way.sh
