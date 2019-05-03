@@ -46,8 +46,8 @@ config.set('tabs.indicator.padding', {
 })
 config.set('tabs.indicator.width', 5)
 config.set('tabs.padding', {'bottom': 4, 'left': 5, 'right': 5, 'top': 3})
-config.set('tabs.title.format', '{host}{title_sep}{title} [{index}]')
-config.set('tabs.title.format_pinned', ' {host}')
+config.set('tabs.title.format', '{index}{title_sep}{current_title}')
+config.set('tabs.title.format_pinned', ' {index}')
 config.set('tabs.width', '20%')
 config.set('content.register_protocol_handler', False)
 config.set('url.searchengines', {
