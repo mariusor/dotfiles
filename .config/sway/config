@@ -289,6 +289,14 @@ bar {
 #bindsym $mod+Shift+BackSpace --release /usr/bin/makoctl dismiss -a
 bindsym $mod+y --release /usr/bin/makoctl dismiss
 bindsym $mod+Shift+y --release /usr/bin/makoctl dismiss -a
+set $mode_print Screen capture (r) region, (s) focused screen
+bindsym Print mode "$mode_print"
+mode "$mode_print" {
+    bindsym r exec ~/.local/bin/swaygrab -r | wl-copy, mode "default"
+    bindsym s exec ~/.local/bin/swaygrab -f | wl-copy, mode "default"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 #set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
 #exec_always $swayidle
