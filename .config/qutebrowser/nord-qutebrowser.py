@@ -316,19 +316,19 @@ c.colors.tabs.odd.fg = nord['nord5']
 
 # ## Background color of pinned even tabs.
 # ## Type: QtColor
-c.colors.tabs.pinned.even.bg = nord['nord0']
+#c.colors.tabs.pinned.even.bg = nord['nord0']
 
 # ## Foreground color of pinned even tabs.
 # ## Type: QtColor
-c.colors.tabs.pinned.even.fg = nord['nord5']
+#c.colors.tabs.pinned.even.fg = nord['nord5']
 
 # ## Background color of pinned odd tabs.
 # ## Type: QtColor
-c.colors.tabs.pinned.odd.bg = nord['nord0']
+#c.colors.tabs.pinned.odd.bg = nord['nord0']
 
 # ## Foreground color of pinned odd tabs.
 # ## Type: QtColor
-c.colors.tabs.pinned.odd.fg = nord['nord5']
+#c.colors.tabs.pinned.odd.fg = nord['nord5']
 
 # ## Background color of selected even tabs.
 # ## Type: QtColor
