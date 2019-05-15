@@ -61,6 +61,7 @@ fi
 
 GPG_TTY=$(tty); export GPG_TTY
 unset SSH_ASKPASS
+keychain --agents gpg --clear --inherit any-once --noask --systemd --quiet
 
 # Refresh gpg-agent tty in case user switches into an X session
 if [ "$EUID" -ne 0 ]; then
