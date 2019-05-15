@@ -202,10 +202,10 @@ bindsym XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 #set $Light light
-set $Light brillo -equ 800
+set $Light brillo -lqu 100000
 
-bindsym XF86MonBrightnessUp exec $Light -A 5
-bindsym XF86MonBrightnessDown exec $Light -U 5
+bindsym XF86MonBrightnessUp exec $Light -A 3
+bindsym XF86MonBrightnessDown exec $Light -U 3
 #bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
 #bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
 
