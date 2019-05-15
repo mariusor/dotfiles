@@ -301,4 +301,4 @@ mode "$mode_print" {
 #set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
 #exec_always $swayidle
 
-exec startup sway
+exec dex -ae sway
