@@ -291,11 +291,11 @@ c.colors.tabs.indicator.error = nord['nord11']
 
 ## Color gradient start for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.start = nord['violet']
+c.colors.tabs.indicator.start = nord['nord12']
 
 ## Color gradient end for the tab indicator.
 ## Type: QtColor
-# c.colors.tabs.indicator.stop = nord['orange']
+c.colors.tabs.indicator.stop = nord['nord3']
 
 ## Color gradient interpolation system for the tab indicator.
 ## Type: ColorSystem
@@ -316,19 +316,19 @@ c.colors.tabs.odd.fg = nord['nord5']
 
 # ## Background color of pinned even tabs.
 # ## Type: QtColor
-#c.colors.tabs.pinned.even.bg = nord['nord0']
+c.colors.tabs.pinned.even.bg = nord['nord0']
 
 # ## Foreground color of pinned even tabs.
 # ## Type: QtColor
-#c.colors.tabs.pinned.even.fg = nord['nord5']
+c.colors.tabs.pinned.even.fg = nord['nord5']
 
 # ## Background color of pinned odd tabs.
 # ## Type: QtColor
-#c.colors.tabs.pinned.odd.bg = nord['nord0']
+c.colors.tabs.pinned.odd.bg = nord['nord0']
 
 # ## Foreground color of pinned odd tabs.
 # ## Type: QtColor
-#c.colors.tabs.pinned.odd.fg = nord['nord5']
+c.colors.tabs.pinned.odd.fg = nord['nord5']
 
 # ## Background color of selected even tabs.
 # ## Type: QtColor
