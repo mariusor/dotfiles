@@ -271,7 +271,7 @@ focus_on_window_activation urgent
 # Start swaybar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    #tray_output primary
+    tray_output primary
     font pango:xos4 Terminus 8
     pango_markup disabled
     strip_workspace_numbers yes
