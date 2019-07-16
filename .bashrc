@@ -47,7 +47,7 @@ if [ -z "$MC_TMPDIR" ] ; then # check for mc
 fi
 function _update_ps1() {
     if [[ -x /usr/bin/powerline-go ]]; then
-        PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
+        PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root,terraform-workspace,venv' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
     fi
 }
 if [ "$TERM" != "linux" ]; then
