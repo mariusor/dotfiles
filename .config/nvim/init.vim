@@ -52,7 +52,10 @@ nnoremap <F20> :LL process interrupt<CR>
 nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
 vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
 " ntpeters/vim-better-whitespace
-autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
+"autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
+let g:strip_only_modified_lines=1
+let g:strip_whitespace_confirm=0
+let g:strip_whitespace_on_save=1
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 " airline
@@ -123,9 +126,9 @@ noremap <Leader>o :on<cr>
 noremap <Leader>\| :vs<cr> :wincmd l <cr>
 noremap <Leader>- :sp<cr> :wincmd l <cr>
 
-nnoremap bt :bn<CR>
-nnoremap bT :bp<CR>
-nnoremap bd :bd<CR>
+"nnoremap <Leader>b :bn<CR>
+"nnoremap <Leader>f :bp<CR>
+"nnoremap <Leader>d :bd<CR>
 
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
