@@ -3,7 +3,7 @@
 
 #set $mod Mod1
 set $mod Mod4
-set $TERMINAL termite
+set $TERMINAL alacritty
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
@@ -21,7 +21,8 @@ font pango:xos4 Terminus 8
 #floating_modifier normal
 
 # start a terminal
-bindsym $mod+Return exec rofi-sensible-terminal
+#bindsym $mod+Return exec rofi-sensible-terminal
+bindsym $mod+Return exec $TERMINAL
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -36,6 +37,7 @@ bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
+#bindsym $mod+Shift+v exec clipman -s --selector="dmenu"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
 bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs ydotool type
 #bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
