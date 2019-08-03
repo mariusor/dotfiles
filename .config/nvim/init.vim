@@ -30,12 +30,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'igankevich/mesonic'
     Plug 'vimwiki/vimwiki'
 " Colorschemes
-    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
+"    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
     Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'dikiaap/minimalist'
-" Add plugins to &runtimepath
+    Plug 'thiagoalessio/rainbow_levels.vim'
+    " Add plugins to &runtimepath
 call plug#end()
 
 " Plugin settings
@@ -85,7 +86,9 @@ let g:ale_completion_enabled = 0
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-colorscheme darkburn
+let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent = 1
+colorscheme zenburn
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
