@@ -1,0 +1,78 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Terminus (TTF), FontAwesome";
+    font-size: 12px;
+    min-height: 0;
+    color: #cccccc;
+    background: rgba(43, 48, 59, 0.9);
+}
+@keyframes blink {
+    to {
+    }
+}
+#workspaces button {
+    padding: 0 5px;
+    border-bottom: 3px solid transparent;
+}
+#workspaces button.focused {
+    color: #669966;
+    border-bottom: 3px solid #669966;
+}
+#workspaces button.urgent {
+    color:#996666;
+    font-weight: bold;
+    border-bottom: 3px solid #996666;
+}
+#mode {
+    color: #996666;
+    border-bottom: 3px solid #996666;
+    padding: 0 8px;
+}
+#window {
+    padding-left: 20px;
+}
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
+    border-left: 1px solid rgba(154, 154, 154, 0.7);
+    padding: 0 8px 0 8px;
+}
+#clock {
+}
+#cpu {
+}
+#memory {
+}
+#network {
+}
+#network.disconnected {
+    color: orangered;
+}
+#pulseaudio {
+}
+#pulseaudio.muted {
+    color: orange;
+}
+#tray {
+}
+#battery {
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#battery.discharging {
+    color: orange;
+}
+#battery.charging {
+    color: lightgreen;
+}
+#battery.warning {
+    color: orangered;
+}
+#battery.critical.charging {
+    color: darkgreen;
+}
+#battery.critical:not(.charging) {
+    color: red;
+}
