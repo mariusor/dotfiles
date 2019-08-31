@@ -39,7 +39,7 @@ bindsym $mod+grave exec $run
 bindsym $mod+Tab exec $run
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
-#bindsym $mod+Shift+v exec clipman -s --selector="dmenu"
+bindsym $mod+Shift+v exec clipman -s --selector="rofi"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
 bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | sudo xargs ydotool type
 #bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
@@ -141,8 +141,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show, resize set 400px 950px
 #bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show, resize set 1000px 800px
 bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show, resize set 1000px 800px
-#bindsym $mod+o [class="Slack"] scratchpad show
-bindsym $mod+i [instance=".*skype.*|station" title="Skype.*|Station"] scratchpad show, resize set 1800px 900px
+bindsym $mod+i [instance=".*skype.*|station|slack" title="Skype.*|Station|Slack"] scratchpad show, resize set 1800px 900px
 bindsym $mod+o [instance="rambox" class="Rambox"] scratchpad show, resize set 1800px 900px
 
 
@@ -275,20 +274,20 @@ focus_on_window_activation urgent
 # Start swaybar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    swaybar_command waybar
-    #tray_output primary
-    #font pango:Terminus (TTF) 9
-    #pango_markup enabled
-    #strip_workspace_numbers yes
-    #status_command i3status -c ~/.config/i3status/$(uname -n).config
-    #colors {
-    #    statusline $fg
-    #    background $bgu
-    #    focused_background $bgu
-    #    focused_workspace $bgu $btu $fg
-    #    active_workspace $bgu $bgu $fg
-    #    inactive_workspace $bgu $bgu $fgu
-    #}
+    #swaybar_command waybar
+    tray_output primary
+    font pango:Terminus (TTF) 9
+    pango_markup enabled
+    strip_workspace_numbers yes
+    status_command i3status -c ~/.config/i3status/$(uname -n).config
+    colors {
+        statusline $fg
+        background $bgu
+        focused_background $bgu
+        focused_workspace $bgu $btu $fg
+        active_workspace $bgu $bgu $fg
+        inactive_workspace $bgu $bgu $fgu
+    }
 }
 #bindsym $mod+BackSpace --release /usr/bin/makoctl dismiss
 #bindsym $mod+Shift+BackSpace --release /usr/bin/makoctl dismiss -a
