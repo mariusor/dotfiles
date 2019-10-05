@@ -18,9 +18,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-fugitive'
 "    Plug 'jneen/ragel.vim'
     Plug 'fatih/vim-go'
+"    Plug 'zchee/nvim-go', { 'do': 'make'}
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'Shougo/deoplete.nvim'
-"    Plug 'dbgx/lldb.nvim'
     Plug 'w0rp/ale'
 "    Plug 'neomake/neomake'
     Plug 'wincent/ferret'
@@ -29,29 +29,20 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'lyuts/vim-rtags'
     Plug 'igankevich/mesonic'
     Plug 'vimwiki/vimwiki'
+    Plug 'glacambre/firenvim'
 " Colorschemes
-"    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
+    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
     Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'dikiaap/minimalist'
     Plug 'thiagoalessio/rainbow_levels.vim'
+    Plug 'avakhov/vim-yaml'
+"    Plug 'strottos/vim-padre'
     " Add plugins to &runtimepath
 call plug#end()
 
 " Plugin settings
-" dbgx/lldb.nvim
-nmap <M-b> <Plug>LLBreakSwitch
-vmap <F2> <Plug>LLStdInSelected
-nnoremap <F4> :LLstdin<CR>
-nnoremap <F5> :LLmode debug<CR>
-nnoremap <S-F5> :LLmode code<CR>
-nnoremap <F17> :LLmode code<CR>
-nnoremap <F8> :LL continue<CR>
-nnoremap <S-F8> :LL process interrupt<CR>
-nnoremap <F20> :LL process interrupt<CR>
-nnoremap <F9> :LL print <C-R>=expand('<cword>')<CR>
-vnoremap <F9> :<C-U>LL print <C-R>=lldb#util#get_selection()<CR><CR>
 " ntpeters/vim-better-whitespace
 "autocmd BufEnter *.[^(md)] EnableStripWhitespaceOnSave
 let g:strip_only_modified_lines=1
@@ -61,9 +52,6 @@ let g:strip_whitespace_on_save=1
 let g:deoplete#enable_at_startup = 1
 " airline
 let g:airline_powerline_fonts = 1
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#ale#enabled = 1
-let g:airline_theme='minimalist'
 
 set updatetime=750
 set lazyredraw
@@ -86,9 +74,13 @@ let g:ale_completion_enabled = 0
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-let g:zenburn_high_Contrast = 1
-let g:zenburn_transparent = 1
-colorscheme zenburn
+"let g:zenburn_high_Contrast = 1
+"let g:zenburn_transparent = 1
+"colorscheme darkburn
+colorscheme minimalist
+let g:airline_theme='minimalist'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
@@ -99,7 +91,6 @@ set encoding=utf-8
 set nobackup
 set nowritebackup
 set noswapfile
-"set ignorecase
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -107,18 +98,19 @@ set number
 set relativenumber
 set cinoptions+=(1s
 set incsearch
+set smartcase
 "set clipboard=unnamed
 set laststatus=2
 "set spell spelllang=en_gb
-set showbreak=\\ "
-set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
-set list
+"set showbreak=\\ "
+"set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
+"set list
 let mapleader = " "
 " copy/paste stuff
 map <Leader>c "+y
 map <Leader>v "+gP
 map <Leader>x "+yx
-map Ctrl+[ <Leader>rj
+"map Ctrl+[ <Leader>rj
 
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
@@ -133,7 +125,7 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 "nnoremap <Leader>f :bp<CR>
 "nnoremap <Leader>d :bd<CR>
 
-hi Todo ctermfg=white
+"hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
 autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
