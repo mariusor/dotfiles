@@ -6,6 +6,8 @@ for_window [instance=".*skype.*"] move scratchpad
 for_window [instance="station"] move scratchpad
 for_window [instance="rambox"] move scratchpad
 for_window [class="Zeal" instance="zeal"] move scratchpad
+for_window [app_id="org.zealdocs.zeal"] move scratchpad
+for_window [title="."] title_format "<b>%title</b> (%app_id)"
 
 for_window [class="Chromium"] border none
 for_window [class="Firefox.*"] border none
@@ -14,6 +16,17 @@ for_window [class="qutebrowser"] border none
 for_window [class="mpv"] floating disabled
 for_window [class="Pinentry-.*"] floating enable
 for_window [instance="sun.*"] border none
+for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
+
+# Show the pidgin scratchpad window, if any.
+#bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show, resize set 400px 950px
+bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show, resize set 400px 950px
+#bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show, resize set 1000px 800px
+bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show, resize set 1000px 800px
+bindsym $mod+i [instance=".*skype.*|station|slack|rambox" title="Skype.*|Station|Slack|Rambox"] scratchpad show, resize set 1800px 900px
+bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
+#bindsym $mod+z [class="Zeal"] scratchpad show
+bindsym $mod+e [class="Thunderbird"] scratchpad show
 
 assign [class="Chromium"] $w1
 assign [class="Firefox"] $w4
