@@ -54,15 +54,19 @@
     },
     "network#wireless": {
         "interface": "wlan0",
+        "interval": 5,
         "format-wifi": " {essid}({signalStrength}%) {ipaddr}",
         "format-ethernet": "",
+        "format-linked": "⚠ Disconnected",
         "format-disconnected": "⚠ Disconnected"
     },
     "network#wired": {
         "interface": "enp60s0u2u2u4",
+        "interval": 5,
         "format-wifi": "",
         "format-ethernet": " {ifname} {ipaddr}",
-        "format-disconnected": "⚠ Disconnected"
+        "format-linked": " Disconnected",
+        "format-disconnected": " Disconnected"
     },
     "pulseaudio": {
         //"scroll-step": 1,

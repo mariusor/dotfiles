@@ -42,7 +42,11 @@
 }
 #memory {
 }
-#network {
+#network:not(.disconnected):not(.linked) {
+    color: lightgreen;
+}
+#network.linked {
+    color: orange;
 }
 #network.disconnected {
     color: orangered;
