@@ -1,0 +1,22 @@
+set folder=imaps://$my_newpersonal_user@imap.purelymail.com
+
+set signature = ~/.local/share/neomutt/sig.personal.txt
+
+set imap_user = $my_newpersonal_user
+set imap_pass = $my_newpersonal_pass
+
+set spoolfile = +INBOX
+
+# Specify where to save and/or look for postponed messages.
+unset record
+
+set realname = 'Marius Orcsik'
+set from = $my_newpersonal_address
+set use_from = yes
+
+set smtp_url=smtps://$my_newpersonal_user:$my_newpersonal_pass@smtp.purelymail.com
+set ssl_force_tls = yes
+
+
+## Hook -- IMPORTANT!
+account-hook $folder "set imap_user=$my_newpersonal_user imap_pass=$my_newpersonal_pass"

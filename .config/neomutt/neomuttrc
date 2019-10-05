@@ -2,12 +2,15 @@
 source "gpg -dq ~/.local/share/neomutt/.credentials.gpg |"
 
 ## Personal
-folder-hook $folder 'source ~/.config/neomutt/personalrc'
-source "~/.config/neomutt/personalrc"
+#folder-hook $folder 'source ~/.config/neomutt/personalrc'
+#source "~/.config/neomutt/personalrc"
+folder-hook $folder 'source ~/.config/neomutt/newpersonalrc'
+source "~/.config/neomutt/newpersonalrc"
+source /usr/share/doc/neomutt/colorschemes/zenburn.neomuttrc
 
 ## Work
-folder-hook $folder 'source ~/.config/neomutt/workrc'
-source "~/.config/neomutt/workrc"
+#folder-hook $folder 'source ~/.config/neomutt/workrc'
+#source "~/.config/neomutt/workrc"
 
 set editor=`echo \$EDITOR`
 
@@ -18,8 +21,8 @@ set send_charset = utf-8
 set imap_check_subscribed
 
 ## Shortcuts
-macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/personalrc<enter><change-folder>!<enter>'
-macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/workrc<enter><change-folder>!<enter>'
+macro index,pager <f2> '<sync-mailbox><enter-command>source ~/.config/neomutt/newpersonalrc<enter><change-folder>!<enter>'
+#macro index,pager <f3> '<sync-mailbox><enter-command>source ~/.config/neomutt/workrc<enter><change-folder>!<enter>'
 
 unset collapse_unread
 
@@ -59,7 +62,7 @@ bind attach,index,pager \CD next-page
 bind attach,index,pager \CU previous-page
 bind index A group-reply
 #bind pager gg top
-bind pager G bottom
-bind attach,index g first-entry
-bind attach,index G last-entry
+#bind pager G bottom
+#bind attach,index g first-entry
+#bind attach,index G last-entry
 

@@ -1,5 +1,4 @@
 set folder=imaps://$my_work_user@imap.gmail.com/
-source /usr/share/doc/neomutt/colorschemes/zenburn.neomuttrc
 
 set signature = ~/.local/share/neomutt/sig.work.txt
 
