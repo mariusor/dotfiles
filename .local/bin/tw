@@ -1,0 +1,11 @@
+#!/bin/bash
+
+function _tw {
+#    set -x
+    q=${2:-720}
+    who=$(sed -e 's/[[:space:]]//g' <<<"https://www.twitch.tv/${1}")
+    mpv --ytdl-format="best[height<=?${q}]" ${who}
+#    set +x
+}
+
+_tw $@
