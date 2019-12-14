@@ -1,5 +1,6 @@
 # scratchpad windows
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
+for_window [class="Thunderbird" instance="Msgcompose"] move scratchpad
 for_window [class="Pidgin" window_type="normal"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
@@ -17,6 +18,7 @@ for_window [class="mpv"] floating disabled
 for_window [class="Pinentry-.*"] floating enable
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
+for_window [instance="sun-awt-X11-.*"] border none, floating enable
 
 # Show the pidgin scratchpad window, if any.
 #bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show, resize set 400px 950px

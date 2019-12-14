@@ -5,7 +5,8 @@
 set $mod Mod4
 #set $TERMINAL alacritty
 #set $TERMINAL termite
-set $TERMINAL kitty
+#set $TERMINAL kitty
+set $TERMINAL tilix
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
@@ -29,8 +30,8 @@ bindsym $mod+Return exec $TERMINAL
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $dmenu "bemenu -p '> ' --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --nb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
-set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12.3'"
+set $dmenu "bemenu -p '> ' --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --nb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
+#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12.3'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
@@ -40,7 +41,7 @@ bindsym $mod+Tab exec $run
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 bindsym $mod+Shift+v exec clipman -s --selector="rofi"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
-bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | sudo xargs ydotool type
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs ydotool type
 #bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
 
 # change focus
@@ -233,14 +234,13 @@ bindsym $mod+Shift+left workspace prev_on_output
 gaps inner 2
 gaps outer -1
 gaps top -2
-#smart_gaps off
 smart_gaps on
 smart_borders no_gaps
 hide_edge_borders --i3 smart_no_gaps
-#raise_floating no
-focus_follows_mouse no
+#focus_follows_mouse no
+focus_follows_mouse yes
 focus_wrapping force
-#workspace_auto_back_and_forth yes
+workspace_auto_back_and_forth yes
 mouse_warping none
 
 include "conf.d/$(uname -n).config"
