@@ -29,12 +29,13 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'lyuts/vim-rtags'
     Plug 'igankevich/mesonic'
     Plug 'vimwiki/vimwiki'
-    Plug 'glacambre/firenvim'
+    Plug 'neomake/neomake'
 " Colorschemes
     Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
     Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'dracula/vim', { 'as': 'dracula' }
+    Plug 'doums/darcula'
     Plug 'dikiaap/minimalist'
     Plug 'thiagoalessio/rainbow_levels.vim'
     Plug 'avakhov/vim-yaml'
@@ -74,10 +75,11 @@ let g:ale_completion_enabled = 0
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-"let g:zenburn_high_Contrast = 1
-"let g:zenburn_transparent = 1
+let g:zenburn_high_Contrast = 1
+let g:zenburn_transparent = 1
 "colorscheme darkburn
-colorscheme minimalist
+"colorscheme minimalist
+colorscheme darcula
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -102,9 +104,9 @@ set smartcase
 "set clipboard=unnamed
 set laststatus=2
 "set spell spelllang=en_gb
-"set showbreak=\\ "
-"set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
-"set list
+set showbreak=\\ "
+set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
+set list
 let mapleader = " "
 " copy/paste stuff
 map <Leader>c "+y
@@ -112,6 +114,8 @@ map <Leader>v "+gP
 map <Leader>x "+yx
 "map Ctrl+[ <Leader>rj
 
+nnoremap L :bnext<cr>
+nnoremap H :bprevious<cr>
 nnoremap <C-j> <C-w><C-j>
 nnoremap <C-k> <C-w><C-k>
 nnoremap <C-l> <C-w><C-l>
@@ -123,7 +127,7 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 
 "nnoremap <Leader>b :bn<CR>
 "nnoremap <Leader>f :bp<CR>
-"nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>d :bd<CR>
 
 "hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
@@ -137,3 +141,4 @@ if exists('+termguicolors')
 else
     set t_Co=256
 endif
+
