@@ -1,5 +1,5 @@
 [options]
-font = xos4 Terminus 12
+font = Terminus (TTF) 12
 [colors]
 # Base16 Material Darker
 # Author: Nate Peterson
