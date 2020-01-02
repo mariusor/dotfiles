@@ -1,5 +1,6 @@
 [options]
-font = Terminus (TTF) 12
+font = Terminus (TTF) 13.6
+
 [colors]
 # Base16 Material Darker
 # Author: Nate Peterson
