@@ -30,6 +30,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'igankevich/mesonic'
     Plug 'vimwiki/vimwiki'
     Plug 'neomake/neomake'
+" Writing stuff
+    Plug 'reedes/vim-pencil'
+    Plug 'junegunn/goyo.vim'
 " Colorschemes
     Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
     Plug 'jnurmine/Zenburn'
@@ -128,6 +131,7 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 "nnoremap <Leader>b :bn<CR>
 "nnoremap <Leader>f :bp<CR>
 nnoremap <Leader>d :bd<CR>
+nnoremap <silent> <Leader>gg :Goyo<CR>
 
 "hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
