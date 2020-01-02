@@ -5,8 +5,8 @@
 set $mod Mod4
 #set $TERMINAL alacritty
 #set $TERMINAL termite
-#set $TERMINAL kitty
-set $TERMINAL tilix
+set $TERMINAL kitty
+#set $TERMINAL tilix
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
