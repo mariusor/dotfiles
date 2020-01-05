@@ -1,15 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [ -n "${SWAYSOCK}" ]; then
-    export QT_QPA_PLATFORM=wayland
-    export GDK_BACKEND=wayland
-    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-    export QT_AUTO_SCREEN_SCALE_FACTOR=0
-    export DMENU_COMMAND="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
-    export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
-    alias mpv='mpv --gpu-context=waylandvk'
-fi
 
 umask 002
 alias ls='ls --color=auto'
@@ -86,3 +77,13 @@ complete -C '/usr/bin/aws_completer' aws
 #if [ which rbenv >/dev/null 2>&1 ]; then
 #    eval "$(rbenv init -)"
 #fi
+if [ -n "${SWAYSOCK}" ]; then
+    export QT_QPA_PLATFORM=wayland
+    #export GDK_BACKEND=wayland
+    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0
+    export QT_ENABLE_HIGHDPI_SCALING=1
+    export DMENU_COMMAND="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
+    export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
+    alias mpv='mpv --gpu-context=waylandvk'
+fi
