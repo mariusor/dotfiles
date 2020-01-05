@@ -81,8 +81,8 @@ syntax on
 let g:zenburn_high_Contrast = 1
 let g:zenburn_transparent = 1
 "colorscheme darkburn
-"colorscheme minimalist
-colorscheme darcula
+"colorscheme darcula
+colorscheme minimalist
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
