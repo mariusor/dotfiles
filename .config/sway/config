@@ -5,8 +5,7 @@
 set $mod Mod4
 #set $TERMINAL alacritty
 #set $TERMINAL termite
-set $TERMINAL kitty
-#set $TERMINAL tilix
+set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
@@ -35,8 +34,8 @@ set $dmenu "bemenu -p '> ' --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
-bindsym $mod+grave exec $run
-bindsym $mod+Tab exec $run
+bindsym $mod+grave exec $run | xargs swaymsg exec --
+bindsym $mod+Tab exec $run | xargs swaymsg exec --
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 bindsym $mod+Shift+v exec clipman -s --selector="rofi"
@@ -140,15 +139,13 @@ bindsym $mod+minus scratchpad show
 
 default_border pixel 2
 default_floating_border normal 2
-#for_window [tiling] default_border pixel 3
-for_window [tiling] border pixel 2
-#for_window [floating] default_border normal 2
-for_window [floating] border normal 2
 
 # cycle through border styles
 bindsym $mod+b border toggle
 # reload the configuration file
 bindsym $mod+Shift+r reload
+bindcode Shift+50 exec '~/.local/bin/showkeys.sh'
+bindcode Shift+62 exec '~/.local/bin/showkeys.sh'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -259,7 +256,7 @@ set $fgu #aaaaaa
 #client.unfocused        $bg     $bgu        $fgu      $bgu        $bgu
 #client.focused_inactive $bgu    $bgu        $fgu      $bgu        $bgu
 #client.focused          $ffg    $bgu        $fg       $bgu        $bgu
-#client.urgent           $bgu    $bgu        $fg       $bgu        $bgu
+client.urgent           $bgu    $bgu        $fg       $bgu        $bgu
 
 focus_on_window_activation urgent
 
@@ -267,7 +264,7 @@ focus_on_window_activation urgent
 # finds out, if available)
 bar {
     #swaybar_command waybar
-    tray_output primary
+    tray_output *
     font pango:Terminus (TTF) 9
     pango_markup enabled
     strip_workspace_numbers yes
