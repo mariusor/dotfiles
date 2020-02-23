@@ -204,14 +204,18 @@ bindsym XF86MonBrightnessDown exec $Light -U 3
 
 #debuglog on
 
+set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
-    bindsym l exec mpris-ctl pause, exec "$Locker", mode "default"
+    bindsym l exec mpris-ctl pause, exec $Locker, mode "default"
     bindsym e exec mpris-ctl stop, exec swaymsg exit, mode "default"
     bindsym s exec mpris-ctl pause, exec $Locker, exec systemctl suspend, mode "default"
     bindsym h exec mpris-ctl pause, $Locker, exec systemctl hibernate, mode "default"
     bindsym r exec systemctl reboot, mode "default"
     bindsym Shift+s exec systemctl poweroff -i, mode "default"
+    bindsym y exec kill swayidle, mode "default"
+    bindsym Shift+y exec $swayidle, mode "default"
+
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
@@ -229,14 +233,13 @@ bindsym $mod+Shift+left workspace prev_on_output
 #bindsym $mod+Shift+v wl-paste
 
 gaps inner 2
-gaps outer -1
+gaps outer 0
 gaps top -2
 smart_gaps on
 smart_borders no_gaps
 hide_edge_borders --i3 smart_no_gaps
-#focus_follows_mouse no
-focus_follows_mouse yes
-focus_wrapping force
+focus_follows_mouse no
+focus_wrapping no
 workspace_auto_back_and_forth yes
 mouse_warping none
 
@@ -290,8 +293,5 @@ mode "$mode_print" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-
-#set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
-#exec_always $swayidle
 
 exec dex -ae sway

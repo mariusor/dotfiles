@@ -26,6 +26,7 @@ for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, f
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
 for_window [class="jetbrains-.*" title="win0"] floating enable, border none
 for_window [class="Steam" instance="Steam"] floating enable, border none
+#for_window [instance="audacious" class="Audacious"] floating enable, border none
 
 # Show the pidgin scratchpad window, if any.
 #bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show, resize set 400px 950px
