@@ -20,7 +20,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go'
 "    Plug 'zchee/nvim-go', { 'do': 'make'}
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'w0rp/ale'
 "    Plug 'neomake/neomake'
     Plug 'wincent/ferret'
@@ -54,6 +55,8 @@ let g:strip_whitespace_confirm=0
 let g:strip_whitespace_on_save=1
 " Shougo/deoplete.nvim
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#auto_complete = 1
+"let g:deoplete#auto_complete_popup = 'auto'
 " airline
 let g:airline_powerline_fonts = 1
 
@@ -78,11 +81,11 @@ let g:ale_completion_enabled = 0
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
-let g:zenburn_high_Contrast = 1
-let g:zenburn_transparent = 1
+"let g:zenburn_high_Contrast = 1
+"let g:zenburn_transparent = 1
 "colorscheme darkburn
-"colorscheme darcula
-colorscheme minimalist
+colorscheme darcula
+"colorscheme minimalist
 let g:airline_theme='minimalist'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
@@ -133,7 +136,7 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 nnoremap <Leader>d :bd<CR>
 nnoremap <silent> <Leader>gg :Goyo<CR>
 
-"hi Todo ctermfg=white
+hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
 autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
