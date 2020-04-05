@@ -1,10 +1,13 @@
 #!/bin/bash
-
+_MPV=mpv
+if [ -n "${SWAYSOCK}" ]; then
+    _MPV='mpv --gpu-context=waylandvk'
+fi
 function _tw {
 #    set -x
     q=${2:-720}
     who=$(sed -e 's/[[:space:]]//g' <<<"https://www.twitch.tv/${1}")
-    mpv --ytdl-format="best[height<=?${q}]" ${who}
+    $_MPV --ytdl-format="best[height<=?${q}]" ${who}
 #    set +x
 }
 
