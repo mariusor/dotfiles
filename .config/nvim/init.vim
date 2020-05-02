@@ -1,49 +1,53 @@
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-sensible'
-    Plug 'godlygeek/tabular'
-"    Plug 'plasticboy/vim-markdown'
-"    Plug 'elzr/vim-json'
     Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-unimpaired'
+    Plug 'tpope/vim-fugitive'
+"    Plug 'tpope/vim-eunuch'
 "    Plug 'wellle/targets.vim'
 "    Plug 'justinmk/vim-dirvish'
     Plug 'airblade/vim-gitgutter'
-    Plug 'unblevable/quick-scope'
+    "Plug 'unblevable/quick-scope'
 "    Plug 'mbbill/undotree'
-"    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-unimpaired'
     Plug 'vim-airline/vim-airline'
-"    Plug 'vim-airline/vim-airline-themes'
+    Plug 'vim-airline/vim-airline-themes'
 "    Plug 'itchyny/lightline.vim'
-    Plug 'tpope/vim-fugitive'
+    Plug 'junegunn/fzf.vim'
+    Plug 'godlygeek/tabular'
+" Language support
 "    Plug 'jneen/ragel.vim'
     Plug 'fatih/vim-go'
+    Plug 'vimwiki/vimwiki'
+    Plug 'avakhov/vim-yaml'
+"    Plug 'plasticboy/vim-markdown'
+"    Plug 'elzr/vim-json'
 "    Plug 'zchee/nvim-go', { 'do': 'make'}
+    Plug 'wincent/ferret'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'machakann/vim-highlightedyank'
+    Plug 'igankevich/mesonic'
+" tags
+"    Plug 'lyuts/vim-rtags'
+    Plug 'joereynolds/gtags-scope'
+" Make stuff
+"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'w0rp/ale'
 "    Plug 'neomake/neomake'
-    Plug 'wincent/ferret'
-"    Plug 'joereynolds/gtags-scope'
-    Plug 'machakann/vim-highlightedyank'
-"    Plug 'lyuts/vim-rtags'
-    Plug 'igankevich/mesonic'
-    Plug 'vimwiki/vimwiki'
-    Plug 'neomake/neomake'
 " Writing stuff
     Plug 'reedes/vim-pencil'
     Plug 'junegunn/goyo.vim'
-" Colorschemes
-    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
-    Plug 'jnurmine/Zenburn'
-    Plug 'andreasvc/vim-256noir'
-    Plug 'dracula/vim', { 'as': 'dracula' }
-    Plug 'doums/darcula'
-    Plug 'dikiaap/minimalist'
-    Plug 'thiagoalessio/rainbow_levels.vim'
-    Plug 'avakhov/vim-yaml'
+" debugger
 "    Plug 'strottos/vim-padre'
+" Colorschemes
+"    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
+"    Plug 'jnurmine/Zenburn'
+    Plug 'andreasvc/vim-256noir'
+    Plug 'doums/darcula'
+"    Plug 'dikiaap/minimalist'
+    "Plug 'thiagoalessio/rainbow_levels.vim'
+    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
 call plug#end()
 
@@ -76,23 +80,23 @@ let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_completion_enabled = 0
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
-"set cscopetag "search both cscopes db and the tags file
+set cscopetag "search both cscopes db and the tags file
 " lyuts/vim-rtags
 "set completefunc=RtagsCompleteFunc
 " Regular settings
 syntax on
 "let g:zenburn_high_Contrast = 1
 "let g:zenburn_transparent = 1
-"colorscheme darkburn
-colorscheme darcula
-"colorscheme minimalist
+"colorscheme zenburn
+colorscheme warlock
 let g:airline_theme='minimalist'
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline#extensions#tabline#enabled = 1
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
-nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr> :ALEToggle<cr>
+nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr>
+":ALEToggle<cr>
 set cursorline
 set fileencoding=utf-8
 set encoding=utf-8
