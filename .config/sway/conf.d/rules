@@ -24,9 +24,9 @@ for_window [class="Pinentry-.*"] floating enable
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
-for_window [class="jetbrains-.*" title="win0"] floating enable, border none
+#for_window [class="jetbrains-.*" title="win0"] floating enable, border none
 #for_window [class="^jetbrains-.+" window_type=324] border none
-for_window [class="^jetbrains-.+" window_type=".*"] border none
+#for_window [class="^jetbrains-.+" window_type=".*"] border none
 for_window [class="Steam" instance="Steam"] floating enable, border none
 #for_window [instance="audacious" class="Audacious"] floating enable, border none
 
