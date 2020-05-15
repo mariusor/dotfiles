@@ -1,9 +1,11 @@
-set folder=imaps://$my_personal_user@imap.gmail.com
+source "gopass show home/neomutt/personal-main |"
+
+set folder=imaps://$my_user@imap.gmail.com
 
 set signature = ~/.local/share/neomutt/sig.personal.txt
 
-set imap_user = $my_personal_user
-set imap_pass = $my_personal_pass
+set imap_user = $my_user
+set imap_pass = $my_pass
 
 set spoolfile = +INBOX
 
@@ -13,12 +15,12 @@ set postponed = +[Gmail]/Drafts
 unset record
 
 set realname = 'Marius Orcsik'
-set from = $my_personal_address
+set from = $my_address
 set use_from = yes
 
-set smtp_url=smtps://$my_personal_user:$my_personal_pass@smtp.gmail.com
+set smtp_url=smtps://$my_user:$my_pass@smtp.gmail.com
 set ssl_force_tls = yes
 
 
 ## Hook -- IMPORTANT!
-account-hook $folder "set imap_user=$my_personal_user imap_pass=$my_personal_pass"
+account-hook $folder "set imap_user=$my_user imap_pass=$my_pass"
