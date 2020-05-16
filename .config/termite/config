@@ -1,5 +1,9 @@
 [options]
 font = Terminus (TTF) 13.6
+bold_is_bright = true
+
+cell_height_scale = 1.2
+cell_width_scale = 1.1
 
 [colors]
 # Base16 Material Darker
