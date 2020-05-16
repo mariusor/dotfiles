@@ -20,7 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go'
     Plug 'vimwiki/vimwiki'
     Plug 'avakhov/vim-yaml'
-"    Plug 'plasticboy/vim-markdown'
+    Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
 "    Plug 'zchee/nvim-go', { 'do': 'make'}
     Plug 'wincent/ferret'
@@ -31,9 +31,9 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'lyuts/vim-rtags'
     Plug 'joereynolds/gtags-scope'
 " Make stuff
-"    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-"    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'w0rp/ale'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+"    Plug 'w0rp/ale'
 "    Plug 'neomake/neomake'
 " Writing stuff
     Plug 'reedes/vim-pencil'
