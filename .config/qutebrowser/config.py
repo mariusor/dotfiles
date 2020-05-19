@@ -6,7 +6,7 @@ c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 config.set('colors.webpage.bg', '#cccccc')
 config.set('completion.use_best_match', False)
 config.set('content.default_encoding', 'utf-8')
-config.set('content.windowed_fullscreen', False)
+config.set('content.fullscreen.window', False)
 config.set('downloads.location.directory', '~/Downloads')
 config.set('downloads.location.prompt', True)
 config.set('editor.command', ['nvim-qt', '{file}', '+{line}'])
