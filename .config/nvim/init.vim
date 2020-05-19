@@ -118,6 +118,8 @@ set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
 let mapleader = " "
+set wildmenu
+
 " copy/paste stuff
 map <Leader>c "+y
 map <Leader>v "+gP
