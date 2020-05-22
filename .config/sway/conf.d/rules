@@ -6,6 +6,7 @@ for_window [floating] border normal 2
 # scratchpad windows
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
 for_window [class="Thunderbird" instance="Msgcompose"] move scratchpad
+for_window [app_id="thunderbird"] move scratchpad
 for_window [class="Pidgin" window_type="normal"] move scratchpad
 for_window [class="Slack" instance="slack"] move scratchpad
 for_window [instance=".*skype.*"] move scratchpad
@@ -24,10 +25,10 @@ for_window [class="Pinentry-.*"] floating enable
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
-#for_window [class="jetbrains-.*" title="win0"] floating enable, border none
+#for_window [class="jetbrains-.*" title="win\d+"] border none
 #for_window [class="^jetbrains-.+" window_type=324] border none
-#for_window [class="^jetbrains-.+" window_type=".*"] border none
-for_window [class="Steam" instance="Steam"] floating enable, border none
+for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
+#for_window [class="Steam" instance="Steam"] floating enable, border none
 #for_window [instance="audacious" class="Audacious"] floating enable, border none
 
 # Show the pidgin scratchpad window, if any.
@@ -39,7 +40,7 @@ bindsym $mod+i [instance=".*skype.*|station|slack|rambox" title="Skype.*|Station
 bindsym $mod+t [app_id="org.telegram.desktop"] scratchpad show, resize set 1800px 900px
 bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
 #bindsym $mod+z [class="Zeal"] scratchpad show
-bindsym $mod+e [class="Thunderbird"] scratchpad show
+bindsym $mod+e [app_id="thunderbird"] scratchpad show
 
 assign [class="Chromium"] $w1
 assign [class="Firefox"] $w4

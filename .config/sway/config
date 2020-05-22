@@ -6,6 +6,7 @@ set $mod Mod4
 #set $TERMINAL alacritty
 #set $TERMINAL termite
 set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
+#set $TERMINAL tilix
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
@@ -29,13 +30,14 @@ bindsym $mod+Return exec $TERMINAL
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $dmenu "bemenu -p '> ' --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --nb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
-#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12.3'"
+set $dmenu "bemenu -p '> ' --no-exec --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --nb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
+#set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
+#set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
 #set $run "wofi --show drun,run"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
-bindsym $mod+grave exec $run | xargs swaymsg exec --
-bindsym $mod+Tab exec $run | xargs swaymsg exec --
+bindsym $mod+grave exec $run | xargs -- swaymsg exec &> /dev/null --
+bindsym $mod+Tab exec $run | xargs -- swaymsg exec &> /dev/null --
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 bindsym $mod+Shift+v exec clipman -s --selector="rofi"
@@ -144,8 +146,8 @@ default_floating_border normal 2
 bindsym $mod+b border toggle
 # reload the configuration file
 bindsym $mod+Shift+r reload
-bindcode Shift+50 exec '~/.local/bin/showkeys.sh'
-bindcode Shift+62 exec '~/.local/bin/showkeys.sh'
+#bindcode Shift+50 exec '~/.local/bin/showkeys.sh'
+#bindcode Shift+62 exec '~/.local/bin/showkeys.sh'
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -176,16 +178,21 @@ mode "move" {
 }
 bindsym $mod+m mode "move"
 
+set $volMute exec /usr/bin/pulseaudio-ctl mute
+set $volUP exec /usr/bin/pulseaudio-ctl up
+set $volDOWN exec /usr/bin/pulseaudio-ctl down
 # the volume keys need pulseaudio-ctl AUR package
-bindsym --locked XF86AudioMute exec /usr/bin/pulseaudio-ctl mute
-bindsym --locked XF86AudioRaiseVolume exec /usr/bin/pulseaudio-ctl up
-bindsym --locked XF86AudioLowerVolume exec /usr/bin/pulseaudio-ctl down
+bindsym --locked XF86AudioMute $volMute
+bindsym --locked XF86AudioRaiseVolume $volUP
+bindsym --locked XF86AudioLowerVolume $volDOWN
 
 bindsym --locked XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 
 set $mpris_notify notify-send -i "$(mpris-ctl --player active info %art_url)" "$(mpris-ctl --player active info "%play_status")" \
     "$(mpris-ctl --player active info "%artist_name: %track_name\nOn album '%album_name'")"
-bindsym --locked $mod+backslash exec mpris-ctl pp && sleep 1 && $mpris_notify
+
+set $mediaPause exec mpris-ctl pp && sleep 1 && $mpris_notify
+bindsym --locked $mod+backslash $mediaPause
 bindsym --locked XF86AudioPlay exec mpris-ctl pp && sleep 1 && $mpris_notify
 bindsym --locked XF86AudioStop exec mpris-ctl stop && sleep 1 && $mpris_notify
 bindsym --locked $mod+bracketright exec mpris-ctl next && sleep 1 && $mpris_notify
