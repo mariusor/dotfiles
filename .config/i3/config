@@ -5,6 +5,8 @@
 set $mod Mod4
 exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id xrdb -merge ~/.Xresources-$(uname -n)
+set $TERMINAL kitty
+#set $TERMINAL tilix
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
@@ -13,7 +15,8 @@ exec --no-startup-id xrdb -merge ~/.Xresources-$(uname -n)
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Terminus (TTF) 9
+# font pango:DejaVu Sans Mono 10
+font pango:Terminus (TTF) 9.8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -25,15 +28,15 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-#set $dmenu "bemenu -p '> ' --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --nb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
-set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12.3'"
-set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
-#set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
-#set $run j4-dmenu-desktop --dmenu=$dmenu
-bindsym $mod+grave exec $run
-bindsym $mod+Tab exec $run
+#set $dmenu "bemenu -p '> ' --nf #d7d7d5 --nb '#232729' --sb '#585858' --sf '#bcbcbc' -i --fn 'Terminus (TTF) 10'"
+set $dmenu dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=9.8'
+set $run "/usr/bin/rofi -combi-modi drun,run -show combi -modi combi --term=$TERMINAL -font 'Terminus (TTF) 15' -show-icons"
+#set $run j4-dmenu-desktop --no-generic --use-xdg-de --term=tilix --dmenu=$dmenu
+bindsym $mod+grave exec --no-startup-id $run
+#bindsym $mod+less exec --no-startup-id "$run"
+bindsym $mod+Tab exec --no-startup-id $run
 
-bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9
+bindsym $mod+Shift+v exec --no-startup-id clipmenu -i -fn Terminus:size=9.8
 #bindsym $mod+s exec --no-startup-id rofi-pass --root $XDG_DATA_HOME/password-store
 bindsym $mod+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show -c
 bindsym $mod+Shift+s exec --no-startup-id gopass ls --flat | $dmenu | xargs --no-run-if-empty gopass show | head -n 1 | xdotool type --clearmodifiers --file -
@@ -201,10 +204,10 @@ bindsym $mod+Shift+r restart
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
 
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+        bindsym h resize shrink width 10px or 10ppt
+        bindsym j resize grow height 10px or 10ppt
+        bindsym k resize shrink height 10px or 10ppt
+        bindsym l resize grow width 10px or 10ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -215,10 +218,10 @@ bindsym $mod+r mode "resize"
 # move window (you can also use the mouse for that)
 mode "move" {
         # These bindings trigger as soon as you enter the move mode
-        bindsym h move left 10 px
-        bindsym j move down 10 px
-        bindsym k move up 10 px
-        bindsym l move right 10 px
+        bindsym h move left 10px
+        bindsym j move down 10px
+        bindsym k move up 10px
+        bindsym l move right 10px
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -233,7 +236,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id  "/usr/bin/pulseaudio-ctl down
 
 bindsym XF86AudioMicMute exec --no-startup-id  "/usr/bin/pulseaudio-ctl mute-input"
 
-set $mpris_notify notify-send -i "$(mpris-ctl info %art_url)" "$(mpris-ctl info "%play_status")" \
+set $mpris_notify notify-send -i "$(mpris-ctl --player active info %art_url)" "$(mpris-ctl info "%play_status")" \
     "$(mpris-ctl info "%artist_name: %track_name\nOn album '%album_name'")"
 bindsym XF86AudioPlay exec --no-startup-id mpris-ctl pp && sleep 1 && "$mpris_notify"
 bindsym $mod+backslash exec --no-startup-id mpris-ctl pp && sleep 1 && "$mpris_notify"
@@ -248,8 +251,8 @@ bindsym $mod + XF86AudioPlay exec  --no-startup-id $mpris_notify
 #set $Light light
 set $Light brillo -equ 800
 
-bindsym XF86MonBrightnessUp exec $Light -A 5
-bindsym XF86MonBrightnessDown exec $Light -U 5
+bindsym XF86MonBrightnessUp exec $Light -A 3
+bindsym XF86MonBrightnessDown exec $Light -U 3
 bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
 bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
 
