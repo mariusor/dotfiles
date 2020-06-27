@@ -36,7 +36,7 @@ else
     export TERM="xterm-256color"
 fi
 export EDITOR="nvim"
-export BROWSER="qutebrowser"
+#export BROWSER="qutebrowser"
 export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin:~/.gem/ruby/2.6.0/bin:$PY_USER_BIN
 
