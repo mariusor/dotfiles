@@ -10,9 +10,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
     "Plug 'unblevable/quick-scope'
 "    Plug 'mbbill/undotree'
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-"    Plug 'itchyny/lightline.vim'
+"    Plug 'vim-airline/vim-airline'
+"    Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
+    Plug 'Akin909/lightline-statuslinetabs'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'godlygeek/tabular'
 " Language support
@@ -23,13 +25,14 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
 "    Plug 'zchee/nvim-go', { 'do': 'make'}
-    Plug 'wincent/ferret'
+"    Plug 'wincent/ferret'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'machakann/vim-highlightedyank'
     Plug 'igankevich/mesonic'
 " tags
 "    Plug 'lyuts/vim-rtags'
-    Plug 'joereynolds/gtags-scope'
+"    Plug 'joereynolds/gtags-scope'
+    Plug 'vim-scripts/gtags.vim'
 " Make stuff
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -45,7 +48,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'doums/darcula'
-"    Plug 'dikiaap/minimalist'
+    Plug 'dikiaap/minimalist'
     "Plug 'thiagoalessio/rainbow_levels.vim'
     Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
@@ -62,25 +65,23 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete = 1
 "let g:deoplete#auto_complete_popup = 'auto'
 " airline
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 
-set updatetime=750
+
+let g:lightline = {
+\   'colorscheme': 'jellybeans'
+\ }
+set updatetime=450
 set lazyredraw
+
 " w0rp/ale
-" let g:ale_open_list = 1
-let g:ale_enabled = 0
-let g:ale_sign_error = 'ee'
-let g:ale_sign_warning = 'ww'
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy'], 'go': ['gofmt', 'golint', 'govet', 'goimports']}
-let g:ale_c_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
-let g:ale_cpp_clangtidy_options = '-header-filter=.* -p=./build/compile_commands.json'
-let g:ale_warn_about_trailing_whitespace = 0
-let g:ale_warn_about_trailing_blank_lines = 0
-let g:ale_completion_enabled = 0
+"let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy'], 'go': ['gofmt', 'golint', 'govet', 'goimports']}
 
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
-set cscopetag "search both cscopes db and the tags file
+" needs gnu-global
+set tags=./tags,tags;$HOME
+"let g:GtagsCscope_Auto_Load = 1
+"set cscopetag "search both cscopes db and the tags file
 " lyuts/vim-rtags
 "set completefunc=RtagsCompleteFunc
 " Regular settings
@@ -88,15 +89,15 @@ syntax on
 "let g:zenburn_high_Contrast = 1
 "let g:zenburn_transparent = 1
 "colorscheme zenburn
-colorscheme warlock
-let g:airline_theme='minimalist'
-let g:airline_powerline_fonts = 0
-let g:airline#extensions#tabline#enabled = 1
+"colorscheme warlock
+colorscheme darcula
+"let g:airline_theme='minimalist'
+"let g:airline_powerline_fonts = 0
+"let g:airline#extensions#tabline#enabled = 1
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
-nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr>
-":ALEToggle<cr>
+nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr> :ALEToggle<cr>
 set cursorline
 set fileencoding=utf-8
 set encoding=utf-8
@@ -111,8 +112,8 @@ set relativenumber
 set cinoptions+=(1s
 set incsearch
 set smartcase
-"set clipboard=unnamed
 set laststatus=2
+"set clipboard=unnamed
 "set spell spelllang=en_gb
 set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
@@ -137,10 +138,27 @@ noremap <Leader>o :on<cr>
 noremap <Leader>\| :vs<cr> :wincmd l <cr>
 noremap <Leader>- :sp<cr> :wincmd l <cr>
 
+" FZF bindings
+nnoremap <Leader>a :Rg!<space>
+
 "nnoremap <Leader>b :bn<CR>
 "nnoremap <Leader>f :bp<CR>
 nnoremap <Leader>d :bd<CR>
-nnoremap <silent> <Leader>gg :Goyo<CR>
+nnoremap <silent> <Leader>gg :Goyo <CR>
+let g:goyo_width = 120
+let g:goyo_height = 90
+"let g:goyo_linenr = 20
+
+" vimwiki
+let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
+
+" Break undo sequence on Space, Tab and Enter
+inoremap <Space> <Space><C-g>u
+inoremap <Tab> <Tab><C-g>u
+inoremap <CR> <CR><C-g>u
+
+"augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
+"au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
