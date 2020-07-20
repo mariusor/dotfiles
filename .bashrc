@@ -36,7 +36,7 @@ else
     export TERM="xterm-256color"
 fi
 export EDITOR="nvim"
-#export BROWSER="qutebrowser"
+export BROWSER="firefox-developer-edition"
 export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
 export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin:~/.gem/ruby/2.6.0/bin:$PY_USER_BIN
 
@@ -53,7 +53,7 @@ function _update_ps1() {
         PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root,terraform-workspace,venv' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
     fi
 }
-if [ "$TERM" != "linux" ]; then
+if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
@@ -72,17 +72,12 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 export WEBIDE_JDK="/lib/jvm/default-runtime/"
-complete -C '/usr/bin/aws_completer' aws
+complete -C 'aws_completer' aws
 
 #if [ which rbenv >/dev/null 2>&1 ]; then
 #    eval "$(rbenv init -)"
 #fi
 if [ -n "${SWAYSOCK}" ]; then
-    export QT_QPA_PLATFORM=wayland
-    #export GDK_BACKEND=wayland
-    export QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-    export QT_AUTO_SCREEN_SCALE_FACTOR=0
-    export QT_ENABLE_HIGHDPI_SCALING=1
     export DMENU_COMMAND="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
     export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
     alias mpv='mpv --gpu-context=waylandvk'
