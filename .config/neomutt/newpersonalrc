@@ -10,7 +10,9 @@ set imap_pass = $my_pass
 set spoolfile = +INBOX
 
 # Specify where to save and/or look for postponed messages.
-unset record
+#unset record
+set record=+Sent
+set postponed=+Drafts
 
 set realname = 'Marius Orcsik'
 set from = $my_address
@@ -18,7 +20,6 @@ set use_from = yes
 
 set smtp_url=smtps://$my_user:$my_pass@smtp.purelymail.com
 set ssl_force_tls = yes
-
 
 ## Hook -- IMPORTANT!
 account-hook $folder "set imap_user=$my_user imap_pass=$my_pass"
