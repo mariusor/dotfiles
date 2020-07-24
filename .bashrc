@@ -1,7 +1,6 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
 umask 002
 alias ls='ls --color=auto'
 alias yy='yes | yay'
@@ -26,10 +25,10 @@ export LC_NUMERIC="de_DE.UTF-8"
 export LC_MEASUREMENT="de_DE.UTF-8"
 export LC_TIME="de_DE.UTF-8"
 
-export GOPATH=~/.local/share/go
+#export GOPATH=~/.local/share/go
 #export GOROOT=~/.local/share/go
 
-export TERMINAL="/usr/bin/termite"
+#export TERMINAL="/usr/bin/termite"
 if [ -n "$TMUX" ]; then
     export TERM="screen-256color"
 else
@@ -37,8 +36,7 @@ else
 fi
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
-export PY_USER_BIN=$(python -c 'import site; print(site.USER_BASE + "/bin")')
-export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin:~/.gem/ruby/2.6.0/bin:$PY_USER_BIN
+export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin
 
 if [ -z "$MC_TMPDIR" ] ; then # check for mc
     case "$TERM" in
@@ -49,36 +47,31 @@ if [ -z "$MC_TMPDIR" ] ; then # check for mc
     esac
 fi
 function _update_ps1() {
-    if [[ -x /usr/bin/powerline-go ]]; then
-        PS1="$(/usr/bin/powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root,terraform-workspace,venv' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
+    if [[ -x $(which powerline-go 2>/dev/null) ]]; then
+        PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root,terraform-workspace,venv' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
     fi
 }
 if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 fi
 
-#test -x $(which madonctl) && source <(madonctl completion bash)
-#test -x $(which gopass) && source <(gopass completion bash)
-
-#alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
+#test -x `which madonctl 2>/dev/null` && source <(madonctl completion bash)
+#test -x `which gopass 2>/dev/null` && source <(gopass completion bash)
 
 GPG_TTY=$(tty); export GPG_TTY
 unset SSH_ASKPASS
-#keychain --agents gpg --clear --inherit any-once --noask --systemd --quiet
 
 # Refresh gpg-agent tty in case user switches into an X session
 if [ "$EUID" -ne 0 ]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
-export WEBIDE_JDK="/lib/jvm/default-runtime/"
-complete -C 'aws_completer' aws
+which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
-#if [ which rbenv >/dev/null 2>&1 ]; then
-#    eval "$(rbenv init -)"
-#fi
 if [ -n "${SWAYSOCK}" ]; then
     export DMENU_COMMAND="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
     export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
     alias mpv='mpv --gpu-context=waylandvk'
 fi
+
+test -f ~/.bashrc.$(hostname) && source ~/.bashrc.$(hostname)

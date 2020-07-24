@@ -1,0 +1,7 @@
+#alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
+
+export GITHUB_TOKEN=$(gopass show work/github.com/hf-token)
+export KUBECONFIG=~/.kube/config:~/.kube/eksconfig
+export VAULT_ADDR='https://vault.hellofresh.io'
+
+export BROWSER="chromium"
