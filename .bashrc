@@ -69,9 +69,7 @@ fi
 which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
 if [ -n "${SWAYSOCK}" ]; then
-    export DMENU_COMMAND="dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'xos4 Terminus:size=12'"
     export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
-    alias mpv='mpv --gpu-context=waylandvk'
 fi
 
 test -f ~/.bashrc.$(hostname) && source ~/.bashrc.$(hostname)
