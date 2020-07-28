@@ -40,9 +40,9 @@ bindsym $mod+grave exec $run | xargs -- swaymsg exec &> /dev/null --
 bindsym $mod+Tab exec $run | xargs -- swaymsg exec &> /dev/null --
 
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
-bindsym $mod+Shift+v exec clipman -s --selector="rofi"
+#bindsym $mod+Shift+v exec clipman -s --selector="rofi"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
-bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs ydotool type
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs sudo ydotool type
 #bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
 
 # change focus
@@ -138,7 +138,6 @@ bindsym $mod+Shift+minus move scratchpad
 # Show the first scratchpad window
 bindsym $mod+minus scratchpad show
 
-
 default_border pixel 2
 default_floating_border normal 2
 
@@ -202,14 +201,10 @@ bindsym --locked XF86AudioPrev exec mpris-ctl prev && sleep 1 && $mpris_notify
 bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 #set $Light light
-set $Light brillo -lqu 100000
+set $Light pkexec brillo -lqu 100000
 
 bindsym XF86MonBrightnessUp exec $Light -A 3
 bindsym XF86MonBrightnessDown exec $Light -U 3
-#bindsym XF86Display exec "~/.local/bin/toggle-screens.sh"
-#bindsym XF86Tools exec "~/.local/bin/toggle-screens.sh"
-
-#debuglog on
 
 set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -236,8 +231,8 @@ bindsym $mod+x [urgent=latest] focus
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
 
-#bindsym $mod+Shift+c wl-copy
-#bindsym $mod+Shift+v wl-paste
+bindsym $mod+Shift+c wl-copy
+bindsym $mod+Shift+v wl-paste
 
 gaps inner 2
 gaps outer 0
@@ -250,8 +245,8 @@ focus_wrapping force
 workspace_auto_back_and_forth yes
 mouse_warping none
 
-include "conf.d/$(uname -n).config"
-include "conf.d/$(uname -n)-$(nmcli -g=NAME connection show  --active --order +t | head -n1).config"
+include "conf.d/$(hostname).config"
+include "conf.d/$(hostname)-$(nmcli -g=NAME,TYPE connection show  --active --order +t | grep wireless | cut -d: -f1 | head -n1).config"
 include "conf.d/rules"
 
 # Status bar uses custom script
