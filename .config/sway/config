@@ -3,9 +3,9 @@
 
 #set $mod Mod1
 set $mod Mod4
-#set $TERMINAL alacritty
+set $TERMINAL alacritty
 #set $TERMINAL termite
-set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
+#set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
 #set $TERMINAL tilix
 
 exec xrdb -merge ~/.Xresources
@@ -42,7 +42,7 @@ bindsym $mod+Tab exec $run | xargs -- swaymsg exec &> /dev/null --
 #bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 #bindsym $mod+Shift+v exec clipman -s --selector="rofi"
 bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
-bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs sudo ydotool type
+bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs wlrctl keyboard type
 #bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
 
 # change focus
