@@ -36,7 +36,7 @@ else
 fi
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
-export PATH=$PATH:/usr/local/aws/bin:~/.local/bin:$GOPATH/bin
+export PATH=$PATH:~/.local/bin:$GOPATH/bin
 
 if [ -z "$MC_TMPDIR" ] ; then # check for mc
     case "$TERM" in
@@ -58,18 +58,22 @@ fi
 #test -x `which madonctl 2>/dev/null` && source <(madonctl completion bash)
 #test -x `which gopass 2>/dev/null` && source <(gopass completion bash)
 
-GPG_TTY=$(tty); export GPG_TTY
-unset SSH_ASKPASS
-
+#unset SSH_ASKPASS
+unset SSH_AGENT_PID
+if [ "${gnupg_SSH_AUTH_SOCK_by:-0}" -ne $$ ]; then
+    SSH_AUTH_SOCK="$(gpgconf --list-dirs agent-ssh-socket)"; export SSH_AUTH_SOCK
+fi
 # Refresh gpg-agent tty in case user switches into an X session
 if [ "$EUID" -ne 0 ]; then
+    GPG_TTY=$(tty); export GPG_TTY
     gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
 which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
 if [ -n "${SWAYSOCK}" ]; then
-    export LOCK_COMMAND="/usr/bin/swaylock -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222"
+    export MOZ_ENABLE_WAYLAND=1
+    export LOCK_COMMAND="/usr/bin/swaylock --indicator-radius=80 -c 222222"
 fi
 
 test -f ~/.bashrc.$(hostname) && source ~/.bashrc.$(hostname)
