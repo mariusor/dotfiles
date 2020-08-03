@@ -40,8 +40,7 @@ bindsym $mod+i [instance=".*skype.*|station|slack|rambox" title="Skype.*|Station
 bindsym $mod+t [app_id="org.telegram.desktop"] scratchpad show, resize set 1800px 900px
 bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
 #bindsym $mod+z [class="Zeal"] scratchpad show
-#bindsym $mod+e [app_id="thunderbird"] scratchpad show
-bindsym $mod+e [class="Thunderbird" instance="Mail"] scratchpad show, resize set 1900px, 900px
+bindsym $mod+e [app_id="thunderbird"] scratchpad show, resize set 1900px 900px
 
 assign [class="Chromium"] $w1
 assign [class="Firefox"] $w4
