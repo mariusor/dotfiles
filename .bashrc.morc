@@ -2,5 +2,6 @@
 
 export KUBECONFIG=~/.kube/config:~/.kube/eksconfig
 export VAULT_ADDR='https://vault.hellofresh.io'
+export GTK_USE_PORTAL=0
 
 export BROWSER="chromium"
