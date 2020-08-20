@@ -5,3 +5,4 @@ export VAULT_ADDR='https://vault.hellofresh.io'
 export GTK_USE_PORTAL=0
 
 export BROWSER="chromium"
+export PATH=$(go env GOPATH)/bin:$PATH
