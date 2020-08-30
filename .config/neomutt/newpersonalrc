@@ -1,4 +1,4 @@
-source "gopass home/neomutt/personal-fed |"
+source "gopass show home/neomutt/personal-fed |"
 
 set folder=imaps://$my_user@imap.purelymail.com
 
