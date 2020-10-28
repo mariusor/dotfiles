@@ -296,4 +296,6 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
+include /etc/sway/config.d/*
+
 exec dex -ae sway
