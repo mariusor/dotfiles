@@ -46,9 +46,19 @@ if [ -z "$MC_TMPDIR" ] ; then # check for mc
             ;;
     esac
 fi
+INTERACTIVE_BASHPID_TIMER="/tmp/${USER}.START.$$"
+PS0='$(echo $SECONDS > "$INTERACTIVE_BASHPID_TIMER")'
 function _update_ps1() {
     if [[ -x $(which powerline-go 2>/dev/null) ]]; then
-        PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,exit,root,terraform-workspace,venv' -priority 'host,root,cwd-path,cwd,user,ssh,jobs,exit' -max-width 0 -error $?)"
+      local __ERRCODE=$?
+      local __DURATION=0
+      if [ -e $INTERACTIVE_BASHPID_TIMER ]; then
+            local __END=$SECONDS
+            local __START=$(cat "$INTERACTIVE_BASHPID_TIMER")
+            __DURATION="$(($__END - ${__START:-__END}))"
+            rm -f "$INTERACTIVE_BASHPID_TIMER"
+      fi
+      PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,root,exit' -modules-right 'aws,docker,kube,duration' -priority 'host,root,cwd,cwd-path,user,jobs,exit,ssh' -newline -cwd-mode plain -duration-min 5 --duration $__DURATION -shell bash -hostname-only-if-ssh -error $__ERRCODE )"
     fi
 }
 if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
