@@ -58,7 +58,12 @@ function _update_ps1() {
             __DURATION="$(($__END - ${__START:-__END}))"
             rm -f "$INTERACTIVE_BASHPID_TIMER"
       fi
-      PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,root,exit' -modules-right 'aws,docker,kube,duration' -priority 'host,root,cwd,cwd-path,user,jobs,exit,ssh' -newline -cwd-mode plain -duration-min 5 --duration $__DURATION -shell bash -hostname-only-if-ssh -error $__ERRCODE )"
+
+      if [[ $(pwd) == *"workspace"* ]]; then
+          PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,root,exit' -modules-right 'aws,docker,kube,duration' -priority 'host,root,cwd,cwd-path,user,jobs,exit,ssh' -newline -cwd-mode plain -duration-min 5 --duration $__DURATION -shell bash -hostname-only-if-ssh -error $__ERRCODE )"
+      else
+          PS1="$(powerline-go -colorize-hostname -modules 'cwd,user,host,ssh,gitlite,jobs,ssh,root,exit' -modules-right 'duration' -priority 'host,root,cwd,cwd-path,user,jobs,exit,ssh' -cwd-mode plain -duration-min 5 --duration $__DURATION -shell bash -hostname-only-if-ssh -error $__ERRCODE )"
+      fi
     fi
 }
 if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
