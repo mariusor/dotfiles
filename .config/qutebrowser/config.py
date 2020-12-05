@@ -2,6 +2,7 @@
 from qutebrowser.config.configfiles import ConfigAPI  # noqa: F401
 from qutebrowser.config.config import ConfigContainer  # noqa: F401
 config = config  # type: ConfigAPI # noqa: F821 pylint: disable=E0602,C0103
+config.load_autoconfig()
 c = c  # type: ConfigContainer # noqa: F821 pylint: disable=E0602,C0103
 config.set('colors.webpage.bg', '#cccccc')
 config.set('completion.use_best_match', False)
@@ -32,6 +33,8 @@ config.set('zoom.default', '120%')
 config.set('hints.mode', 'number')
 config.set('input.insert_mode.auto_leave', True)
 config.set('input.insert_mode.auto_load', True)
+c.tabs.position = "left"
+c.completion.shrink = True
 config.set('tabs.indicator.padding', {
     'bottom': 2,
     'left': 0,
@@ -44,7 +47,9 @@ config.set('tabs.title.format', '{index}{title_sep}{current_title}')
 config.set('tabs.title.format_pinned', '')
 config.set('tabs.width', '12%')
 config.set('content.register_protocol_handler', False)
-config.set('content.media_capture', False)
+#config.set('content.media_capture', False)
+config.set('colors.webpage.darkmode.enabled', False)
+config.set('colors.webpage.prefers_color_scheme_dark', True)
 config.set('url.searchengines', {
     'DEFAULT': 'https://duckduckgo.com/?q={}',
     'g': 'https://www.google.de/search?q={}',
