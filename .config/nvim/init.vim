@@ -49,7 +49,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'andreasvc/vim-256noir'
     Plug 'doums/darcula'
     Plug 'dikiaap/minimalist'
-    "Plug 'thiagoalessio/rainbow_levels.vim'
     Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
 call plug#end()
