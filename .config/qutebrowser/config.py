@@ -47,7 +47,7 @@ config.set('tabs.title.format', '{index}{title_sep}{current_title}')
 config.set('tabs.title.format_pinned', '')
 config.set('tabs.width', '12%')
 config.set('content.register_protocol_handler', False)
-#config.set('content.media_capture', False)
+#config.set('content.audio_video_capture', False)
 config.set('colors.webpage.darkmode.enabled', False)
 config.set('colors.webpage.prefers_color_scheme_dark', True)
 config.set('url.searchengines', {
