@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -x
+if ! lsmod | grep v4l2loopback > /dev/null; then
+	echo "Adding v42loopback module to kernel"
+	# options for the module: devices=1 video_nr=10 card_label="OBS Cam" exclusive_caps=1
+	sudo modprobe v4l2loopback video_nr=10
+fi
+
+{
+if pgrep wlstreamer > /dev/null; then
+    pkill wlstreamer > /dev/null
+    pkill wf-recorder > /dev/null
+    status="stopped"
+else
+    systemd-cat --identifier=sway-screenshare wlstreamer --output /dev/video10 &
+    status="started"
+fi
+	notify-send -t 2000 "Wayland recording has been ${status}"
+}
