@@ -1,0 +1,7 @@
+[includeIF "gitdir:~/workspace/"]
+    path = ~/workspace/.gitconfig
+
+[includeIF "gitdir:~/playground/"]
+    path = ~/playground/.gitconfig
+[url "https://472478ef8d146454c59dde083195b6d33eaf8cce@github.com/hellofresh/"]
+	insteadOf = https://github.com/hellofresh/
