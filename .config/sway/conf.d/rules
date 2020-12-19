@@ -1,3 +1,6 @@
+# firefox sharing popup
+for_window [title="Firefox — Sharing Indicator"] floating enable, nofocus
+
 #for_window [tiling] default_border pixel 3
 for_window [tiling] border pixel 2
 #for_window [floating] default_border normal 2
