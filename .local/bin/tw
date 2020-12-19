@@ -1,7 +1,7 @@
 #!/bin/bash
-_MPV=mpv
+_MPV="mpv"
 if [ -n "${SWAYSOCK}" ]; then
-    _MPV='mpv --gpu-context=waylandvk'
+    _MPV='mpv --gpu-context=wayland --hwdec=auto --hwdec-codecs=all'
 fi
 function _tw {
 #    set -x
