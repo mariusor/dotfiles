@@ -5,8 +5,9 @@
 set $mod Mod4
 #set $TERMINAL alacritty
 #set $TERMINAL termite
-set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
+#set $TERMINAL KITTY_ENABLE_WAYLAND=1 kitty
 #set $TERMINAL tilix
+set $TERMINAL LANG=en_US.UTF-8 foot
 
 exec xrdb -merge ~/.Xresources
 exec xrdb -merge ~/.Xresources-$(uname -n)
