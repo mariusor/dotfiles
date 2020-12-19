@@ -97,6 +97,8 @@ scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
 nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr> :ALEToggle<cr>
+set hlsearch
+set ignorecase
 set cursorline
 set fileencoding=utf-8
 set encoding=utf-8
