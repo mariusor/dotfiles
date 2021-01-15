@@ -1,6 +1,11 @@
 # firefox sharing popup
 for_window [title="Firefox — Sharing Indicator"] floating enable, nofocus
 
+for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
+for_window [class="jetbrains-.*" title="win\d+"] floating enable, border none
+#for_window [class="^jetbrains-.+" window_type=324] border none
+#for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
+
 #for_window [tiling] default_border pixel 3
 for_window [tiling] border pixel 2
 #for_window [floating] default_border normal 2
@@ -23,14 +28,12 @@ for_window [class="Chromium"] border none
 for_window [class="Firefox.*"] border none
 for_window [class="vimb"] focus child, layout tabbed, focus
 for_window [class="qutebrowser"] border none
+for_window [app_id="org.qutebrowser.qutebrowser"] border none
 for_window [class="mpv"] floating disabled
 for_window [class="Pinentry-.*"] floating enable
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
-#for_window [class="jetbrains-.*" title="win\d+"] border none
-#for_window [class="^jetbrains-.+" window_type=324] border none
-for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
 #for_window [class="Steam" instance="Steam"] floating enable, border none
 #for_window [instance="audacious" class="Audacious"] floating enable, border none
 
@@ -46,8 +49,12 @@ bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
 bindsym $mod+e [app_id="thunderbird"] scratchpad show, resize set 1900px 900px
 
 assign [class="Chromium"] $w1
-assign [class="Firefox"] $w4
+assign [app_id="Chromium"] $w1
+assign [class="jetbrains-.*"] $w3
+assign [class="Spotify"] $w7
+assign [class="F|firefox.*"] $w4
 assign [class="qutebrowser"] $w4
-assign [app_id="qutebrowser"] $w4
+assign [app_id="org.qutebrowser.qutebrowser"] $w4
 assign [class="mpv"] $w9
+assign [app_id="mpv"] $w9
 
