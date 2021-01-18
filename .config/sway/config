@@ -297,6 +297,7 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
-include /etc/sway/config.d/*
+#include /etc/sway/config.d/*
+#exec "~/.config/wayland.env"
 
 exec dex -ae sway
