@@ -87,7 +87,7 @@ fi
 which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
 if [ -n "${SWAYSOCK}" ]; then
-    export MOZ_ENABLE_WAYLAND=1
+    source ~/.config/wayland.env
     export LOCK_COMMAND="/usr/bin/swaylock --indicator-radius=80 -c 222222"
 fi
 
