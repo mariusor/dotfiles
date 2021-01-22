@@ -91,4 +91,4 @@ if [ -n "${SWAYSOCK}" ]; then
     export LOCK_COMMAND="/usr/bin/swaylock --indicator-radius=80 -c 222222"
 fi
 
-test -f ~/.bashrc.$(hostname) && source ~/.bashrc.$(hostname)
+test -f ~/.bashrc.$(uname -n) && source ~/.bashrc.$(hostname)
