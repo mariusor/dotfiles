@@ -1,5 +1,6 @@
 # firefox sharing popup
 for_window [title="Firefox — Sharing Indicator"] floating enable, nofocus
+for_window [title="meet.google.com is sharing your screen."] floating enable, nofocus
 
 for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
 for_window [class="jetbrains-.*" title="win\d+"] floating enable, border none
@@ -29,8 +30,8 @@ for_window [class="Firefox.*"] border none
 for_window [class="vimb"] focus child, layout tabbed, focus
 for_window [class="qutebrowser"] border none
 for_window [app_id="org.qutebrowser.qutebrowser"] border none
-for_window [class="mpv"] floating disabled
-for_window [class="Pinentry-.*"] floating enable
+for_window [class="mpv"] floating disabled, layout tabbed, focus
+for_window [class="Pinentry-.*"] floating enable, focus
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
