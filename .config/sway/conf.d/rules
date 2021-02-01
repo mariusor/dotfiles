@@ -1,5 +1,6 @@
 # firefox sharing popup
 for_window [title="Firefox — Sharing Indicator"] floating enable, nofocus
+for_window [title="Library"] floating enable
 for_window [title="meet.google.com is sharing your screen."] floating enable, nofocus
 
 for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
