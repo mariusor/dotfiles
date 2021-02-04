@@ -40,11 +40,14 @@ set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 bindsym $mod+grave exec $run | xargs -- swaymsg exec &> /dev/null --
 bindsym $mod+Tab exec $run | xargs -- swaymsg exec &> /dev/null --
 
-#bindsym $mod+Shift+v exec "clipmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
-#bindsym $mod+Shift+v exec clipman -s --selector="rofi"
-bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o
+# clipboard management
+bindsym $mod+Shift+c wl-copy
+#bindsym $mod+Shift+v wl-paste
+bindsym $mod+Shift+v exec clipman pick --tool=CUSTOM --tool-args=$dmenu
+
+# password management
+bindsym $mod+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show -o | wl-copy -o -p
 bindsym $mod+Shift+s exec gopass ls --flat | "$dmenu" | xargs --no-run-if-empty gopass show | head -n 1 | xargs wlrctl keyboard type
-#bindsym $mod+Shift+s exec rofi-pass --root ~/.local/share/password-store/
 
 # change focus
 bindsym $mod+h focus left
@@ -62,12 +65,6 @@ bindsym $mod+Shift+period move workspace to output right
 bindsym $mod+Shift+apostrophe move workspace to output up
 bindsym $mod+Shift+comma move workspace to output left
 bindsym $mod+Shift+semicolon move workspace to output down
-
-# alternatively, you can use the cursor keys:
-#bindsym $mod+Shift+Left move left
-#bindsym $mod+Shift+Down move down
-#bindsym $mod+Shift+Up move up
-#bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+g split h
@@ -231,9 +228,6 @@ bindsym $mod+x [urgent=latest] focus
 
 bindsym $mod+Shift+right workspace next_on_output
 bindsym $mod+Shift+left workspace prev_on_output
-
-bindsym $mod+Shift+c wl-copy
-bindsym $mod+Shift+v wl-paste
 
 gaps inner 2
 gaps outer 0
