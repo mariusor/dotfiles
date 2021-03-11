@@ -28,7 +28,7 @@ config.set('fonts.prompts', '11pt')
 config.set('fonts.web.family.standard', 'sans')
 config.set('fonts.web.size.default', 22)
 config.set('fonts.web.size.default_fixed', 18)
-config.set('fonts.web.size.minimum', 14)
+config.set('fonts.web.size.minimum', 11)
 config.set('zoom.default', '120%')
 config.set('hints.mode', 'number')
 config.set('input.insert_mode.auto_leave', True)
@@ -48,10 +48,9 @@ config.set('tabs.title.format_pinned', '')
 config.set('tabs.width', '12%')
 config.set('content.register_protocol_handler', False)
 #config.set('content.audio_video_capture', False)
-config.set('colors.webpage.darkmode.enabled', False)
-config.set('colors.webpage.prefers_color_scheme_dark', True)
+config.set('colors.webpage.preferred_color_scheme', 'dark')
 config.set('url.searchengines', {
-    'DEFAULT': 'https://duckduckgo.com/?q={}',
+    'DEFAULT': 'https://lite.duckduckgo.com/lite/?q={}',
     'g': 'https://www.google.de/search?q={}',
     'ws': 'https://en.wikipedia.org/w/index.php?search={}',
     'wk': 'https://en.wiktionary.org/w/index.php?search={}',
@@ -74,7 +73,6 @@ config.unbind('H')
 config.unbind('J')
 config.unbind('K')
 config.unbind('L')
-config.set('colors.webpage.prefers_color_scheme_dark', True)
 
 config.bind('<y><y>', 'yank selection')
 config.bind('<z><l>', 'spawn --userscript qute-pass --mode gopass')
