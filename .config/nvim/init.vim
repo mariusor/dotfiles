@@ -122,6 +122,11 @@ set list
 let mapleader = " "
 set wildmenu
 
+augroup Vimrc
+    autocmd FocusLost,InsertEnter * setl norelativenumber
+    autocmd FocusGained,InsertLeave * setl relativenumber
+augroup END
+
 " copy/paste stuff
 map <Leader>c "+y
 map <Leader>v "+gP
