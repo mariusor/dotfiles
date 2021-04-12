@@ -1,5 +1,5 @@
 # firefox sharing popup
-for_window [app_id="firefox.*" title=".*Sharing Indicator"] floating enable, nofocus, position 0,0
+for_window [app_id="firefox.*" title=".*Sharing Indicator"] floating enable, move position 1600 0, border pixel
 for_window [title="Library"] floating enable
 for_window [title="meet.google.com is sharing your screen."] floating enable, nofocus
 
