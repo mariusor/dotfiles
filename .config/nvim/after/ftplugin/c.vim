@@ -10,4 +10,11 @@ let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_completion_enabled = 1
 
-colorscheme 256_noir
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
+
+"colorscheme 256_noir
