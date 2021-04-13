@@ -175,10 +175,10 @@ mode "move" {
 }
 bindsym $mod+m mode "move"
 
-set $volMute exec /usr/bin/pulseaudio-ctl mute
-set $volUP exec /usr/bin/pulseaudio-ctl up
-set $volDOWN exec /usr/bin/pulseaudio-ctl down
-# the volume keys need pulseaudio-ctl AUR package
+set $volMute exec /usr/bin/pulsemixer --toggle-mute
+set $volUP exec /usr/bin/pulsemixer --change-volume +5
+set $volDOWN exec /usr/bin/pulsemixer --change-volume -5
+# the volume keys need pulsemixer AUR package
 bindsym --locked XF86AudioMute $volMute
 bindsym --locked XF86AudioRaiseVolume $volUP
 bindsym --locked XF86AudioLowerVolume $volDOWN
