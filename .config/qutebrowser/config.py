@@ -59,7 +59,7 @@ config.set('url.searchengines', {
     'im': 'https://www.imdb.com/find?q={}&s=all'
 })
 config.set('tabs.background', True)
-config.set('content.notifications', False)
+config.set('content.notifications.enabled', False)
 config.bind('t', 'set-cmd-text -s :open -t ')
 config.bind('T', 'set-cmd-text -s :open -t {url}')
 config.bind('O', 'set-cmd-text -s :open {url}')
