@@ -147,6 +147,9 @@ noremap <Leader>- :sp<cr> :wincmd l <cr>
 " FZF bindings
 nnoremap <Leader>a :Rg!<space>
 
+nnoremap <Leader>, :cn!<cr>
+nnoremap <Leader>. :cp!<cr>
+
 "nnoremap <Leader>b :bn<CR>
 "nnoremap <Leader>f :bp<CR>
 nnoremap <Leader>d :bd<CR>
