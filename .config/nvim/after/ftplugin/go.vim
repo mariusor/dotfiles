@@ -1,13 +1,13 @@
 " Go plugin
-"map Ctrl+] :GoGuruDefinition
+map Ctrl+] :GoGuruDefinition
 "map Ctrl+] :GoDef
 call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
 let g:go_def_reuse_buffer = 1
 let g:go_list_type = 'quickfix'
 "let g:go_list_type = 'locationlist'
-"let g:go_list_type_commands = {"GoBuild": "quickfix"}
-let g:go_term_enabled = 1
-"let g:go_term_close_on_exit = 1
+let g:go_list_type_commands = {"GoBuild": "quickfix"}
+let g:go_term_enabled = 0
+let g:go_term_close_on_exit = 1
 let g:go_template_autocreate = 0
 let g:go_echo_command_info = 0
 let g:go_echo_go_info = 0
