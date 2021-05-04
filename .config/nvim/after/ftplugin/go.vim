@@ -30,3 +30,10 @@ nmap <Leader>? <Plug>(go-doc-vertical)
 nmap <Leader>m <Plug>(go-implements)
 nmap <Leader>c <Plug>(go-callees)
 nmap <Leader>C <Plug>(go-callers)
+
+set noexpandtab
+set copyindent
+set preserveindent
+set softtabstop=0
+set shiftwidth=4
+set tabstop=4
