@@ -66,8 +66,25 @@ function _update_ps1() {
       fi
     fi
 }
+_urlencode() {
+	local length="${#1}"
+	for (( i = 0; i < length; i++ )); do
+		local c="${1:$i:1}"
+		case $c in
+			%) printf '%%%02X' "'$c" ;;
+			*) printf "%s" "$c" ;;
+		esac
+	done
+}
+
+osc7_cwd() {
+	printf '\e]7;file://%s%s\e\\' "$HOSTNAME" "$(_urlencode "$PWD")"
+}
+
+PROMPT_COMMAND=osc7_cwd
 if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+
 fi
 
 #test -x `which madonctl 2>/dev/null` && source <(madonctl completion bash)
