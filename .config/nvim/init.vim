@@ -167,7 +167,7 @@ inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
 "augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
-"au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
+au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
