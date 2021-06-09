@@ -25,15 +25,14 @@ export LC_NUMERIC="de_DE.UTF-8"
 export LC_MEASUREMENT="de_DE.UTF-8"
 export LC_TIME="de_DE.UTF-8"
 
-#export GOPATH=~/.local/share/go
-#export GOROOT=~/.local/share/go
+export GOPATH=~/.local/share/go
 
-#export TERMINAL="/usr/bin/termite"
 if [ -n "$TMUX" ]; then
     export TERM="screen-256color"
 else
     export TERM="xterm-256color"
 fi
+export TERMINAL="/usr/bin/foot"
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
 export PATH=$PATH:~/.local/bin:$GOPATH/bin
