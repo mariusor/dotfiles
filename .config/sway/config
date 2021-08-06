@@ -188,7 +188,7 @@ bindsym --locked XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 set $mpris_notify notify-send -i "$(mpris-ctl --player active info %art_url)" "$(mpris-ctl --player active info "%play_status")" \
     "$(mpris-ctl --player active info "%artist_name: %track_name\nOn album '%album_name'")"
 
-set $mediaPause exec mpris-ctl pp && sleep 1 && $mpris_notify
+set $mediaPause exec mpris-ctl --player active --player inactive pp && sleep 1 && $mpris_notify
 bindsym --locked $mod+backslash $mediaPause
 bindsym --locked XF86AudioPlay exec mpris-ctl pp, sleep 1, $mpris_notify
 bindsym --locked XF86AudioStop exec mpris-ctl stop, sleep 1, $mpris_notify
