@@ -29,6 +29,11 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'machakann/vim-highlightedyank'
     Plug 'igankevich/mesonic'
+" treesitter
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+    Plug 'tree-sitter/tree-sitter-go'
+    " required by treesitter darcula-solid
+    Plug 'rktjmp/lush.nvim'
 " tags
 "    Plug 'lyuts/vim-rtags'
 "    Plug 'joereynolds/gtags-scope'
@@ -48,6 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'doums/darcula'
+    Plug 'briones-gabriel/darcula-solid.nvim'
     Plug 'dikiaap/minimalist'
     Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
@@ -91,7 +97,7 @@ syntax on
 "let g:zenburn_transparent = 1
 "colorscheme zenburn
 "colorscheme warlock
-colorscheme darcula
+colorscheme darcula-solid
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
