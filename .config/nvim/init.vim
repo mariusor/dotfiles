@@ -171,6 +171,8 @@ inoremap <Space> <Space><C-g>u
 inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
+noremap <C-L>  :nohls<CR><C-L>
+
 "augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
