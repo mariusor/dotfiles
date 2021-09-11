@@ -24,10 +24,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'avakhov/vim-yaml'
     Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
-"    Plug 'zchee/nvim-go', { 'do': 'make'}
+"    Plug 'zchee/nvim-go', { 'do': { -> 'make' } }
 "    Plug 'wincent/ferret'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'machakann/vim-highlightedyank'
+"    Plug 'machakann/vim-highlightedyank'
     Plug 'igankevich/mesonic'
 " treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
@@ -37,7 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
 " tags
 "    Plug 'lyuts/vim-rtags'
 "    Plug 'joereynolds/gtags-scope'
-    Plug 'vim-scripts/gtags.vim'
+"    Plug 'vim-scripts/gtags.vim'
 " Make stuff
     Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
     Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -55,7 +55,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'doums/darcula'
     Plug 'briones-gabriel/darcula-solid.nvim'
     Plug 'dikiaap/minimalist'
-    Plug 'hardselius/warlock'
+"    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
 call plug#end()
 
