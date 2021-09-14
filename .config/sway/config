@@ -240,6 +240,10 @@ focus_wrapping force
 workspace_auto_back_and_forth yes
 mouse_warping none
 
+seat seat0 xcursor_theme "Vanila-DMZ-AA"
+exec_always "~/.local/bin/import-gsettings"
+exec_always xsettingsd
+
 include "conf.d/$(uname -n).config"
 include "conf.d/$(uname -n)-$(nmcli -g=NAME,TYPE connection show --active --order +t | grep wireless | cut -d: -f1 | head -n1).config"
 include "conf.d/rules"
