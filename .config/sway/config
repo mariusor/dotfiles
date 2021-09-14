@@ -190,7 +190,7 @@ set $mpris_notify notify-send -i "$(mpris-ctl --player active info %art_url)" "$
 
 set $mediaPause exec mpris-ctl --player active --player inactive pp && sleep 1 && $mpris_notify
 bindsym --locked $mod+backslash $mediaPause
-bindsym --locked XF86AudioPlay exec mpris-ctl pp, sleep 1, $mpris_notify
+bindsym --locked XF86AudioPlay exec mpris-ctl --player inactive --player active pp, sleep 1, $mpris_notify
 bindsym --locked XF86AudioStop exec mpris-ctl stop, sleep 1, $mpris_notify
 bindsym --locked $mod+bracketright exec mpris-ctl next, sleep 1, $mpris_notify
 bindsym --locked XF86AudioNext exec mpris-ctl next, sleep 1, $mpris_notify
