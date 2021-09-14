@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
     "Plug 'unblevable/quick-scope'
 "    Plug 'mbbill/undotree'
-"    Plug 'vim-airline/vim-airline'
+    "Plug 'vim-airline/vim-airline'
 "    Plug 'vim-airline/vim-airline-themes'
     Plug 'itchyny/lightline.vim'
     Plug 'Akin909/lightline-statuslinetabs'
@@ -33,7 +33,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'tree-sitter/tree-sitter-go'
     " required by treesitter darcula-solid
-    Plug 'rktjmp/lush.nvim'
+    "Plug 'rktjmp/lush.nvim'
 " tags
 "    Plug 'lyuts/vim-rtags'
 "    Plug 'joereynolds/gtags-scope'
@@ -53,7 +53,7 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'doums/darcula'
-    Plug 'briones-gabriel/darcula-solid.nvim'
+    "Plug 'briones-gabriel/darcula-solid.nvim'
     Plug 'dikiaap/minimalist'
 "    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
@@ -70,14 +70,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete = 1
 "let g:deoplete#auto_complete_popup = 'auto'
 " airline
-"let g:airline_theme='minimalist'
-"let g:airline_powerline_fonts = 0
-let g:airline#extensions#tabline#enabled = 1
 
-
-let g:lightline = {
-\   'colorscheme': 'jellybeans'
-\ }
 set updatetime=450
 set lazyredraw
 
@@ -97,7 +90,7 @@ syntax on
 "let g:zenburn_transparent = 1
 "colorscheme zenburn
 "colorscheme warlock
-colorscheme darcula-solid
+colorscheme darcula
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
@@ -172,6 +165,17 @@ inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
 noremap <C-L>  :nohls<CR><C-L>
+
+" lightline
+let g:lightline = { 'colorscheme': 'darculaOriginal' }
+" airline
+"let g:airline_powerline_fonts = 0
+"let g:airline#extensions#tabline#enabled = 1
+
+" darcula improvements to gitgutter
+hi! link GitGutterAdd GitAddStripe
+hi! link GitGutterChange GitChangeStripe
+hi! link GitGutterDelete GitDeleteStripe
 
 "augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
