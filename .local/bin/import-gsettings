@@ -5,10 +5,10 @@ config="${XDG_CONFIG_HOME:-$HOME/.config}/gtk-3.0/settings.ini"
 if [ ! -f "$config" ]; then exit 1; fi
 
 _settings=$(grep -v "#" ${config})
-gtk_theme="$(echo ${_settings} | grep 'gtk-theme-name' | sed 's/.*\s*=\s*//')"
-icon_theme="$(echo ${_settings} | grep 'gtk-icon-theme-name' | sed 's/.*\s*=\s*//')"
-cursor_theme="$(echo ${_settings} | grep 'gtk-cursor-theme-name' | sed 's/.*\s*=\s*//')"
-font_name="$(echo ${_settings} | grep 'gtk-font-name' | sed 's/.*\s*=\s*//')"
+gtk_theme="$(echo "${_settings}" | grep 'gtk-theme-name' | sed 's/.*\s*=\s*//')"
+icon_theme="$(echo "${_settings}" | grep 'gtk-icon-theme-name' | sed 's/.*\s*=\s*//')"
+cursor_theme="$(echo "${_settings}" | grep 'gtk-cursor-theme-name' | sed 's/.*\s*=\s*//')"
+font_name="$(echo "${_settings}" | grep 'gtk-font-name' | sed 's/.*\s*=\s*//')"
 
 gnome_schema="org.gnome.desktop.interface"
 
