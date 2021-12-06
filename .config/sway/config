@@ -199,7 +199,7 @@ bindsym --locked XF86AudioPrev exec mpris-ctl prev, sleep 1, $mpris_notify
 bindsym $mod + XF86AudioPlay exec $mpris_notify
 
 #set $Light light
-set $Light pkexec brillo -lqu 100000
+set $Light brillo -lqu 100000
 
 bindsym XF86MonBrightnessUp exec $Light -A 3
 bindsym XF86MonBrightnessDown exec $Light -U 3
@@ -240,7 +240,7 @@ focus_wrapping force
 workspace_auto_back_and_forth yes
 mouse_warping none
 
-seat seat0 xcursor_theme "Vanila-DMZ-AA"
+seat seat0 xcursor_theme "Vanilla-DMZ-AA"
 exec_always "~/.local/bin/import-gsettings"
 exec_always xsettingsd
 
