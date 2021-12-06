@@ -33,6 +33,7 @@ for_window [class="qutebrowser"] border none
 for_window [app_id="org.qutebrowser.qutebrowser"] border none
 for_window [class="mpv"] floating disabled, layout tabbed, focus
 for_window [class="Pinentry-.*"] floating enable, focus
+for_window [app_id="pinentry-qt"] floating enable, focus
 for_window [instance="sun.*"] border none
 for_window [class="java-lang-Thread" instance="java-lang-Thread"] border none, floating enable
 for_window [instance="sun-awt-X11-.*"] border none, floating enable
