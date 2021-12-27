@@ -103,9 +103,10 @@ fi
 
 which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
+[[ -f ~/.bashrc.$(uname -n) ]] && source ~/.bashrc.$(uname -n)
+
 if [ -n "${SWAYSOCK}" ]; then
-    source ~/.config/wayland.env
     export LOCK_COMMAND="/usr/bin/swaylock --indicator-radius=80 -c 222222"
+    source ~/.config/wayland.env
 fi
 
-test -f ~/.bashrc.$(uname -n) && source ~/.bashrc.$(hostname)
