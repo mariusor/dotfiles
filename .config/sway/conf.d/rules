@@ -1,12 +1,14 @@
 # firefox sharing popup
-for_window [app_id="firefox.*" title=".*Sharing Indicator"] floating enable, move position 1600 0, border pixel
-for_window [title="Library"] floating enable
-for_window [title="meet.google.com is sharing your screen."] floating enable, nofocus
+for_window [title=".*Sharing Indicator"] floating enable, resize set 80 40, move position 90% 0%, border none, nofocus
+#for_window [title="Library"] floating enable
+for_window [title="meet.google.com is sharing your screen."] floating enable, move position 1600 0, border none, nofocus
 
+for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel
+for_window [class="com-intellij-updater-Runner" instance="com-intellij-updater-Runner"] floating enable, border pixel
 for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
 for_window [class="jetbrains-.*" title="win\d+"] floating enable, border none
+for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
 #for_window [class="^jetbrains-.+" window_type=324] border none
-#for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
 
 #for_window [tiling] default_border pixel 3
 for_window [tiling] border pixel 2
