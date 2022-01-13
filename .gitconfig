@@ -13,3 +13,5 @@
 
 [includeIF "gitdir:~/playground/"]
     path = ~/playground/.gitconfig
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
