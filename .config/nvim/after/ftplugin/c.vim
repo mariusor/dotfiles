@@ -10,8 +10,8 @@ let g:ale_warn_about_trailing_whitespace = 0
 let g:ale_warn_about_trailing_blank_lines = 0
 let g:ale_completion_enabled = 1
 
-set noexpandtab
 set copyindent
+"set noexpandtab
 set preserveindent
 set softtabstop=0
 set shiftwidth=4

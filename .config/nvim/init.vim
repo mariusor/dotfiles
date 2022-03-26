@@ -46,6 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
 " Writing stuff
     Plug 'reedes/vim-pencil'
     Plug 'junegunn/goyo.vim'
+    Plug 'jansedivy/jai.vim'
 " debugger
 "    Plug 'strottos/vim-padre'
 " Colorschemes
@@ -57,6 +58,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'dikiaap/minimalist'
 "    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
+    " Jai
 call plug#end()
 
 " Plugin settings
