@@ -29,7 +29,7 @@ for_window [app_id="org.telegram.desktop"] move scratchpad
 for_window [title="."] title_format "<b>%title</b> (%app_id)"
 
 for_window [class="Chromium"] border none
-for_window [class="Firefox.*"] border none
+for_window [class="F|firefox.*"] border none
 for_window [class="vimb"] focus child, layout tabbed, focus
 for_window [class="qutebrowser"] border none
 for_window [app_id="org.qutebrowser.qutebrowser"] border none
@@ -56,7 +56,7 @@ bindsym $mod+e [app_id="thunderbird"] scratchpad show, resize set 1900px 900px
 assign [class="Chromium"] $w1
 assign [app_id="Chromium"] $w1
 assign [class="jetbrains-.*"] $w3
-assign [class="Spotify"] $w7
+assign [class="^Spotify"] $w7
 assign [class="F|firefox.*"] $w4
 assign [class="qutebrowser"] $w4
 assign [app_id="org.qutebrowser.qutebrowser"] $w4
