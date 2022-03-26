@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'godlygeek/tabular'
+    Plug 'skywind3000/asyncrun.vim'
 " Language support
 "    Plug 'jneen/ragel.vim'
     Plug 'fatih/vim-go'
@@ -46,7 +47,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Writing stuff
     Plug 'reedes/vim-pencil'
     Plug 'junegunn/goyo.vim'
-    Plug 'jansedivy/jai.vim'
 " debugger
 "    Plug 'strottos/vim-padre'
 " Colorschemes
@@ -59,6 +59,8 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
     " Jai
+    Plug 'ziglang/zig.vim'
+    Plug 'jansedivy/jai.vim'
 call plug#end()
 
 " Plugin settings
@@ -181,6 +183,12 @@ hi! link GitGutterDelete GitDeleteStripe
 
 "augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
+
+command Make :copen | :AsyncRun make
+
+"let g:asyncrun_bell=1
+"let g:asyncrun_mode='term'
+"let g:asyncrun_open=8
 
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
