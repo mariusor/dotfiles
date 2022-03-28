@@ -1,8 +1,7 @@
 autoclip: false
 autoimport: true
 cliptimeout: 45
-exportkeys: false
-nocolor: false
+exportkeys: true
 nopager: false
 notifications: false
 parsing: true
