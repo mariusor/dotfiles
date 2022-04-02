@@ -1,3 +1,3 @@
 ```sh
-stown -t ~ .
+stow -v2 -t ~ .
 ```
