@@ -143,7 +143,7 @@ nnoremap <C-l> <C-w><C-l>
 nnoremap <C-h> <C-w><C-h>
 
 noremap <Leader>o :on<cr>
-noremap <Leader>\| :vs<cr> :wincmd l <cr>
+noremap <Leader>\ :vs<cr> :wincmd l <cr>
 noremap <Leader>- :sp<cr> :wincmd l <cr>
 
 " FZF bindings
