@@ -12,8 +12,9 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'mbbill/undotree'
     "Plug 'vim-airline/vim-airline'
 "    Plug 'vim-airline/vim-airline-themes'
-    Plug 'itchyny/lightline.vim'
-    Plug 'Akin909/lightline-statuslinetabs'
+    Plug 'jssteinberg/hackline.vim'
+    "Plug 'itchyny/lightline.vim'
+    "Plug 'Akin909/lightline-statuslinetabs'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
     Plug 'godlygeek/tabular'
@@ -171,10 +172,31 @@ inoremap <CR> <CR><C-g>u
 noremap <C-L>  :nohls<CR><C-L>
 
 " lightline
-let g:lightline = { 'colorscheme': 'darcula' }
+"let g:lightline = { 'colorscheme': 'darcula' }
 " airline
 "let g:airline_powerline_fonts = 0
 "let g:airline#extensions#tabline#enabled = 1
+
+" hackline
+" Active status:
+let g:hackline_laststatus = 2
+let g:hackline_mode = 1
+let g:hackline_bufnum = 1
+let g:hackline_filetype = 1
+let g:hackline_ale = 1 " ALE errors and warnings if available
+let g:hackline_nvim_lsp = 0 " Native nvim LSP info if available
+let g:hackline_vim_lsp = 0 " Vim LSP info if available
+let g:hackline_git = 0 " Current branch if available from plugins
+let g:hackline_encoding = 1
+let g:hackline_fileformat = 1
+let g:hackline_tab_info = 1
+let g:hackline_sign = "«N»"
+" If you have a patched font, you can get a minor powerline feel:
+"let g:hackline_separators = #{ l: "", r: "" }
+let g:hackline_custom_end = '
+			\%( words %{wordcount().words} %)
+			\ %P/%L
+			\'
 
 " darcula improvements to gitgutter
 hi! link GitGutterAdd GitAddStripe
