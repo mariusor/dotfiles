@@ -80,8 +80,11 @@ _urlencode() {
 osc7_cwd() {
 	printf '\e]7;file://%s%s\e\\' "$HOSTNAME" "$(_urlencode "$PWD")"
 }
-
+prompt_marker() {
+    printf '\e]133;A\e\\'
+}
 PROMPT_COMMAND=osc7_cwd
+PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }prompt_marker
 if [ "$TERM" != "linux" -a "$TERMINAL_EMULATOR" != "JetBrains-JediTerm" ]; then
     PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
 
