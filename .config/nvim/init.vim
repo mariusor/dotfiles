@@ -17,7 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'Akin909/lightline-statuslinetabs'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
-    Plug 'godlygeek/tabular'
+"    Plug 'godlygeek/tabular'
     Plug 'skywind3000/asyncrun.vim'
 " Language support
 "    Plug 'jneen/ragel.vim'
@@ -31,6 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
 "    Plug 'machakann/vim-highlightedyank'
     Plug 'igankevich/mesonic'
+    Plug 'udalov/kotlin-vim'
 " treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'tree-sitter/tree-sitter-go'
@@ -50,6 +51,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/goyo.vim'
 " debugger
 "    Plug 'strottos/vim-padre'
+    Plug 'vim-test/vim-test'
+    Plug 'sebdah/vim-delve'
 " Colorschemes
 "    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
 "    Plug 'jnurmine/Zenburn'
@@ -116,7 +119,7 @@ set relativenumber
 set cinoptions+=(1s
 set incsearch
 set smartcase
-set laststatus=2
+set laststatus=3
 "set clipboard=unnamed
 "set spell spelllang=en_gb
 set showbreak=\\ "
