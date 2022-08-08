@@ -7,6 +7,7 @@ set complete=native:unifiedcomplete
 set defsearch=duckduckgo
 set guioptions=CcMs
 set maxitems=18
-colorscheme zenburn
+colorscheme=zenburn
+set editorcmd=neovide %f '+normal!%lGzv%c'
 
 " vim: set ft=pentadactyl:
