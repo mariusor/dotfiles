@@ -1,6 +1,5 @@
 [alias]
-    lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
-
+	lg = log --topo-order --all --graph --date=local --pretty=format:'%C(green)%h%C(reset) %><(55,trunc)%s%C(red)%d%C(reset) %C(blue)[%an]%C(reset) %C(yellow)%ad%C(reset)%n'
 [pull]
 	rebase = true
 [rebase]
@@ -12,4 +11,16 @@
 [includeIf "gitdir:~/playground/"]
 	path = ~/playground/.gitconfig
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+#	pager = diff-so-fancy | less --tabs=4 -RFX
+# Use a pager for large output, just like other git commands.
+[pager]
+	difftool = true
+[diff]
+	external = difft
+[difftool]
+	prompt = false
+[difftool "difftastic"]
+	cmd = difft "$LOCAL" "$REMOTE"
+# `git dft` is less to type than `git difftool`.
+[alias]
+	dft = difftool
