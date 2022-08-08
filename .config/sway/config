@@ -96,16 +96,16 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $w1    1:一
-set $w2    2:二
-set $w3    3:三
-set $w4    4:四
-set $w5    5:五
-set $w6    6:六
-set $w7    7:七
-set $w8    8:八
-set $w9    9:九
-set $w10  10:十
+set $w1    1:01
+set $w2    2:02
+set $w3    3:03
+set $w4    4:04
+set $w5    5:05
+set $w6    6:06
+set $w7    7:07
+set $w8    8:08
+set $w9    9:09
+set $w10  10:10
 
 # switch to workspace
 bindsym $mod+1 workspace  $w1
@@ -240,10 +240,11 @@ focus_wrapping force
 workspace_auto_back_and_forth yes
 mouse_warping none
 
-seat seat0 xcursor_theme "Vanilla-DMZ-AA"
 exec "~/.config/wayland.env"
 exec_always "~/.local/bin/import-gsettings"
 exec_always xsettingsd
+
+seat seat0 xcursor_theme "Vanilla-DMZ-AA"
 
 #include "/etc/sway/config.d/50-systemd-user.conf"
 include "conf.d/$(uname -n).config"
