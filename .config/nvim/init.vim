@@ -58,6 +58,8 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'jnurmine/Zenburn'
     Plug 'andreasvc/vim-256noir'
     Plug 'doums/darcula'
+    Plug 'rktjmp/lush.nvim'
+    Plug 'mcchrish/zenbones.nvim'
     "Plug 'briones-gabriel/darcula-solid.nvim'
     Plug 'dikiaap/minimalist'
 "    Plug 'hardselius/warlock'
@@ -98,7 +100,11 @@ syntax on
 "let g:zenburn_transparent = 1
 "colorscheme zenburn
 "colorscheme warlock
-colorscheme darcula
+"colorscheme darcula
+"colorscheme zenbones
+"colorscheme zenwritten
+"colorscheme nordbones
+colorscheme seoulbones
 scriptencoding utf-8
 filetype plugin indent on
 filetype plugin on
@@ -184,7 +190,7 @@ noremap <C-L>  :nohls<CR><C-L>
 " Active status:
 let g:hackline_laststatus = 2
 let g:hackline_mode = 1
-let g:hackline_bufnum = 1
+let g:hackline_bufnr = 1
 let g:hackline_filetype = 1
 let g:hackline_ale = 1 " ALE errors and warnings if available
 let g:hackline_nvim_lsp = 0 " Native nvim LSP info if available
@@ -201,6 +207,15 @@ let g:hackline_custom_end = '
 			\ %P/%L
 			\'
 
+let g:zenbones_italic_comments = v:false
+let g:nordbones_italic_comments = v:false
+" seoulbones
+let g:seoulbones_italic_comments = v:false
+let g:seoulbones_darkness = "stark"
+let g:seoulbones_lighten_noncurrent_window = v:true
+let g:seoulbones_lighten_comments = 30
+let g:seoulbones_transparent_background = v:true
+
 " darcula improvements to gitgutter
 hi! link GitGutterAdd GitAddStripe
 hi! link GitGutterChange GitChangeStripe
@@ -209,7 +224,7 @@ hi! link GitGutterDelete GitDeleteStripe
 "augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
-command Make :copen | :AsyncRun make
+command Make :copen | :AsyncRun :make
 
 "let g:asyncrun_bell=1
 "let g:asyncrun_mode='term'
@@ -228,3 +243,8 @@ else
     set t_Co=256
 endif
 
+if exists("g:neovide")
+    set guifont=Source\ Code\ Pro:h13
+    "let g:neovide_scroll_animation_length = 0
+    let g:neovide_cursor_animation_length = 0
+endif

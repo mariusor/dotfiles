@@ -7,11 +7,9 @@
 	autoStash = true
 [commit]
 	gpgsign = true
-
-[includeIF "gitdir:~/workspace/"]
-    path = ~/workspace/.gitconfig
-
-[includeIF "gitdir:~/playground/"]
-    path = ~/playground/.gitconfig
+[includeIf "gitdir:~/workspace/"]
+	path = ~/workspace/.gitconfig
+[includeIf "gitdir:~/playground/"]
+	path = ~/playground/.gitconfig
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
