@@ -170,6 +170,16 @@ let g:goyo_width = 120
 let g:goyo_height = 90
 "let g:goyo_linenr = 20
 
+function! s:goyo_enter()
+  silent !tmux set status off
+  silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  set nonumber
+  set norelativenumber
+endfunction
+
 " vimwiki
 let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
@@ -178,7 +188,7 @@ inoremap <Space> <Space><C-g>u
 inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
-noremap <C-L>  :nohls<CR><C-L>
+noremap <C-L> :nohls<CR><C-L>
 
 " lightline
 "let g:lightline = { 'colorscheme': 'darcula' }
