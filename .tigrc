@@ -1,4 +1,4 @@
-set git-colors = no
+set git-colors = yes
 set show-changes = yes
 set commit-order = topo
 set refresh-mode = auto
@@ -7,4 +7,5 @@ set main-view = \
     author:abbreviated \
     id:yes,color \
     commit-title:graph=yes,refs=yes
+bind status G !git commit
 
