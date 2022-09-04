@@ -1,10 +1,20 @@
-autoclip: false
-autoimport: true
-cliptimeout: 45
-exportkeys: true
-nopager: false
-notifications: false
-parsing: true
-path: ~/.local/share/password-store
-safecontent: false
+root:
+  askformore: false
+  autoclip: false
+  autoprint: false
+  autoimport: true
+  autosync: true
+  check_recipient_hash: false
+  cliptimeout: 45
+  concurrency: 1
+  editrecipients: false
+  exportkeys: true
+  nocolor: false
+  noconfirm: false
+  nopager: false
+  notifications: false
+  parsing: true
+  path: gpgcli-gitcli-fs+file:///home/habarnam/.local/share/password-store
+  safecontent: false
+  usesymbols: false
 mounts: {}
