@@ -3,6 +3,7 @@ for_window [title=".*Sharing Indicator$"] floating enable, move position 1600 0,
 for_window [title="meet.google.com is sharing your screen."] floating enable, move position 1600 0, border none, nofocus
 for_window [title="Library" app_id="firefox.*"] floating enable
 for_window [title="Picture-in-Picture" app_id="firefox.*"] floating enable, fullscreen on
+for_window [urgent="latest" app_id="firefox.*"] focus
 
 # xdg-desktop-portal file dialog
 for_window [app_id="xdg-desktop-portal-gtk" title=".*"] floating enable
