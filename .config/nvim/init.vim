@@ -21,6 +21,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'skywind3000/asyncrun.vim'
 " Language support
 "    Plug 'jneen/ragel.vim'
+    Plug 'rust-lang/rust.vim'
     Plug 'fatih/vim-go'
     Plug 'vimwiki/vimwiki'
     Plug 'avakhov/vim-yaml'
@@ -35,8 +36,6 @@ call plug#begin('~/.config/nvim/plugged')
 " treesitter
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
     Plug 'tree-sitter/tree-sitter-go'
-    " required by treesitter darcula-solid
-    "Plug 'rktjmp/lush.nvim'
 " tags
 "    Plug 'lyuts/vim-rtags'
 "    Plug 'joereynolds/gtags-scope'
@@ -56,8 +55,9 @@ call plug#begin('~/.config/nvim/plugged')
 " Colorschemes
 "    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
 "    Plug 'jnurmine/Zenburn'
-    Plug 'andreasvc/vim-256noir'
-    Plug 'doums/darcula'
+"    Plug 'andreasvc/vim-256noir'
+"    Plug 'doums/darcula'
+    " required by treesitter darcula-solid and zenbones
     Plug 'rktjmp/lush.nvim'
     Plug 'mcchrish/zenbones.nvim'
     "Plug 'briones-gabriel/darcula-solid.nvim'
@@ -79,25 +79,61 @@ let g:strip_whitespace_on_save=1
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#auto_complete = 1
 "let g:deoplete#auto_complete_popup = 'auto'
-" airline
 
-set updatetime=450
-set lazyredraw
-
+"let g:zenbones_italic_comments = v:false
+"let g:zenbones_darkness = "stark"
+"let g:zenbones_transparent_background = v:true
+"let g:nordbones_italic_comments = v:false
+" seoulbones
+let g:seoulbones_italic_comments = v:false
+let g:seoulbones_lighten_noncurrent_window = v:true
+let g:seoulbones_lighten_comments = 30
+let g:seoulbones_transparent_background = v:true
+let g:seoulbones_darkness = "stark"
 " w0rp/ale
 "let g:ale_linters = {'c': ['clangtidy'], 'cpp': ['clangtidy'], 'go': ['gofmt', 'golint', 'govet', 'goimports']}
+" vimwiki
+let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
 
-" http://joereynoldsaudio.com/programming/articles/navigating-in-vim
-" needs gnu-global
-set tags=./tags,tags;$HOME
+" lightline
+"let g:lightline = { 'colorscheme': 'darcula' }
+" airline
+"let g:airline_powerline_fonts = 0
+"let g:airline#extensions#tabline#enabled = 1
+
+" hackline
+" Active status:
+let g:hackline_laststatus = 2
+let g:hackline_mode = 1
+let g:hackline_bufnr = 1
+let g:hackline_filetype = 1
+let g:hackline_ale = 1 " ALE errors and warnings if available
+let g:hackline_nvim_lsp = 0 " Native nvim LSP info if available
+let g:hackline_vim_lsp = 0 " Vim LSP info if available
+let g:hackline_git = 0 " Current branch if available from plugins
+let g:hackline_encoding = 1
+let g:hackline_fileformat = 1
+let g:hackline_tab_info = 1
+let g:hackline_sign = "«N»"
+" If you have a patched font, you can get a minor powerline feel:
+"let g:hackline_separators = #{ l: "", r: "" }
+let g:hackline_custom_end = '%( words %{wordcount().words} %) %P/%L'
+
+let g:goyo_width = 120
+let g:goyo_height = 90
+"let g:goyo_linenr = 20
+
+let g:asyncrun_bell=1
+let g:asyncrun_mode='term'
+let g:asyncrun_open=8
+
 "let g:GtagsCscope_Auto_Load = 1
-"set cscopetag "search both cscopes db and the tags file
-" lyuts/vim-rtags
-"set completefunc=RtagsCompleteFunc
-" Regular settings
-syntax on
 "let g:zenburn_high_Contrast = 1
 "let g:zenburn_transparent = 1
+
+" Regular settings
+syntax on
+
 "colorscheme zenburn
 "colorscheme warlock
 "colorscheme darcula
@@ -106,9 +142,19 @@ syntax on
 "colorscheme nordbones
 colorscheme seoulbones
 scriptencoding utf-8
+nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr> :ALEToggle<cr>
+
 filetype plugin indent on
 filetype plugin on
-nmap <silent> <F1> :set relativenumber!<cr>:set nonumber!<cr>:set nolist!<cr> :GitGutterSignsToggle <cr> :ALEToggle<cr>
+
+"set cscopetag "search both cscopes db and the tags file
+" lyuts/vim-rtags
+"set completefunc=RtagsCompleteFunc
+" http://joereynoldsaudio.com/programming/articles/navigating-in-vim
+" needs gnu-global
+set tags=./tags,tags;$HOME
+set updatetime=450
+set lazyredraw
 set hlsearch
 set ignorecase
 set cursorline
@@ -133,11 +179,6 @@ set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
 let mapleader = " "
 set wildmenu
-
-augroup Vimrc
-    autocmd FocusLost,InsertEnter * setl norelativenumber
-    autocmd FocusGained,InsertLeave * setl relativenumber
-augroup END
 
 " copy/paste stuff
 map <Leader>c "+y
@@ -166,9 +207,11 @@ nnoremap <Leader>. :cp!<cr>
 "nnoremap <Leader>f :bp<CR>
 nnoremap <Leader>d :bd<CR>
 nnoremap <silent> <Leader>gg :Goyo <CR>
-let g:goyo_width = 120
-let g:goyo_height = 90
-"let g:goyo_linenr = 20
+
+augroup Vimrc
+    autocmd FocusLost,InsertEnter * setl norelativenumber
+    autocmd FocusGained,InsertLeave * setl relativenumber
+augroup END
 
 function! s:goyo_enter()
   silent !tmux set status off
@@ -180,51 +223,12 @@ function! s:goyo_enter()
   set norelativenumber
 endfunction
 
-" vimwiki
-let g:vimwiki_list = [{'path': '~/.local/share/vimwiki/', 'syntax': 'markdown', 'ext': '.md'}]
-
 " Break undo sequence on Space, Tab and Enter
 inoremap <Space> <Space><C-g>u
 inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
 noremap <C-L> :nohls<CR><C-L>
-
-" lightline
-"let g:lightline = { 'colorscheme': 'darcula' }
-" airline
-"let g:airline_powerline_fonts = 0
-"let g:airline#extensions#tabline#enabled = 1
-
-" hackline
-" Active status:
-let g:hackline_laststatus = 2
-let g:hackline_mode = 1
-let g:hackline_bufnr = 1
-let g:hackline_filetype = 1
-let g:hackline_ale = 1 " ALE errors and warnings if available
-let g:hackline_nvim_lsp = 0 " Native nvim LSP info if available
-let g:hackline_vim_lsp = 0 " Vim LSP info if available
-let g:hackline_git = 0 " Current branch if available from plugins
-let g:hackline_encoding = 1
-let g:hackline_fileformat = 1
-let g:hackline_tab_info = 1
-let g:hackline_sign = "«N»"
-" If you have a patched font, you can get a minor powerline feel:
-"let g:hackline_separators = #{ l: "", r: "" }
-let g:hackline_custom_end = '
-			\%( words %{wordcount().words} %)
-			\ %P/%L
-			\'
-
-let g:zenbones_italic_comments = v:false
-let g:nordbones_italic_comments = v:false
-" seoulbones
-let g:seoulbones_italic_comments = v:false
-let g:seoulbones_darkness = "stark"
-let g:seoulbones_lighten_noncurrent_window = v:true
-let g:seoulbones_lighten_comments = 30
-let g:seoulbones_transparent_background = v:true
 
 " darcula improvements to gitgutter
 hi! link GitGutterAdd GitAddStripe
@@ -235,10 +239,6 @@ hi! link GitGutterDelete GitDeleteStripe
 au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
 command Make :copen | :AsyncRun :make
-
-"let g:asyncrun_bell=1
-"let g:asyncrun_mode='term'
-"let g:asyncrun_open=8
 
 hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
