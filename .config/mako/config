@@ -9,10 +9,6 @@ default-timeout=5000
 background-color=#77285580
 border-color=#994C7890
 default-timeout=8000
-anchor=top-left
-layer=overlay
-output=""
-default-timeout=4500
 group-by=urgency,app-name
 
 [urgency=low]
