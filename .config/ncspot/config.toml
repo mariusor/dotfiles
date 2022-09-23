@@ -1,4 +1,7 @@
 use_nerdfont = true
+library_tabs = ["playlists", "browse", "tracks", "albums", "artists"]
+#initial_screen = "cover"
+notify = true
 
 [theme]
 background = "#222222"
