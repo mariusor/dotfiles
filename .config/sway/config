@@ -298,4 +298,5 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
+exec_always kanshi
 exec dex -ae sway

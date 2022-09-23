@@ -1,0 +1,6 @@
+profile on-the-move {
+	output eDP-1 mode 3840x2160 position 0,1440 scale 2
+	exec swaymsg output eDP-1 scale 2
+}
+
+include ~/.config/kanshi/conf.d/$(uname -n).config
