@@ -6,6 +6,8 @@
 	autoStash = true
 [commit]
 	gpgsign = true
+[includeIf "gitdir:~/Documents/"]
+	path = ~/workspace/.gitconfig
 [includeIf "gitdir:~/workspace/"]
 	path = ~/workspace/.gitconfig
 [includeIf "gitdir:~/playground/"]
