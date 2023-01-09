@@ -294,5 +294,6 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
+exec_always wl-paste -p -t text --watch clipman store
 exec_always kanshi
 exec dex -ae sway
