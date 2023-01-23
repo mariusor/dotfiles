@@ -7,12 +7,13 @@ for_window [urgent="latest" app_id="firefox.*"] focus
 
 # xdg-desktop-portal file dialog
 for_window [app_id="xdg-desktop-portal-gtk" title=".*"] floating enable
+for_window [app_id="nvim-qt"] floating enable, resize set 800px 500px
 
 for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel
 for_window [class="com-intellij-updater-Runner" instance="com-intellij-updater-Runner"] floating enable, border pixel
-for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
-for_window [class="jetbrains-.*" title="win\d+"] floating enable, border none
-for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
+#for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
+#for_window [class="jetbrains-.*" title="win\d+"] floating enable, border none
+#for_window [class="^jetbrains-.+" window_type="dialog|utility|toolbar|splash|menu|dropdown_menu|popup_menu|tooltip|notification"] no_focus
 #for_window [class="^jetbrains-.+" window_type=324] border none
 
 #for_window [tiling] default_border pixel 3
