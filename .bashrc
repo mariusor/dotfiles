@@ -4,6 +4,7 @@
 umask 002
 alias ls='ls --color=auto'
 alias yy='yes | yay'
+alias mc='mc --nosubshell'
 
 # bash stuff
 HISTFILESIZE=1000000
