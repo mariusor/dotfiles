@@ -134,6 +134,19 @@ let g:asyncrun_open=8
 " Regular settings
 syntax on
 
+function! MyHighlights() abort
+    "highlight Visual     cterm=NONE ctermbg=76  ctermfg=16  gui=NONE guibg=#5fd700 guifg=#000000
+    "highlight StatusLine cterm=NONE ctermbg=231 ctermfg=160 gui=NONE guibg=#ffffff guifg=#d70000
+    "highlight Normal     cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
+    "highlight NonText    cterm=NONE ctermbg=17              gui=NONE guibg=#00005f
+    hi Todo ctermfg=white
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme * call MyHighlights()
+augroup END
+
 "colorscheme zenburn
 "colorscheme warlock
 "colorscheme darcula
@@ -240,7 +253,6 @@ au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.
 
 command Make :copen | :AsyncRun :make
 
-hi Todo ctermfg=white
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
 autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
