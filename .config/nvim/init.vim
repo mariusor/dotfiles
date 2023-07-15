@@ -52,6 +52,8 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'strottos/vim-padre'
     Plug 'vim-test/vim-test'
     Plug 'sebdah/vim-delve'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'leoluz/nvim-dap-go'
 " Colorschemes
 "    Plug 'TaurusOlson/darkburn.vim', { 'as': 'darkburn' }
 "    Plug 'jnurmine/Zenburn'
@@ -221,6 +223,9 @@ nnoremap <Leader>. :cp!<cr>
 nnoremap <Leader>d :bd<CR>
 nnoremap <silent> <Leader>gg :Goyo <CR>
 
+"nnoremap oo mzo<Esc>`z
+"nnoremap OO mzO<Esc>`z
+
 augroup Vimrc
     autocmd FocusLost,InsertEnter * setl norelativenumber
     autocmd FocusGained,InsertLeave * setl relativenumber
@@ -248,8 +253,8 @@ hi! link GitGutterAdd GitAddStripe
 hi! link GitGutterChange GitChangeStripe
 hi! link GitGutterDelete GitDeleteStripe
 
-"augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
-au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
+augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
+"au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
 command Make :copen | :AsyncRun :make
 
