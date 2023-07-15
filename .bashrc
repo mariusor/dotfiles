@@ -37,7 +37,7 @@ fi
 export TERMINAL="/usr/bin/foot"
 export EDITOR="nvim"
 export BROWSER="firefox-developer-edition"
-export PATH=$PATH:~/.local/bin:$GOPATH/bin
+export PATH=~/.local/bin:$GOPATH/bin:$PATH
 
 if [ -z "$MC_TMPDIR" ] ; then # check for mc
     case "$TERM" in
