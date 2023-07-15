@@ -1,5 +1,5 @@
-source /usr/share/doc/neomutt/colorschemes/zenburn.neomuttrc
-source /usr/share/doc/neomutt/samples/gpg.rc
+source /usr/share/neomutt/colorschemes/zenburn.neomuttrc
+#source /usr/share/neomutt/samples/gpg.rc
 
 ## Personal
 #folder-hook $folder 'source ~/.config/neomutt/personalrc'
