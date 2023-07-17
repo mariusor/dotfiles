@@ -10,6 +10,9 @@ for_window [urgent="latest" app_id="firefox.*"] focus
 for_window [app_id="xdg-desktop-portal-gtk" title=".*"] floating enable
 for_window [app_id="nvim-qt"] floating enable, resize set 800px 500px
 
+# easy-effects
+for_window [app_id=com.github.wwmm.easyeffects] floating enable, resize set 800px 500px, move scratchpad
+
 for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel
 for_window [class="com-intellij-updater-Runner" instance="com-intellij-updater-Runner"] floating enable, border pixel
 #for_window [class="jetbrains-.*" title="Welcome to .*"] floating enable, border pixel
@@ -22,6 +25,8 @@ for_window [tiling] border pixel 2
 #for_window [floating] default_border normal 2
 for_window [floating] border normal 2
 
+for_window [title="."] title_format "<b>%title</b> (%app_id)"
+
 # scratchpad windows
 for_window [class="Thunderbird" instance="Mail"] move scratchpad
 for_window [class="Thunderbird" instance="Msgcompose"] move scratchpad
@@ -33,7 +38,6 @@ for_window [instance="station"] move scratchpad
 for_window [instance="rambox"] move scratchpad
 for_window [app_id="org.zealdocs.zeal"] move scratchpad
 for_window [app_id="org.telegram.desktop"] move scratchpad
-for_window [title="."] title_format "<b>%title</b> (%app_id)"
 
 for_window [class="Chromium"] border none
 for_window [class="F|firefox.*"] border none
