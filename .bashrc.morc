@@ -1,8 +1,9 @@
 #alias phpdebug="sudo XDEBUG_CONFIG='idekey=session_name' php"
 
 export KUBECONFIG=~/.kube/config:~/.kube/eksconfig
-export VAULT_ADDR='https://vault.hellofresh.io'
+export VAULT_ADDR='https://vault.secrets.hellofresh.io'
 export GTK_USE_PORTAL=0
 
-export BROWSER="chromium"
+#export BROWSER="chromium"
 export PATH=$(go env GOPATH)/bin:$PATH
+export BROWSER="firefox-developer-edition"
