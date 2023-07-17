@@ -17,6 +17,7 @@ call plug#begin('~/.config/nvim/plugged')
     "Plug 'Akin909/lightline-statuslinetabs'
     Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
     Plug 'junegunn/fzf.vim'
+    Plug 'ctrlpvim/ctrlp.vim' " fuzzy find files
 "    Plug 'godlygeek/tabular'
     Plug 'skywind3000/asyncrun.vim'
 " Language support
@@ -27,7 +28,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'avakhov/vim-yaml'
     Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
-"    Plug 'zchee/nvim-go', { 'do': { -> 'make' } }
 "    Plug 'wincent/ferret'
     Plug 'ntpeters/vim-better-whitespace'
 "    Plug 'machakann/vim-highlightedyank'
@@ -66,9 +66,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'dikiaap/minimalist'
 "    Plug 'hardselius/warlock'
     " Add plugins to &runtimepath
-    " Jai
     Plug 'ziglang/zig.vim'
-    Plug 'jansedivy/jai.vim'
+    " Jai
+    Plug 'rluba/jai.vim'
+    " Folding
 call plug#end()
 
 " Plugin settings
@@ -167,6 +168,7 @@ filetype plugin on
 "set completefunc=RtagsCompleteFunc
 " http://joereynoldsaudio.com/programming/articles/navigating-in-vim
 " needs gnu-global
+set preserveindent
 set tags=./tags,tags;$HOME
 set updatetime=450
 set lazyredraw
@@ -220,7 +222,8 @@ nnoremap <Leader>. :cp!<cr>
 
 "nnoremap <Leader>b :bn<CR>
 "nnoremap <Leader>f :bp<CR>
-nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>d :bn<CR>:bd#<CR>
+nnoremap <Leader>D :bd<CR>
 nnoremap <silent> <Leader>gg :Goyo <CR>
 
 "nnoremap oo mzo<Esc>`z
@@ -247,6 +250,12 @@ inoremap <Tab> <Tab><C-g>u
 inoremap <CR> <CR><C-g>u
 
 noremap <C-L> :nohls<CR><C-L>
+" Exit terminal with Esc
+tnoremap <Esc><Esc> <C-\><C-n>
+
+" Automatically open quickfix window when compiling
+autocmd QuickFixCmdPost [^l]* nested cwindow
+autocmd QuickFixCmdPost    l* nested lwindow
 
 " darcula improvements to gitgutter
 hi! link GitGutterAdd GitAddStripe
@@ -256,10 +265,20 @@ hi! link GitGutterDelete GitDeleteStripe
 augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 "au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
-command Make :copen | :AsyncRun :make
+command Make :AsyncRun :make
+
+" FIXME():
+match TODO /TODO/
+hi def link TODO Todo
+hi! TODO ctermfg=yellow
+hi def link NOTE Todo
+match NOTE /NOTE/
+
+syn keyword NOTE contained NOTE
+hi! NOTE ctermfg=white
 
 autocmd BufEnter * let &titlestring = hostname() . "/" . expand("%:p")
-autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
+"autocmd Filetype d setlocal noexpandtab copyindent preserveindent softtabstop=0 shiftwidth=4 tabstop=4
 " Enable cursor shape switching on mode change
 if has('nvim')
   set guicursor=i-ci:ver30-iCursor-blinkwait300-blinkon200-blinkoff150
