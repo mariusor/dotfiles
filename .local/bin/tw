@@ -1,14 +1,12 @@
 #!/bin/bash
 _MPV="mpv"
+_profile=${2}
 if [ -n "${SWAYSOCK}" ]; then
-    _MPV='mpv --gpu-context=wayland --hwdec=auto --hwdec-codecs=all'
+    _MPV="mpv --profile=tw${_profile}"
 fi
 function _tw {
-#    set -x
-    q=${2:-720}
     who=$(sed -e 's/[[:space:]]//g' <<<"https://www.twitch.tv/${1}")
-    systemd-run --user $_MPV --ytdl-format="best[height<=?${q}]" ${who}
-#    set +x
+    systemd-run --user $_MPV ${who}
 }
 
 _tw $@
