@@ -1,6 +1,8 @@
 # sway config file
 #
 
+include "/etc/sway/config.d/50-systemd-user.conf"
+
 #set $mod Mod1
 set $mod Mod4
 set $TERMINAL foot -t foot-direct
@@ -242,7 +244,6 @@ exec_always xsettingsd
 
 seat seat0 xcursor_theme "Vanilla-DMZ-AA"
 
-#include "/etc/sway/config.d/50-systemd-user.conf"
 include "conf.d/$(uname -n).config"
 include "conf.d/$(uname -n)-$(nmcli -g=NAME,TYPE connection show --active --order +t | grep wireless | cut -d: -f1 | head -n1).config"
 include "conf.d/rules"
