@@ -19,15 +19,17 @@ SCREENSHOT_TIMESTAMP=$(date +%Y%m%d%H%M%S_%N)
 
 SCREENSHOT_FULLNAME="$SWAYGRAB_SCREENSHOTS"/screenshot-${SCREENSHOT_TIMESTAMP}-swaygrab.png
 
+BIN=$(which grim)
+
 case "$1" in
 	-r|--region)
-		grim -g "$(slurp)" ${SCREENSHOT_FULLNAME}
+		${BIN} -g "$(slurp)" ${SCREENSHOT_FULLNAME}
 		;;
 	-f|--focused)
-		grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$SCREENSHOT_FULLNAME"
+		${BIN} -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$SCREENSHOT_FULLNAME"
 		;;
 	*)
-		grim "$SCREENSHOT_FULLNAME"
+		${BIN} "$SCREENSHOT_FULLNAME"
 		;;
 esac
 
@@ -37,4 +39,9 @@ elif type xclip &>/dev/null; then
 	echo -n "$SCREENSHOT_FULLNAME" | xclip -selection clipboard
 else
 	echo -n "$SCREENSHOT_FULLNAME"
+fi
+
+if [[ -x $(which satty) ]]; then
+    SATTY=$(which satty)
+    ${SATTY} --filename ${SCREENSHOT_FULLNAME} --output-filename "${SCREENSHOT_FULLNAME}"
 fi
