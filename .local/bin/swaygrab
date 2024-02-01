@@ -43,5 +43,5 @@ fi
 
 if [[ -x $(which satty) ]]; then
     SATTY=$(which satty)
-    ${SATTY} --filename ${SCREENSHOT_FULLNAME} --output-filename "${SCREENSHOT_FULLNAME}"
+    ${SATTY} --early-exit --filename ${SCREENSHOT_FULLNAME} --output-filename "${SCREENSHOT_FULLNAME}"
 fi

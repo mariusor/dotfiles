@@ -9,6 +9,7 @@ gtk_theme="$(echo "${_settings}" | grep 'gtk-theme-name' | sed 's/.*\s*=\s*//')"
 icon_theme="$(echo "${_settings}" | grep 'gtk-icon-theme-name' | sed 's/.*\s*=\s*//')"
 cursor_theme="$(echo "${_settings}" | grep 'gtk-cursor-theme-name' | sed 's/.*\s*=\s*//')"
 font_name="$(echo "${_settings}" | grep 'gtk-font-name' | sed 's/.*\s*=\s*//')"
+color_scheme="$(echo "${_settings}" | grep 'color-scheme' | sed 's/.*\s*=\s*//')"
 
 gnome_schema="org.gnome.desktop.interface"
 
@@ -16,3 +17,4 @@ test "${gtk_theme}" && gsettings set "$gnome_schema" gtk-theme "$gtk_theme"
 test "${icon_theme}" && gsettings set "$gnome_schema" icon-theme "$icon_theme"
 test "${cursor_theme}" && gsettings set "$gnome_schema" cursor-theme "$cursor_theme"
 test "${font_name}" && gsettings set "$gnome_schema" font-name "$font_name"
+test "${color_scheme}" && gsettings set "$gnome_schema" color-scheme "$color_scheme"

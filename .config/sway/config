@@ -29,7 +29,8 @@ bindsym $mod+Return exec $TERMINAL
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set $dmenu "bemenu -p '> ' --no-exec --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --fb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
+set $dmenu "wmenu -p '> ' -m '#d7d7d5' -M '#232729' -n '#d7d7d5' -N '#232729' -S '#585858' -s '#bcbcbc' -f 'Terminus (TTF) 12' -i"
+#set $dmenu "bemenu -p '> ' --no-exec --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --fb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
 #set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
 #set $run "wofi --show drun,run"
@@ -62,10 +63,10 @@ bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
-bindsym $mod+Shift+period move workspace to output right
-bindsym $mod+Shift+apostrophe move workspace to output up
-bindsym $mod+Shift+comma move workspace to output left
-bindsym $mod+Shift+semicolon move workspace to output down
+bindsym $mod+Shift+period move workspace to output right, move workspace to output up
+#bindsym $mod+Shift+apostrophe move workspace to output up
+bindsym $mod+Shift+comma move workspace to output left, move workspace to output down
+#bindsym $mod+Shift+semicolon move workspace to output down
 
 # split in horizontal orientation
 bindsym $mod+g split h
