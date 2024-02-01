@@ -1,4 +1,7 @@
 [Desktop Entry]
+Version=1.0
+Name=Flash Focus
 Exec=/usr/bin/flashfocus
-Name=flashfocus
+Terminal=false
 Type=Application
+OnlyShowIn=sway;
