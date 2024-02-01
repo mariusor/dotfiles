@@ -66,3 +66,4 @@ bind index A group-reply
 #bind attach,index g first-entry
 #bind attach,index G last-entry
 
+subscribe .+@lists.sr.ht
