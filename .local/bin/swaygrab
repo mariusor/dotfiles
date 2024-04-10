@@ -12,12 +12,13 @@ if [ -f ~/.config/swaygrab-helper.sh ]; then
 fi
 
 if [[ -z $SWAYGRAB_SCREENSHOTS ]]; then
-	SWAYGRAB_SCREENSHOTS=$(xdg-user-dir PICTURES)
+	SWAYGRAB_SCREENSHOTS=$(xdg-user-dir PICTURES)/Screenshots
 fi
 
+SCREENSHOT_HOST=$(uname -n)
 SCREENSHOT_TIMESTAMP=$(date +%Y%m%d%H%M%S_%N)
 
-SCREENSHOT_FULLNAME="$SWAYGRAB_SCREENSHOTS"/screenshot-${SCREENSHOT_TIMESTAMP}-swaygrab.png
+SCREENSHOT_FULLNAME="$SWAYGRAB_SCREENSHOTS"/screenshot-${SCREENSHOT_HOST}-${SCREENSHOT_TIMESTAMP}-swaygrab.png
 
 BIN=$(which grim)
 
