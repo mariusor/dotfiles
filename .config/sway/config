@@ -160,6 +160,23 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# media-player actions
+set $mpris_notify_shuffle_repeat notify-send "$($mpris_info "%player_name: %play_status")" "$($mpris_info "Shuffle: %shuffle")\n$($mpris_info "Repeat: %loop_status")"
+set $mode_mediaplayer Media: (h) toggle shuffle, (shift+h) no shuffle, (r) toggle repeat, (shift+r) no repeat, (s) stop, (p) play/pause
+mode "$mode_mediaplayer" {
+        bindsym h exec mpris-ctl shuffle, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
+        bindsym Shift+h exec mpris-ctl shuffle off, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default
+        bindsym r exec mpris-ctl repeat, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
+        bindsym Shift+r exec mpris-ctl repeat off, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
+        bindsym s exec mpris-ctl stop, exec sleep 1, exec $mpris_notify_play_info, mode "default"
+        bindsym p exec mpris-ctl pp, exec sleep 1, exec $mpris_notify_play_info, mode "default"
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+Shift+m mode "$mode_mediaplayer"
+
 # move window (you can also use the mouse for that)
 mode "move" {
         # These bindings trigger as soon as you enter the move mode
@@ -184,18 +201,21 @@ bindsym --locked XF86AudioLowerVolume $volDOWN
 
 bindsym --locked XF86AudioMicMute exec /usr/bin/pulseaudio-ctl mute-input
 
-set $mpris_notify notify-send -i "$(mpris-ctl --player active info %art_url)" "$(mpris-ctl --player active info "%play_status")" \
-    "$(mpris-ctl --player active info "%artist_name: %track_name\nOn album '%album_name'")"
+set $mpris_info mpris-ctl --player active --player inactive info
 
-set $mediaPause exec mpris-ctl --player active --player inactive pp && sleep 1 && $mpris_notify
+set $mpris_play_info "$($mpris_info %art_url)" "$($mpris_info "%player_name: %play_status")" "$($mpris_info "%artist_name: %track_name")\n$($mpris_info %album_name)"
+set $mpris_notify_play_info notify-send -i $mpris_play_info
+
+set $mediaPause exec mpris-ctl --player active --player inactive pp && sleep 1 && $mpris_notify_play_info
+
 bindsym --locked $mod+backslash $mediaPause
-bindsym --locked XF86AudioPlay exec mpris-ctl --player inactive --player active pp, sleep 1, $mpris_notify
-bindsym --locked XF86AudioStop exec mpris-ctl stop, sleep 1, $mpris_notify
-bindsym --locked $mod+bracketright exec mpris-ctl next, sleep 1, $mpris_notify
-bindsym --locked XF86AudioNext exec mpris-ctl next, sleep 1, $mpris_notify
-bindsym --locked $mod+bracketleft exec mpris-ctl prev, sleep 1, $mpris_notify
-bindsym --locked XF86AudioPrev exec mpris-ctl prev, sleep 1, $mpris_notify
-bindsym $mod + XF86AudioPlay exec $mpris_notify
+bindsym --locked XF86AudioPlay exec mpris-ctl --player inactive --player active pp, sleep 1, $mpris_notify_play_info
+bindsym --locked XF86AudioStop exec mpris-ctl stop, sleep 1, $mpris_notify_play_info
+bindsym --locked $mod+bracketright exec mpris-ctl next, sleep 1, $mpris_notify_play_info
+bindsym --locked XF86AudioNext exec mpris-ctl next, sleep 1, $mpris_notify_play_info
+bindsym --locked $mod+bracketleft exec mpris-ctl prev, sleep 1, $mpris_notify_play_info
+bindsym --locked XF86AudioPrev exec mpris-ctl prev, sleep 1, $mpris_notify_play_info
+bindsym $mod + XF86AudioPlay exec $mpris_notify_play_info
 
 #set $Light light
 set $Light brillo -lqu 100000
