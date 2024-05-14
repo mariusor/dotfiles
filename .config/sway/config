@@ -162,7 +162,7 @@ bindsym $mod+r mode "resize"
 
 # media-player actions
 set $mpris_notify_shuffle_repeat notify-send "$($mpris_info "%player_name: %play_status")" "$($mpris_info "Shuffle: %shuffle")\n$($mpris_info "Repeat: %loop_status")"
-set $mode_mediaplayer Media: (h) toggle shuffle, (shift+h) no shuffle, (r) toggle repeat, (shift+r) no repeat, (s) stop, (p) play/pause
+set $mode_mediaplayer Media: (h) shuffle, (shift+h) no shuffle, (r) repeat, (shift+r) no repeat, (s) stop, (p) play/pause, (m) mute, (shift+m) unmute
 mode "$mode_mediaplayer" {
         bindsym h exec mpris-ctl shuffle, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
         bindsym Shift+h exec mpris-ctl shuffle off, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default
@@ -170,6 +170,9 @@ mode "$mode_mediaplayer" {
         bindsym Shift+r exec mpris-ctl repeat off, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
         bindsym s exec mpris-ctl stop, exec sleep 1, exec $mpris_notify_play_info, mode "default"
         bindsym p exec mpris-ctl pp, exec sleep 1, exec $mpris_notify_play_info, mode "default"
+
+        bindsym m exec mpris-ctl --player active volume -100, exec sleep 1, exec $mpris_notify_play_info, mode "default"
+        bindsym Shift+m exec mpris-ctl --player active volume +100, exec sleep 1, exec $mpris_notify_play_info, mode "default"
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
