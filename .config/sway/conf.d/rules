@@ -80,4 +80,5 @@ assign [class="qutebrowser"] $w4
 assign [app_id="org.qutebrowser.qutebrowser"] $w4
 assign [class="mpv"] $w9
 assign [app_id="mpv"] $w9
+assign [app_id="doublecmd"] $w5
 

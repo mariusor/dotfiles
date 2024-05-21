@@ -25,6 +25,7 @@ font pango:Terminus (TTF) 9
 # start a terminal
 #bindsym $mod+Return exec rofi-sensible-terminal
 bindsym $mod+Return exec $TERMINAL
+#bindsym $mod+apostrophe exec doublecmd
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -162,7 +163,7 @@ bindsym $mod+r mode "resize"
 
 # media-player actions
 set $mpris_notify_shuffle_repeat notify-send "$($mpris_info "%player_name: %play_status")" "$($mpris_info "Shuffle: %shuffle")\n$($mpris_info "Repeat: %loop_status")"
-set $mode_mediaplayer Media: (h) shuffle, (shift+h) no shuffle, (r) repeat, (shift+r) no repeat, (s) stop, (p) play/pause, (m) mute, (shift+m) unmute
+set $mode_mediaplayer Media: (h) shuffle, (r) repeat, (s) stop, (p) play/pause, (m) mute, (shift+m) unmute
 mode "$mode_mediaplayer" {
         bindsym h exec mpris-ctl shuffle, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default"
         bindsym Shift+h exec mpris-ctl shuffle off, exec sleep 1, exec $mpris_notify_shuffle_repeat, mode "default
@@ -306,8 +307,8 @@ bar {
         inactive_workspace $bgu $bgu $fgu
     }
 }
-#bindsym $mod+BackSpace --release /usr/bin/makoctl dismiss
-#bindsym $mod+Shift+BackSpace --release /usr/bin/makoctl dismiss -a
+bindsym $mod+BackSpace --release /usr/bin/makoctl dismiss
+bindsym $mod+Shift+BackSpace --release /usr/bin/makoctl dismiss -a
 bindsym $mod+y --release /usr/bin/makoctl dismiss
 bindsym $mod+Shift+y --release /usr/bin/makoctl dismiss -a
 set $mode_print Screen capture (r) region, (s) focused screen
