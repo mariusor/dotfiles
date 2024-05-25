@@ -7,10 +7,13 @@ function cleanup_func {
     echo cleanup
 }
 
-trap "exit \$exit_code" INT TERM
-trap "exit_code=\$?; cleanup_func; kill 0" EXIT
+#trap "exit \$exit_code" INT TERM
+#trap "exit_code=\$?; cleanup_func; kill 0" EXIT
+
+notify-send "Locking"
 
 swaylock -f
+
 
 #~/.local/bin/cam.sh &
 
