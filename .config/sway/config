@@ -227,7 +227,6 @@ set $Light brillo -lqu 100000
 bindsym XF86MonBrightnessUp exec $Light -A 3
 bindsym XF86MonBrightnessDown exec $Light -U 3
 
-set $swayidle 'swayidle timeout 300 $Locker timeout 600 \'swaymsg "output * dpms off"\' resume \'swaymsg "output * dpms on"\' before-sleep $Locker'
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec mpris-ctl pause, exec $Locker, mode "default"
@@ -237,7 +236,7 @@ mode "$mode_system" {
     bindsym r exec systemctl reboot, mode "default"
     bindsym Shift+s exec systemctl poweroff -i, mode "default"
     bindsym y exec kill swayidle, mode "default"
-    bindsym Shift+y exec $swayidle, mode "default"
+    bindsym Shift+y exec swayidle.sh, mode "default"
 
     # back to normal: Enter or Escape
     bindsym Return mode "default"
@@ -264,6 +263,7 @@ workspace_auto_back_and_forth yes
 mouse_warping none
 
 exec "~/.config/wayland.env"
+exec_always "~/.local/bin/swayidle.sh"
 exec_always "~/.local/bin/import-gsettings"
 exec_always xsettingsd
 
@@ -320,6 +320,6 @@ mode "$mode_print" {
     bindsym Escape mode "default"
 }
 
-exec_always wl-paste -t text --watch clipman store
+exec_always pkill wl-paste; wl-paste -t text --watch clipman store
 exec_always kanshi
 exec dex -ae sway
