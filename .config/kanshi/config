@@ -1,1 +1,1 @@
-include ~/.config/kanshi/conf.d/$(uname -n).config
+include "~/.config/kanshi/conf.d/$(uname -n).config"
