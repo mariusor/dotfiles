@@ -24,13 +24,17 @@ call plug#begin('~/.config/nvim/plugged')
 "    Plug 'jneen/ragel.vim'
     Plug 'rust-lang/rust.vim'
     Plug 'fatih/vim-go'
+    " Go
+    Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'neovim/nvim-lspconfig'
+    Plug 'ray-x/go.nvim'
     Plug 'vimwiki/vimwiki'
     Plug 'avakhov/vim-yaml'
     Plug 'plasticboy/vim-markdown'
 "    Plug 'elzr/vim-json'
 "    Plug 'wincent/ferret'
     Plug 'ntpeters/vim-better-whitespace'
-"    Plug 'machakann/vim-highlightedyank'
+    Plug 'machakann/vim-highlightedyank'
     Plug 'igankevich/mesonic'
     Plug 'udalov/kotlin-vim'
 " treesitter
@@ -190,7 +194,7 @@ set incsearch
 set smartcase
 set laststatus=3
 "set clipboard=unnamed
-"set spell spelllang=en_gb
+set spell spelllang=en_gb
 set showbreak=\\ "
 set listchars=tab:»\ ,extends:›,precedes:‹,eol:¶,space:⋅,nbsp:⋅
 set list
@@ -262,7 +266,7 @@ hi! link GitGutterAdd GitAddStripe
 hi! link GitGutterChange GitChangeStripe
 hi! link GitGutterDelete GitDeleteStripe
 
-augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
+"augroup highlight_yank autocmd! autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000) augroup END
 "au TextYankPost * silent! lua require'highlight'.on_yank("IncSearch", 1000, vim.v.event)
 
 command Make :AsyncRun :make
