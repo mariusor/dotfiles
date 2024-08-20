@@ -1,0 +1,25 @@
+* {
+    color: #dcdccc !important;
+    background-color: #404040 !important;
+  }
+  body > center > table > tbody > tr:first-child * {
+    background-color: #505050 !important;
+  }
+  body > center > table > tbody > tr:first-child * a:hover {
+    background: #404040 !important;
+  }
+  code, pre, input, textarea {
+    background: #505050 !important;
+  }
+  a {
+    color: #7F9F7F !important;
+  }
+  .subtext a {
+    color: #dcdccc !important;
+  }
+  a:visited, a:visited span {
+    color: #CC9393 !important;
+  }
+  a:hover, a:hover span {
+    background: #505050 !important;
+  }
