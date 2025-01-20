@@ -3,7 +3,8 @@ for_window [title="Firefox.*Sharing Indicator"] floating enable, move position 1
 for_window [title="Password Required.*"] floating enable
 for_window [title="meet.google.com is sharing your screen."] floating enable, move position 1600 0, border none, nofocus
 for_window [title="^Library$" app_id="firefox.*"] floating enable
-for_window [title=".*Picture+in+Picture.*"] floating enable, fullscreen on
+#for_window [title=".*Picture+in+Picture.*"] floating enable, fullscreen on
+for_window [app_id="firefox.*" title="Picture-in-Picture"] floating enable, sticky enable
 for_window [urgent="latest" app_id="firefox.*"] focus
 
 # xdg-desktop-portal file dialog
@@ -42,6 +43,7 @@ for_window [instance="rambox"] move scratchpad
 for_window [app_id="org.zealdocs.zeal"] move scratchpad
 for_window [app_id="org.telegram.desktop"] move scratchpad
 for_window [app_id="cinny"] move scratchpad
+for_window [class="Signal*" instance="signal.*"] move scratchpad
 
 for_window [class="Chromium"] border none
 for_window [class="F|firefox.*"] border none
@@ -57,19 +59,21 @@ for_window [instance="sun-awt-X11-.*"] border none, floating enable
 #for_window [class="Steam" instance="Steam"] floating enable, border none
 #for_window [instance="audacious" class="Audacious"] floating enable, border none
 for_window [app_id="com.gabm.satty"] floating enable
+for_window [app_id="doublecmd" title="Options"] floating enable
 
 # Show the pidgin scratchpad window, if any.
 #bindsym $mod+Shift+p [class="Pidgin" instance="Pidgin" window_role="buddy_list"] scratchpad show, resize set 400px 950px
 #bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show, resize set 400px 950px
 #bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show, resize set 1000px 800px
 #bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show, resize set 1000px 800px
-bindsym $mod+i [instance=".*skype.*|station|slack|rambox" title="Skype.*|Station|Slack|Rambox"] scratchpad show, resize set 1800px 900px
+bindsym $mod+i [instance="signal*|.*skype.*|station|slack|rambox"] scratchpad show, resize set 1800px 900px
 #bindsym $mod+i [app_id="Slack"] scratchpad show, resize set 1800px 900px
 bindsym $mod+t [app_id="org.telegram.desktop"] scratchpad show, resize set 1800px 900px
 bindsym $mod+c [app_id="cinny"] scratchpad show, resize set 1900px 900px
 #bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
 #bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+e [app_id="thunderbird"] scratchpad show, resize set 1900px 900px
+#bindsym $mod+z [app_id="doublecmd"] scratchpad show
 
 assign [class="Chromium"] $w1
 assign [app_id="Chromium"] $w1

@@ -17,7 +17,7 @@ exec xrdb -merge ~/.Xresources-$(uname -n)
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Terminus (TTF) 9
+font pango:Terminus 9
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 #floating_modifier normal
@@ -267,7 +267,7 @@ exec_always "~/.local/bin/swayidle.sh"
 exec_always "~/.local/bin/import-gsettings"
 exec_always xsettingsd
 
-seat seat0 xcursor_theme "Vanilla-DMZ-AA"
+seat * xcursor_theme "Vanilla-DMZ-AA"
 
 include "conf.d/$(uname -n).config"
 include "conf.d/$(uname -n)-$(nmcli -g=NAME,TYPE connection show --active --order +t | grep wireless | cut -d: -f1 | head -n1).config"
