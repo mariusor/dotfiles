@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "Terminus (TTF), FontAwesome";
-    font-size: 12px;
+    font-size: 12pt;
     min-height: 0;
     color: #cccccc;
     background: rgba(43, 48, 59, 0.9);
@@ -32,7 +32,7 @@
 #window {
     padding-left: 20px;
 }
-#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray {
+#clock, #battery, #cpu, #memory, #network, #pulseaudio, #tray, #temperature {
     border-left: 1px solid rgba(154, 154, 154, 0.7);
     padding: 0 8px 0 8px;
 }
@@ -71,12 +71,12 @@
 #battery.charging {
     color: lightgreen;
 }
-#battery.warning {
+#battery.warning, #temperature.warning {
     color: orangered;
 }
 #battery.critical.charging {
     color: darkgreen;
 }
-#battery.critical:not(.charging) {
+#battery.critical:not(.charging), #temperature.critical {
     color: red;
 }
