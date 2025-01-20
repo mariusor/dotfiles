@@ -105,7 +105,7 @@ if [ "$EUID" -ne 0 ]; then
     gpg-connect-agent updatestartuptty /bye >/dev/null
 fi
 
-which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
+#which aws2_completer 2>/dev/null && complete -C $(which aws2_completer) aws2
 
 [[ -f ~/.bashrc.$(uname -n) ]] && source ~/.bashrc.$(uname -n)
 
