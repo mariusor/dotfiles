@@ -27,22 +27,22 @@ case "$1" in
 		${BIN} -g "$(slurp)" ${SCREENSHOT_FULLNAME}
 		;;
 	-f|--focused)
-		${BIN} -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "$SCREENSHOT_FULLNAME"
+		${BIN} -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') "${SCREENSHOT_FULLNAME}"
 		;;
 	*)
-		${BIN} "$SCREENSHOT_FULLNAME"
+		${BIN} "${SCREENSHOT_FULLNAME}"
 		;;
 esac
 
 if type xsel >/dev/null  2>&1; then
-	echo -n "$SCREENSHOT_FULLNAME" | xsel --clipboard
+	echo -n "${SCREENSHOT_FULLNAME}" | xsel --clipboard
 elif type xclip &>/dev/null; then
-	echo -n "$SCREENSHOT_FULLNAME" | xclip -selection clipboard
+	echo -n "${SCREENSHOT_FULLNAME}" | xclip -selection clipboard
 else
-	echo -n "$SCREENSHOT_FULLNAME"
+	echo -n "${SCREENSHOT_FULLNAME}"
 fi
 
 if [[ -x $(which satty) ]]; then
     SATTY=$(which satty)
-    ${SATTY} --early-exit --filename ${SCREENSHOT_FULLNAME} --output-filename "${SCREENSHOT_FULLNAME}"
+    ${SATTY} --early-exit --filename {SCREENSHOT_FULLNAME} --output-filename "${SCREENSHOT_FULLNAME}"
 fi

@@ -11,9 +11,9 @@ function cleanup_func {
 #trap "exit_code=\$?; cleanup_func; kill 0" EXIT
 
 notify-send "Locking"
+pkill -f "swaylock -f -i"
 
-swaylock -f
-
+swaylock -f -i ~/Pictures/wallpapers/micleusanu-blur.jpg --indicator-radius=80 -c 222222
 
 #~/.local/bin/cam.sh &
 
