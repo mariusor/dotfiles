@@ -12,6 +12,8 @@
 	path = ~/workspace/.gitconfig
 [includeIf "gitdir:~/playground/"]
 	path = ~/playground/.gitconfig
+[includeIf "gitdir:~/abs/"]
+	path = ~/workspace/.gitconfig
 [core]
 #	pager = diff-so-fancy | less --tabs=4 -RFX
 # Use a pager for large output, just like other git commands.
