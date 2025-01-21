@@ -44,6 +44,7 @@ for_window [app_id="org.zealdocs.zeal"] move scratchpad
 for_window [app_id="org.telegram.desktop"] move scratchpad
 for_window [app_id="cinny"] move scratchpad
 for_window [class="Signal*" instance="signal.*"] move scratchpad
+for_window [app_id="org.signal.Signal"] move scratchpad
 
 for_window [class="Chromium"] border none
 for_window [class="F|firefox.*"] border none
@@ -66,8 +67,9 @@ for_window [app_id="doublecmd" title="Options"] floating enable
 #bindsym $mod+Shift+p [instance="Pidgin" title="Buddy List"] scratchpad show, resize set 400px 950px
 #bindsym $mod+p [class="Pidgin" instance="Pidgin" window_role="conversation"] scratchpad show, resize set 1000px 800px
 #bindsym $mod+p [instance="Pidgin" title="[^(Buddy List)]"] scratchpad show, resize set 1000px 800px
-bindsym $mod+i [instance="signal*|.*skype.*|station|slack|rambox"] scratchpad show, resize set 1800px 900px
+#bindsym $mod+i [instance="signal*|.*skype.*|station|slack|rambox"] scratchpad show, resize set 1800px 900px
 #bindsym $mod+i [app_id="Slack"] scratchpad show, resize set 1800px 900px
+bindsym $mod+i [app_id="org.signal.Signal"] scratchpad show, resize set 1800px 900px
 bindsym $mod+t [app_id="org.telegram.desktop"] scratchpad show, resize set 1800px 900px
 bindsym $mod+c [app_id="cinny"] scratchpad show, resize set 1900px 900px
 #bindsym $mod+z [app_id="org.zealdocs.zeal"] scratchpad show
