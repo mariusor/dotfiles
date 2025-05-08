@@ -1,7 +1,11 @@
 #ignore = Spotify
 ignore = org.mpris.MediaPlayer2.firefox
 ignore = org.mpris.MediaPlayer2.ncspot
+ignore = org.mpris.MediaPlayer2.mpv
 #ignore = org.mpris.MediaPlayer2.chromium
+ignore = NC700
 ignore = Vivaldi
+ignore = SpotifyDaemonBlack
+ignore = qutebrowser
 ignore = morc
 ignore = spotifyd::tp
