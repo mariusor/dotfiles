@@ -1,5 +1,5 @@
 [screencast]
-#output_name=HDMI-A-1
+output_name=DP-1
 #max_fps=30
 #exec_before=disable_notifications.sh
 #exec_after=enable_notifications.sh

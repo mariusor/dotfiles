@@ -35,8 +35,8 @@ else
     export TERM="xterm-256color"
 fi
 export TERMINAL="/usr/bin/foot"
-export EDITOR="nvim"
-export BROWSER="firefox-developer-edition"
+export EDITOR="/usr/bin/nvim"
+export BROWSER="/usr/bin/firefox-developer-edition"
 export PATH=~/.local/bin:$GOPATH/bin:$PATH
 
 if [ -z "$MC_TMPDIR" ] ; then # check for mc
