@@ -17,7 +17,10 @@ exec xrdb -merge ~/.Xresources-$(uname -n)
 # clear in small sizes. However, if you need a lot of unicode glyphs or
 # right-to-left text rendering, you should instead use pango for rendering and
 # chose a FreeType font, such as:
-font pango:Terminus 9
+font pango:Terminus (TTF) 10
+
+titlebar_border_thickness 1
+titlebar_padding 1 1
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 #floating_modifier normal
@@ -31,13 +34,13 @@ bindsym $mod+Return exec $TERMINAL
 bindsym $mod+Shift+q kill
 
 #set $dmenu "wmenu -p '> ' -m '#d7d7d5' -M '#232729' -n '#d7d7d5' -N '#232729' -S '#585858' -s '#bcbcbc' -f 'Terminus (TTF) 12' -i"
-set $dmenu "bemenu -p '> ' --no-exec --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --fb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 12' -i"
+set $dmenu "bemenu -p '> ' --no-exec --tf '#d7d7d5' --tb '#232729' --scf '#d7d7d5' --scb '#232729' --hf '#d7d7d5' --hb '#232729' --ff '#d7d7d5' --fb '#232729' --nf '#d7d7d5' --nb '#232729' --sb '#585858' --sf '#bcbcbc' --fn 'Terminus (TTF) 10' -i"
 #set $dmenu "dmenu -p '> ' -f -nf '#d7d7d5' -nb '#232729' -sb '#585858' -sf '#bcbcbc' -i -fn 'Terminus (TTF):size=12'"
 #set $run "rofi -combi-modi drun,run -show combi -modi combi -font 'Terminus (TTF) 12' -show-icons"
 #set $run "wofi --show drun,run"
 set $run j4-dmenu-desktop --no-generic --use-xdg-de --dmenu=$dmenu
 #set $run j4-dmenu-desktop --dmenu=$dmenu
-bindsym $mod+grave exec $run | xargs -- swaymsg exec &> /dev/null --
+    bindsym $mod+grave exec $run | xargs -- swaymsg exec &> /dev/null --
 bindsym $mod+Tab exec $run | xargs -- swaymsg exec &> /dev/null --
 
 # clipboard management
@@ -245,6 +248,7 @@ mode "$mode_system" {
 bindsym $mod+Print mode "$mode_system"
 bindsym $mod+equal mode "$mode_system"
 
+force_display_urgency_hint 500ms
 bindsym $mod+x [urgent=latest] focus
 #bindsym $mod+x [urgent=recent] focus
 
@@ -294,9 +298,10 @@ focus_on_window_activation smart
 bar {
     #swaybar_command yambar
     tray_output *
-    font pango:Terminus (TTF) 10.5
+    font pango:Terminus (TTF) 10
     pango_markup enabled
     strip_workspace_numbers yes
+    #status_command i3status-rs
     status_command i3status -c ~/.config/i3status/$(uname -n).config
     colors {
         statusline $fg

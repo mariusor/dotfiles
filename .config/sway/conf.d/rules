@@ -12,9 +12,11 @@ for_window [app_id="xdg-desktop-portal-gtk" title=".*"] floating enable
 for_window [app_id="nvim-qt"] floating enable, resize set 800px 500px
 
 # easy-effects
-for_window [app_id=com.github.wwmm.easyeffects] floating enable, resize set 800px 500px, move scratchpad
+for_window [app_id="com.github.wwmm.easyeffects"] floating enable, resize set 800px 500px, move scratchpad
 
 for_window [app_id="syncthingtray"] floating enable, resize set 800px 500px
+
+for_window [app_id="org.fooyin.fooyin"] floating enable, resize set 800px 500px
 
 for_window [app_id="thunar" title="File Operation Progress"] floating enable, border pixel
 for_window [class="com-intellij-updater-Runner" instance="com-intellij-updater-Runner"] floating enable, border pixel
@@ -45,6 +47,7 @@ for_window [app_id="org.telegram.desktop"] move scratchpad
 for_window [app_id="cinny"] move scratchpad
 for_window [class="Signal*" instance="signal.*"] move scratchpad
 for_window [app_id="org.signal.Signal"] move scratchpad
+for_window [app_id="org.fooyin.fooyin"] move scratchpad
 
 for_window [class="Chromium"] border none
 for_window [class="F|firefox.*"] border none
@@ -76,6 +79,7 @@ bindsym $mod+c [app_id="cinny"] scratchpad show, resize set 1900px 900px
 #bindsym $mod+z [class="Zeal"] scratchpad show
 bindsym $mod+e [app_id="thunderbird"] scratchpad show, resize set 1900px 900px
 #bindsym $mod+z [app_id="doublecmd"] scratchpad show
+bindsym $mod+z [app_id="org.fooyin.fooyin"] scratchpad show, resize set 1900px 900px
 
 assign [class="Chromium"] $w1
 assign [app_id="Chromium"] $w1
